@@ -67,6 +67,10 @@
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
+	<!--footer-->
+	<?php $this->load->view("main/footer.php");?>	
+  	<div class="control-sidebar-bg"></div>
+  	
 	<!-- MODAL ADD -->
 	<div class="modal fade" id="modaladd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
 	    <div class="modal-dialog">
@@ -96,9 +100,7 @@
 	        </div>
 	    </div>
 	</div>
-	<!--footer-->
-	<?php $this->load->view("main/footer.php") ?>	
-  	<div class="control-sidebar-bg"></div>
+	<!-- END MODAL ADD -->
   </div>
   <?php $this->load->view("main/script.php") ?>
 </body>
