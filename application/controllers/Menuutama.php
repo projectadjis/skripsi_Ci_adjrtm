@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
  
-class Menuutama extends CI_Controller{
+class menuutama extends CI_Controller{
  
   public function __construct()
   {
@@ -10,7 +10,17 @@ class Menuutama extends CI_Controller{
  
   function index()
   {
-    $this->load->view('menuutama/index');
+  	$data = [
+		//'title'		=> 'Leave History',
+		// 'css'   	=> [
+            
+  //       ],
+		'js' 		=> [
+            'adminlte/bower_components/chart.js/Chart'
+        ],
+	];
+
+    $this->load->view('menuutama/index',$data);
   }
  
 }

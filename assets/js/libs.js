@@ -1,87 +1,111 @@
 LIBS = {
 
-	// _salesChart: function () {
-	//   // -----------------------
-	//   // - MONTHLY SALES CHART -
-	//   // -----------------------
+	_dataTableAlternative: function (parameter, addButton, editButton, saveEditButton, cancelEditButton, deleteButton) {
+		let counter = 0
+		    let t = $(parameter).DataTable({
+				      'paging'      : false,
+				      'lengthChange': false,
+				      'searching'   : false,
+				      'ordering'    : false,
+				      'info'        : false,
+				      'autoWidth'   : false
+				    })
+ 			
+ 			//console.log(t.row().index())
+ 			// add button
+		    $(addButton).on('click', function () {
+		    	if (t.rows().count() <= 4) {
+			        t.row.add([
+			            counter + 1,
+			            '<input type="text" id="R_' + counter + '_1" style="width:50px; text-align: center" />',
+			            '<input type="text" id="R_' + counter + '_1" style="width:50px; text-align: center" />',
+			            '<input type="text" id="R_' + counter + '_1" style="width:50px; text-align: center" />',
+			            '<button type="submit" class="btn btn-success btn-sm" id="R_' + counter + '_1"><i class="fa fa-save"></i>&nbsp;Save</button>&nbsp;<button type="submit" class="btn bg-navy btn-sm cancel" id="R_' + counter + '_1"><i class="fa fa-arrows-alt"></i>&nbsp;Cancel</button>'
+			        ]).draw(false);
+			 
+			        counter++
+		        } else {
+		        	$(addButton).attr("disabled", true)
+		        }
 
-	//   // Get context with jQuery - using jQuery's .get() method.
-	//   var salesChartCanvas = $('#salesChart').get(0).getContext('2d');
-	//   // This will get the first returned node in the jQuery collection.
-	//   var salesChart       = new Chart(salesChartCanvas);
+		        // cancel button
+		        $(parameter).on('click', ".cancel", function(e) {
+		          t.row($(this).closest('tr') ).remove().draw()
+		          $(addButton).attr("disabled", false)
+		        })
+		    })
+		    // jika edit button di tekan
+	        $(parameter).on('click', editButton, function(e) {
+		         let row = $(this).closest("tr").off("mousedown")
+		         let tds = row.find("td").not(':first').not(':last')
+		         
 
-	//   var salesChartData = {
-	//     labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-	//     datasets: [
-	//       {
-	//         label               : 'Electronics',
-	//         fillColor           : 'rgb(210, 214, 222)',
-	//         strokeColor         : 'rgb(210, 214, 222)',
-	//         pointColor          : 'rgb(210, 214, 222)',
-	//         pointStrokeColor    : '#c1c7d1',
-	//         pointHighlightFill  : '#fff',
-	//         pointHighlightStroke: 'rgb(220,220,220)',
-	//         data                : [65, 59, 80, 81, 56, 55, 40]
-	//       },
-	//       {
-	//         label               : 'Digital Goods',
-	//         fillColor           : 'rgba(60,141,188,0.9)',
-	//         strokeColor         : 'rgba(60,141,188,0.8)',
-	//         pointColor          : '#3b8bba',
-	//         pointStrokeColor    : 'rgba(60,141,188,1)',
-	//         pointHighlightFill  : '#fff',
-	//         pointHighlightStroke: 'rgba(60,141,188,1)',
-	//         data                : [28, 48, 40, 19, 86, 27, 90]
-	//       }
-	//     ]
-	//   };
+		        $.each(tds, function(i, el) {
+		          let txt = $(this).text()
+		          $(this).html("").append("<input type='text' style='width:50px; text-align: center' value=\""+txt+"\">")
+		        })
 
-	//   var salesChartOptions = {
-	//     // Boolean - If we should show the scale at all
-	//     showScale               : true,
-	//     // Boolean - Whether grid lines are shown across the chart
-	//     scaleShowGridLines      : false,
-	//     // String - Colour of the grid lines
-	//     scaleGridLineColor      : 'rgba(0,0,0,.05)',
-	//     // Number - Width of the grid lines
-	//     scaleGridLineWidth      : 1,
-	//     // Boolean - Whether to show horizontal lines (except X axis)
-	//     scaleShowHorizontalLines: true,
-	//     // Boolean - Whether to show vertical lines (except Y axis)
-	//     scaleShowVerticalLines  : true,
-	//     // Boolean - Whether the line is curved between points
-	//     bezierCurve             : true,
-	//     // Number - Tension of the bezier curve between points
-	//     bezierCurveTension      : 0.3,
-	//     // Boolean - Whether to show a dot for each point
-	//     pointDot                : false,
-	//     // Number - Radius of each point dot in pixels
-	//     pointDotRadius          : 4,
-	//     // Number - Pixel width of point dot stroke
-	//     pointDotStrokeWidth     : 1,
-	//     // Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-	//     pointHitDetectionRadius : 20,
-	//     // Boolean - Whether to show a stroke for datasets
-	//     datasetStroke           : true,
-	//     // Number - Pixel width of dataset stroke
-	//     datasetStrokeWidth      : 2,
-	//     // Boolean - Whether to fill the dataset with a color
-	//     datasetFill             : true,
-	//     // String - A legend template
-	//     legendTemplate          : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<datasets.length; i++){%><li><span style=\'background-color:<%=datasets[i].lineColor%>\'></span><%=datasets[i].label%></li><%}%></ul>',
-	//     // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-	//     maintainAspectRatio     : true,
-	//     // Boolean - whether to make the chart responsive to window resizing
-	//     responsive              : true
-	//   };
+		        $(saveEditButton).removeAttr('style')
+		        $(cancelEditButton).removeAttr('style')
+		        $(editButton).css('display', 'none')
+		        $(deleteButton).css('display', 'none')
+	        })
+	        // jika cancel button di tekan
+	        $(parameter).on('click', cancelEditButton, function(e) {
+		         let $row = $(this).closest("tr");
+	             let $tds = $row.find("td").not(':first').not(':last');
+	        
+		        $.each($tds, function(i, el) {
+		          let $txt = $(this).find("input").val()
+		          $(this).html($txt);
+		        });
 
-	//   // Create the line chart
-	//   salesChart.Line(salesChartData, salesChartOptions);
-
-	//   // ---------------------------
-	//   // - END MONTHLY SALES CHART -
-	//   // ---------------------------
-
-	// }
+		        $(saveEditButton).css('display', 'none')
+		        $(cancelEditButton).css('display', 'none')
+		        $(editButton).removeAttr('style')
+		        $(deleteButton).removeAttr('style')
+	        })
+	},
+	_dataTableCriteria: function (parameter, addButton) {
+		let counter = 0
+		    let t = $(parameter).DataTable({
+				      'paging'      : true,
+				      'lengthChange': true,
+				      'searching'   : true,
+				      'ordering'    : true,
+				      'info'        : true,
+				      'autoWidth'   : true
+				    })
+ 			
+ 			//console.log(t.row().index())
+ 			// add button
+		    $(addButton).on('click', function () {
+			        t.row.add([
+			            counter + 1,
+			            '<input type="text" id="R_' + counter + '_1" style="width:20px; text-align: center" />',
+			            '<input type="text" id="R_' + counter + '_1" style="width:20px; text-align: center" />',
+			            '<input type="text" id="R_' + counter + '_1" style="width:20px; text-align: center" />',
+			            '<input type="text" id="R_' + counter + '_1" style="width:20px; text-align: center" />',
+			            '<button type="submit" class="btn btn-success btn-xs" title="save" id="R_' + counter + '_1"><i class="fa fa-save"></i></button>&nbsp;<button type="submit" class="btn bg-navy btn-xs cancel" title="cancel" id="R_' + counter + '_1"><i class="fa fa-arrows-alt"></i></button>'
+			        ]).draw(false);
+			 
+			        counter++
+		        // cancel button
+		        $(parameter).on('click', ".cancel", function(e) {
+		          t.row($(this).closest('tr') ).remove().draw()
+		        })
+		    })
+	},
+	_dataTable: function (parameter) {
+		$(parameter).DataTable({
+		      'paging'      : true,
+		      'lengthChange': true,
+		      'searching'   : true,
+		      'ordering'    : true,
+		      'info'        : true,
+		      'autoWidth'   : true
+		})
+	}
+	
 
 }
