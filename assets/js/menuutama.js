@@ -8,17 +8,6 @@ menuutama = {
 		init() {
 			this._salesChart()
 		},
-		_changeTab() {
-			$('.tab-dashboard-timesheet').on('click', () => {
-				$('#tab2, .tab-dashboard-overtime, #tab3, .tab-dashboard-expense').removeClass('active')
-			})
-			$('.tab-dashboard-overtime').on('click', () => {
-				$('#tab1, .tab-dashboard-timesheet, #tab3, .tab-dashboard-expense').removeClass('active')
-			})
-			$('.tab-dashboard-expense').on('click', () => {
-				$('#tab1, .tab-dashboard-timesheet, #tab2, .tab-dashboard-overtime').removeClass('active')
-			})
-		},
 		_salesChart() {
 			// -----------------------
 		  // - MONTHLY SALES CHART -

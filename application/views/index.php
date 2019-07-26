@@ -10,7 +10,7 @@
 	<div class="wrapper">
     <?php $this->load->view("main/header.php") ?>
     <?php $this->load->view("main/main-sidebar.php") ?>
-    <?php $this->load->view("main/conten-wrapper.php") ?>
+   
     <?php $this->load->view("main/footer.php") ?>
 		
 		
