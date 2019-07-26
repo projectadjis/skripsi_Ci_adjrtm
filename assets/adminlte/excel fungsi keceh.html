@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<!-- saved from url=(0076)https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+
+<link rel="SHORTCUT ICON" href="https://www.ablebits.com/favicon.ico" type="image/x-icon">
+<link rel="dns-prefetch" href="https://cdn.ablebits.com/"><link rel="dns-prefetch" href="https://code.jquery.com/"><link rel="dns-prefetch" href="https://fonts.gstatic.com/">
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com/"><link rel="dns-prefetch" href="https://ajax.googleapis.com/"><link rel="dns-prefetch" href="https://cse.google.com/">
+<link rel="apple-touch-icon" href="https://www.ablebits.com/_img/d-16/icons/ablebits-fav-60.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://www.ablebits.com/_img/d-16/icons/ablebits-fav-76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://www.ablebits.com/_img/d-16/icons/ablebits-fav-120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://www.ablebits.com/_img/d-16/icons/ablebits-fav-152.png">
+<link rel="apple-touch-icon" sizes="256x256" href="https://www.ablebits.com/_img/d-16/icons/ablebits-fav-256.png">
+<link rel="apple-touch-startup-image" href="https://www.ablebits.com/_img/d-16/icons/ablebits-fav-256.png">
+	<link rel="stylesheet" type="text/css" href="./excel fungsi keceh_files/site-v31.css.gz">
+	<link rel="stylesheet" type="text/css" href="./excel fungsi keceh_files/blog-v161.css.gz">
+<title>Excel RANK function and other ways to calculate rank</title>
+<meta name="description" content="Excel RANK function (RANK.EQ and RANK.AVG) explained with formula examples. See how to use Rank formula in Excel to rank numbers descending, ascending or based on multiple criteria, calculate percentile rank, and more.">
+<link rel="alternate" type="application/rss+xml" title="Ablebits.com blog feed" href="https://www.ablebits.com/office-addins-blog/feed/">
+<link rel="canonical" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/"><meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Excel RANK functions with formula examples">
+<meta property="og:description" content="When you need to determine the relative position of a number in a list of numbers, the easiest way is to sort the numbers in ascending or descending order. If for some reason sorting is not possible, the Excel RANK">
+<meta property="og:url" content="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/">
+<meta property="og:site_name" content="Excel tutorials, functions and formulas for beginners and advanced users - Ablebits.com Blog">
+<meta property="article:tag" content="Excel">
+<meta property="article:tag" content="Excel formulas">
+<meta property="article:tag" content="Excel functions">
+<meta property="article:tag" content="Excel tips">
+<meta property="article:section" content="Excel tips and how-to">
+<meta property="article:published_time" content="2017-09-06T08:36:53+00:00">
+<meta property="article:modified_time" content="2018-06-28T14:33:32+00:00">
+<meta property="og:updated_time" content="2018-06-28T14:33:32+00:00">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="https://api.w.org/" href="https://www.ablebits.com/office-addins-blog/wp-json/">
+<link rel="prev" title="Back to Basics: edit and comment on data, review the changes, print and download from Google Sheets. Even offline" href="https://www.ablebits.com/office-addins-blog/2017/08/24/google-sheets-edit-comment-review/">
+<link rel="next" title="How to work with conditional formatting in Google Sheets" href="https://www.ablebits.com/office-addins-blog/2017/09/07/google-sheets-conditional-formatting/">
+<link rel="alternate" type="application/json+oembed" href="https://www.ablebits.com/office-addins-blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ablebits.com%2Foffice-addins-blog%2F2017%2F09%2F06%2Fexcel-rank-functions%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.ablebits.com/office-addins-blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.ablebits.com%2Foffice-addins-blog%2F2017%2F09%2F06%2Fexcel-rank-functions%2F&amp;format=xml">
+
+<script async="" src="./excel fungsi keceh_files/async-ads.js.download"></script><script async="" src="./excel fungsi keceh_files/analytics.js.download"></script><script type="text/javascript" async="" src="./excel fungsi keceh_files/f.txt"></script><script type="text/javascript">var essb_settings = {"ajax_url":"https:\/\/www.ablebits.com\/office-addins-blog\/wp-admin\/admin-ajax.php","essb3_nonce":"9807f1bb41","essb3_plugin_url":"https:\/\/www.ablebits.com\/office-addins-blog\/wp-content\/plugins\/easy-social-share-buttons3","essb3_stats":false,"essb3_ga":true,"essb3_ga_mode":"simple","blog_url":"https:\/\/www.ablebits.com\/office-addins-blog\/","essb3_postfloat_stay":false,"post_id":13841};</script><script src="./excel fungsi keceh_files/cse_element__en.js.download" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="./excel fungsi keceh_files/default+en.css"><link type="text/css" rel="stylesheet" href="./excel fungsi keceh_files/default.css"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style></style></head>
+<body><div class="cc-grower" style="max-height: 86px;"><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-static cc-top cc-color-override--1448959993 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure we give you the best experience and service. By accessing this site, you consent to the use of cookies. For more information, refer to <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="https://www.ablebits.com/docs/ablebits-privacy-policy/" target="_blank">Ablebits Privacy Policy</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div></div>
+<div class="a19Container-Outer">
+	<!-- <div id="header-frame"></div> -->
+	<div class="a19Section a19Section--Blog">
+
+		<div id="blog-info-tile" class="post-tile">
+								<div class="info-tile-meta blog-post"><a class="postMeta-AuthorPhoto" href="https://www.ablebits.com/office-addins-blog/author/svetlana-cheusheva/"><img class="postMeta-AuthorImg" src="./excel fungsi keceh_files/svetlana-cheusheva.jpg" alt="Svetlana Cheusheva"></a><div class="postMeta-Season postMeta-Season--autumn">Sep</div><div class="postMeta-DateDay">6</div></div>					<div class="info-tile-data blog-post hentry">
+						<h1 class="entry-title">Excel RANK functions with formula examples</h1>
+						<p class="post-meta">by <span class="vcard author"><span class="fn"><a class="author" href="https://www.ablebits.com/office-addins-blog/author/svetlana-cheusheva/">Svetlana Cheusheva</a></span></span>&nbsp;|&nbsp;updated on <span class="updated">June 28, 2018</span>
+							<!-- <span class="tags"><a href="https://www.ablebits.com/office-addins-blog/tag/excel/" rel="tag">Excel</a>, <a href="https://www.ablebits.com/office-addins-blog/tag/excel-formulas/" rel="tag">Excel formulas</a>, <a href="https://www.ablebits.com/office-addins-blog/tag/excel-functions/" rel="tag">Excel functions</a>, <a href="https://www.ablebits.com/office-addins-blog/tag/excel-howto/" rel="tag">Excel tips</a> </span> -->
+							<span class="comments"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comments">30 Comments</a></span>
+						</p>
+					</div>
+					</div>
+
+		<div class="a19Blog-BodyContainer">
+			<div class="a19Blog-BodyLeft">
+
+	<div class="a19BlogPost">
+		<p><em>The tutorial explains the specificities of the Excel Rank functions and shows how to do ranking in Excel based on multiple criteria, rank data by group, calculate percentile rank, and more.</em></p>
+<p>When you need to determine the relative position of a number in a list of numbers, the easiest way is to sort the numbers in ascending or descending order. If for some reason sorting is not possible, a Rank formula in Excel is the perfect tool to do the job.</p>
+<ul class="nav-cat">
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#RANK-in-Excel">RANK in Excel</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#RANK_EQ-function">RANK.EQ in Excel</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#RANK_AVG-function">RANK.AVG in Excel</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#basic-excel-rank-formula">Basic Excel Rank formula (from highest to lowest)</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-formula-examples">How to find rank in Excel - formula examples</a>
+<ul class="nav">
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-numbers-lowest-highest">How to rank numbers from lowest to highest</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-data-uniquely">How to rank data in Excel uniquely</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-based-multiple-criteria">How to rank in Excel based on multiple criteria</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#calculate-percentile-rank">How to calculate percentile rank in Excel</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-non-contiguous-cells">Rank values in non-contiguous cells</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-by-group">How to rank in Excel by group</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-positive-negative-separately">Rank positive and negative numbers separately</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-ignoring-zeros">How to rank numbers in Excel ignoring zeros</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#rank-absolute-value">Calculate rank in Excel by absolute value</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#get-n-largest-smallest-values">Get N largest or smallest values</a></li>
+</ul>
+</li>
+</ul>
+<h2><a name="RANK-in-Excel"></a>Excel RANK function</h2>
+<p>The&nbsp;RANK function&nbsp;in Excel returns the order (or rank) of a numeric value compared to other values in the same list. In other words, it tells you which value is the highest, the second highest, etc.</p>
+<p>In a sorted list, the rank of a certain number would be its position. The RANK function in Excel can determine the rank starting with the largest value (as if sorted in descending order) or the smallest value (as if sorted in ascending order).</p>
+<p>The syntax of the Excel RANK function is as follows:</p>
+<div class="xl-formula">RANK(number,ref,[order])</div>
+<p>Where:</p>
+<p><strong>Number</strong> (required) - the value whose rank you'd like to find.</p>
+<p><strong>Ref</strong> (required) - a list of numeric values to rank against. It can be supplied as an array of numbers or a reference to the list of numbers.</p>
+<p><strong>Order </strong>(optional) - a number that specifies how to rank values:</p>
+<ul>
+<li>If 0 or omitted, the values are ranked in descending order, i.e. from largest to smallest.</li>
+<li>If 1 or any other non-zero value, the values are ranked in ascending order, i.e. from smallest to largest.</li>
+</ul>
+<h2><a name="RANK_EQ-function"></a>Excel RANK.EQ function</h2>
+<p>RANK.EQ is an improved version of the RANK function, introduced in Excel 2010. It has the same syntax as RANK and works with the same logic: if several values are ranked equally, the top rank of that group of values is returned (EQ stands for "equal").</p>
+<div class="xl-formula">RANK.EQ(number,ref,[order])</div>
+<p>In Excel 2007 and lower versions, you should always use the RANK function. In Excel 2010, Excel 2013, and Excel 2016, you can go with either RANK or RANK.EQ. However, it'd be wise to use RANK.EQ because RANK can be discontinued at any moment.</p>
+<h2><a name="RANK_AVG-function"></a>Excel RANK.AVG function</h2>
+<p>RANK.AVG is another function to find rank in Excel that is available only in Excel 2010, Excel 2013, Excel 2016 and later.</p>
+<p>It has the same syntax as the other two functions:</p>
+<div class="xl-formula">RANK.AVG(number,ref,[order])</div>
+<p>The difference is that if more than one number has the same rank, the <strong>average rank</strong> is returned (AVG stands for "average").</p>
+<h3><a name=""></a>4 things you should know about RANK in Excel</h3>
+<ol>
+<li>Any Rank formula in Excel works only for numeric values: positive and negative numbers, zeros, date and time values. Non-numeric values in the <em>ref</em> argument are ignored.</li>
+<li>All RANK functions return the same rank for duplicate values, and skip subsequent ranking, as shown in the example below.</li>
+<li>In Excel 2010 and later versions, the RANK function has been replaced with RANK.EQ and RANK.AVG. For backward compatibility, RANK still works in all versions of Excel, but it may not be available in the future.</li>
+<li>If <em>number</em> is not found within <em>ref</em>, any Excel Rank function would return the #N/A error.</li>
+</ol>
+<h2><a name="basic-excel-rank-formula"></a>Basic Excel Rank formula (from highest to lowest)</h2>
+<p>To gain more understanding about ranking data in Excel, please have a look at this screenshot:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/rank-formuas-excel.png" alt="Rank formulas in Excel to rank numbers from highest to lowest" title="Rank formulas in Excel to rank numbers from highest to lowest"></p>
+<p>All three formulas rank numbers in column B in <strong>descending order</strong> (the <em>order</em> argument omitted):</p>
+<p>In all versions of Excel 2003 - 2016:</p>
+<p><code>=RANK($B2,$B$2:$B$7)</code></p>
+<p>In Excel 2010 - 2016:</p>
+<p><code>=RANK.EQ($B2,$B$2:$B$7)</code></p>
+<p><code>=RANK.AVG($B2,$B$2:$B$7)</code></p>
+<p>The difference is in how these formulas process duplicate values. As you see, the same score appears twice, in cells B5 and B6, which affects subsequent ranking:</p>
+<ul>
+<li>The RANK and RANK.EQ formulas give a rank of 2 to both duplicate scores. The next highest score (Daniela) is ranked 4th. A rank of 3 is not given to anyone.</li>
+<li>The RANK.AVG formula assigns a different rank to each duplicate behind the scenes (2 and 3 in this example), and returns the average of those ranks (2.5). Again, the 3rd rank is not assigned to anyone.</li>
+</ul>
+<h2><a name="rank-formula-examples"></a>How to use RANK in Excel - formula examples</h2>
+<p>The path to excellence, they say, is paved with practice. So, to better learn how to use RANK function in Excel, alone or in combination with other functions, let's work out solutions to a few real-life tasks.</p>
+<h3><a name="rank-numbers-lowest-highest"></a>How to rank in Excel from lowest to highest</h3>
+<p>As shown in the above example, to rank numbers from highest to lowest, you use one of the Excel Rank formulas with the <em>order</em> argument set to 0 or omitted (default).</p>
+<p>To have <em>number</em> ranked against other numbers sorted in <strong>ascending order</strong>, put 1 or any other non-zero value in the optional third argument.</p>
+<p>For example, to rank the 100-meter sprint times of the students, you can use either of the below formulas:</p>
+<p><code>=RANK(B2,$B$2:$B$7,1)</code></p>
+<p><code>=RANK.EQ(B2,$B$2:$B$7,1)</code></p>
+<p>Please pay attention that we lock the range in the <em>ref</em> argument by using <a href="https://www.ablebits.com/office-addins-blog/2015/11/25/relative-absolute-reference-excel/#Absolute-cell-reference">absolute cell references</a>, so that it won't change when we copy the formula down the column.<br>
+<img class="imgl2" src="./excel fungsi keceh_files/excel-rank-lowest-highest.png" alt="Rank numbers from lowest to highest" title="Rank numbers from lowest to highest"></p>
+<p>As the result, the lowest value (fastest time) is ranked 1st and the largest value (slowest time) gets the lowest rank of 6. The equal times (B2 and B7) are given the same rank.</p>
+<h3><a name="rank-data-uniquely"></a>How to rank data in Excel uniquely</h3>
+<p>As pointed out earlier, all of the Excel Rank functions return the same rank for items of equal value. If that's not want you want, use one of the following formulas to resolve tie-break situations and give a <strong>unique rank</strong> to each number.</p>
+<h4>Unique ranking from highest to lowest</h4>
+<p>To rank the math scores of our students uniquely in descending order, use this formula:</p>
+<p><code>=RANK.EQ(B2,$B$2:$B$7)+COUNTIF($B$2:B2,B2)-1</code></p>
+<p><img class="imgl2" src="./excel fungsi keceh_files/unique-rank-descending.png" alt="Unique ranking from highest to lowest" title="Unique ranking from highest to lowest"></p>
+<h4>Unique ranking from lowest to highest</h4>
+<p>To rank the 100-meter race results in ascending order with no duplicates, use this formula:</p>
+<p><code>=RANK.EQ(B2,$B$2:$B$7,1)+COUNTIF($B$2:B2,B2)-1</code></p>
+<p><img class="imgl2" src="./excel fungsi keceh_files/unique-rank-ascending.png" alt="Unique ranking from lowest to highest" title="Unique ranking from lowest to highest"></p>
+<h5>How these formulas work</h5>
+<p>As you may have noticed, the only difference between the two formulas is the <em>order</em> argument of the RANK.EQ function: omitted to rank values descending, 1 to rank ascending.</p>
+<p>In both formulas, it's the <a href="https://www.ablebits.com/office-addins-blog/2014/07/02/excel-countif-examples/">COUNTIF function</a> with the clever use of relative and absolute cell references that does the trick. In short, you use COUNTIF to find out how many occurrences of the number being ranked there are in the above cells, including the number's cell. In the topmost row where you enter the formula, the range consists of a single cell ($B$2:B2). But because you lock only the first reference ($B$2), the last relative reference (B2) changes based on the row where the formula is copied. Thus, for row 7, the range expands to $B$2:B7, and the value in B7 is compared to each of the above cells.</p>
+<p>Consequently, for all unique values and 1st occurrences of duplicate values, COUNTIF returns 1; and you subtract 1 at the end of the formula to restore the original rank.</p>
+<p>For 2nd occurrences of duplicate values, COUNTIF returns 2. By subtracting 1 you increment the rank by 1 point, thus preventing duplicates. If there happen to be 3 occurrences of the same value, COUNTIF()-1 would add 2 to their ranking, and so on.</p>
+<h4>Alternative solution to break Excel RANK ties</h4>
+<p>Another way to rank numbers in Excel uniquely is by adding up two COUNTIF functions:</p>
+<ul>
+<li>The first function determines how many values are greater than or less than the number to be ranked, depending on whether you are ranking descending or ascending, respectively.</li>
+<li>The second function (with the "expanding range" $B$2:B2 as in the above example) gets the number of values equal to the number.</li>
+</ul>
+<p>For example, to rank numbers uniquely from highest to lowest, you'd use this formula:</p>
+<p><code>=COUNTIF($B$2:$B$7,"&gt;"&amp;$B2)+COUNTIF($B$2:B2,B2)</code></p>
+<p>As shown in the screenshot below, the tie-break is successfully resolved, and a unique rank is assigned to each student:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/excel-rank-tie-break.png" alt="Another way to break Excel RANK ties" title="Another way to break Excel RANK ties"></p>
+<h3><a name="rank-based-multiple-criteria"></a>Ranking in Excel based on multiple criteria</h3>
+<p>The previous example has demonstrated two working solutions for an Excel RANK tie break situation. However, it may seem unfair that equal numbers are ranked differently based solely on their position in the list. To improve your ranking, you may want to add one more criteria to be considered in case of a tie.</p>
+<p>In our sample dataset, let's add total scores in column C and calculate rank as follows:</p>
+<ul>
+<li>First, rank with <em>Math Score</em> (main criteria)</li>
+<li>When there is a tie, break it with <em>Total Score</em> (secondary criteria)</li>
+</ul>
+<p>To have it done, we will be using a regular RANK/RANK.EQ formula to find rank, and the <a href="https://www.ablebits.com/office-addins-blog/2014/07/10/excel-countifs-multiple-criteria/">COUNTIFS</a> function to break a tie:</p>
+<p><code>=RANK.EQ($B2,$B$2:$B$7)+COUNTIFS($B$2:$B$7,$B2,$C$2:$C$7,"&gt;"&amp;$C2)</code></p>
+<p>Compared to the above example, this rank formula is more objective: Timothy is ranked 2<sup>nd</sup> because his total score is higher than that of Julia:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/excel-ranking-multiple-criteria.png" alt="Ranking data based on multiple criteria" title="Ranking data based on multiple criteria"></p>
+<h4>How this formula works</h4>
+<p>The RANK part of the formula is obvious, and the COUNTIFS function does the following:</p>
+<ul>
+<li>The first <em>criteria_range</em>/<em>criteria</em> pair ($B$2:$B$7,$B2) counts the occurrences of the value you are ranking. Please notice, we fix the <em>range</em> with absolute references, but do not lock the <em>criteria</em>'s row ($B2) so that the formula checks the value in each row individually.</li>
+<li>The second <em>criteria_range</em>/<em>criteria</em> pair ($C$2:$C$7,"&gt;"&amp;$C2) finds out how many total scores are greater than the total score of the value being ranked.</li>
+</ul>
+<p>Because COUNTIFS works with the AND logic, i.e. counts only cells that meet all of the specified conditions, it returns 0 for Timothy since no other student with the same Math score has a higher total score. Hence, Timothy's rank returned by RANK.EQ is unchanged. For Julia, the COUNTIFS function returns 1 because one student with the same Math score has a higher total, so her rank number is incremented by 1. If one more student had the same Math score and a total score lower than that of Timothy and Julia, his/her rank would be incremented by 2, and so on.</p>
+<h4>Alternative solutions to rank numbers with multiple criteria</h4>
+<p>Instead of the RANK or RANK.EQ function, you could use COUNTIF to check the main criteria, and COUNTIFS or SUMPRODUCT to resolve a tie break:</p>
+<p><code>=COUNTIF($B$2:$B$7,"&gt;"&amp;$B2)+COUNTIFS($B$2:$B$7,$B2,$C$2:$C$7,"&gt;"&amp;$C2)+1</code></p>
+<p><code>=COUNTIF($B$2:$B$7,"&gt;"&amp;B2)+SUMPRODUCT(--($C$2:$C$7=C2),--($B$2:$B$7&gt;B2))+1</code></p>
+<p>The result of these formulas are exactly the same as shown above.</p>
+<h3><a name="calculate-percentile-rank"></a>How to calculate percentile rank in Excel</h3>
+<p>In&nbsp;statistics, a&nbsp;<em>percentile</em>&nbsp;(or <em>centile</em>) is the value below which a certain percentage of values in a given dataset falls. For example, if 70% of students are equal to or below your test score, your percentile rank is 70.</p>
+<p>To get percentile rank in Excel, use the RANK or RANK.EQ function with a non-zero <em>order</em> argument to rank numbers from smallest to largest, and then divide the rank by the count of numbers. So, the generic <strong>Excel Percentile Rank formula</strong> goes as follows:</p>
+<div class="xl-formula">RANK.EQ(<em>topmost_cell</em>,<em>range</em>,1)/COUNT(<em>range</em>)</div>
+<p>To calculate the percentile rank of our students, the formula takes the following shape:</p>
+<p><code>=RANK.EQ(B2,$B$2:$B$7,1)/COUNT($B$2:$B$7)</code></p>
+<p>To have the results displayed correctly, be sure to set the <em>Percentage</em> format to the formula cells:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/percentile-rank-excel.png" alt="Calculating percentile rank in Excel" title="Calculating percentile rank in Excel"></p>
+<h3><a name="rank-non-contiguous-cells"></a>How to rank numbers in non-adjacent cells</h3>
+<p>In situations when you need to rank non-contiguous cells, supply those cells directly in the <em>ref</em> argument of your Excel Rank formula in the form of a reference union, locking the references with the $ sign. For example:</p>
+<p><code>=RANK(B2,($B$2,$B$4,$B$6))</code></p>
+<p>To prevent errors in non-ranked cells, wrap RANK in the <a href="https://www.ablebits.com/office-addins-blog/2014/12/03/excel-if-function-iferrror-ifna/#iferror-ifna">IFERROR</a> function, like this:</p>
+<p><code>=IFERROR(RANK(B2,($B$2,$B$4,$B$6)), "")</code></p>
+<p>Please notice that a duplicate number is also given a rank, though cell B5 is not included in the formula:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/rank-non-adjacent-cells-excel.png" alt="Ranking numbers in non-adjacent cells" title="Ranking numbers in non-adjacent cells"></p>
+<p>If you need to rank multiple non-contiguous cells, the above formula may become too long. In this case, a more elegant solution would be <a href="https://www.ablebits.com/office-addins-blog/2017/07/11/excel-name-named-range-define-use/">defining a named range</a>, and referencing that name in the formula:</p>
+<p><code>=IFERROR(RANK(B2,range), "")</code></p>
+<p><img class="imgl2" src="./excel fungsi keceh_files/rank-non-contiguous-cells-excel.png" alt="Ranking numbers in non-contiguous cells based on a named range." title="Ranking numbers in non-contiguous cells based on a named range."></p>
+<h3><a name="rank-by-group"></a>How to rank in Excel by group</h3>
+<p>When working with entries organized into some kind of data structure, data may belong to various groups, and you might want to rank numbers within each group individually. The Excel RANK function cannot resolve this challenge, so we are going to use a more complex <a href="https://www.ablebits.com/office-addins-blog/2016/08/24/excel-sumproduct-function-formula-examples/">SUMPRODUCT</a> formula:</p>
+<p>Rank by group in <strong>descending</strong> order:</p>
+<p><code>=SUMPRODUCT((A2=$A$2:$A$7)*(C2&lt;$C$2:$C$7))+1</code></p>
+<p>Rank by group in <strong>ascending</strong> order:</p>
+<p><code>=SUMPRODUCT((A2=$A$2:$A$7)*(C2&gt;$C$2:$C$7))+1</code></p>
+<p>Where:</p>
+<ul>
+<li>A2:A7 are groups assigned to numbers.</li>
+<li>C2:C7 are numbers to be ranked.</li>
+</ul>
+<p>In this example, we use the first formula to rank numbers in each group from largest to smallest:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/rank-excel-groups.png" alt="Ranking data by group" title="Ranking data by group"></p>
+<h4>How this formula works</h4>
+<p>Essentially, the&nbsp;formula evaluates 2 conditions:</p>
+<ul>
+<li>First, you check the group (A2=$A$2:$A$7). This&nbsp;part returns an array of TRUE and FALSE based on whether a range element belongs to the same group as A2.</li>
+<li>Second, you check the score. To rank values from largest to smallest (<strong>descending order</strong>), use the condition (C2&lt;$C$2:$C$11), which returns TRUE for the cells greater than or equal to C2, FALSE otherwise.</li>
+</ul>
+<p>Since in Microsoft Excel terms, TRUE = 1 and FALSE = 0, multiplying the two arrays gives an array of 1's and 0's, where 1 is returned only for the rows in which both conditions are met.</p>
+<p>Then, SUMPRODUCT adds up the elements of the 1's and 0's array, hence returning 0 for the largest number in each group. And you add 1 to the result to start ranking with 1.</p>
+<p>The formula that ranks numbers within groups from smallest to largest (<strong>ascending</strong> <strong>order</strong>) works with the same logic. The difference is that SUMPRODUCT returns 0 for the smallest number in a particular group, since no number in that group meets the 2<sup>nd</sup> condition (C2&gt;$C$2:$C$7). Again, you replace zero rank with the 1st rank by adding 1 to the formula result.</p>
+<p>Instead of SUMPRODUCT, you can use the <a href="https://www.ablebits.com/office-addins-blog/2016/05/18/excel-sum-formula-total-column-rows-cells/#Excel-SUM-function">SUM function</a> to add up the array elements. But this would require using an <a href="https://www.ablebits.com/office-addins-blog/2015/02/25/array-formulas-functions-excel/">array formula</a>, completed via <span class="hkey-hlight">Ctrl + Shift + Enter</span>. For example:</p>
+<p><code>=SUM((A2=$A$2:$A$7)*(C2&lt;$C$2:$C$7))+1</code></p>
+<h3><a name="rank-positive-negative-separately"></a>How to rank positive and negative numbers separately</h3>
+<p>If your list of numbers contains both positive and negative values, the Excel RANK function will rank them all in no time. But what if you'd like to have positive and negative numbers ranked separately?</p>
+<p>With numbers in cells A2 to A10, use one of the following formulas to get individual ranking for positive and negative values:</p>
+<h4>Rank positive numbers descending:</h4>
+<p><code>=IF($A2&gt;0,COUNTIF($A$2:$A$10,"&gt;"&amp;A2)+1,"")</code></p>
+<h4>Rank positive numbers ascending:</h4>
+<p><code>=IF($A2&gt;0,COUNTIF($A$2:$A$10,"&gt;0")-COUNTIF($A$2:$A$10,"&gt;"&amp;$A2),"")</code></p>
+<h4>Rank negative numbers descending:</h4>
+<p><code>=IF($A2&lt;0,COUNTIF($A$2:$A$10,"&lt;0")-COUNTIF($A$2:$A$10,"&lt;"&amp;$A2),"")</code></p>
+<h4>Rank negative numbers ascending:</h4>
+<p><code>=IF($A2&lt;0,COUNTIF($A$2:$A$10,"&lt;"&amp;$A2)+1,"")</code></p>
+<p>The results will look something similar to this:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/rank-positive-negative-numbers-excel.png" alt="Ranking positive and negative numbers separately" title="Ranking positive and negative numbers separately"></p>
+<h4>How these formulas work</h4>
+<p>To begin with, let's break down the formula that ranks positive numbers in <strong>descending</strong> order:</p>
+<ul>
+<li>In the logical test of the IF function, you check whether the number is greater than zero.</li>
+<li>If the number is greater than 0, the COUNTIF function returns the count of values higher than the number being ranked.
+<p>	In this example, A2 contains the 2nd highest positive number, for which COUNTIF returns 1, meaning there is just one number greater than it. In order to start our ranking with 1, not 0, we add 1 to the formula result, so it returns a rank of 2 for A2.</p></li>
+<li>If the number is greater than 0, the formula returns an empty string ("").</li>
+</ul>
+<p>The formula that ranks positive numbers in <strong>ascending</strong> order works a bit differently:</p>
+<p>If the number is greater than 0, the first COUNTIF gets the total count of positive numbers in the data set, and the second COUNTIF finds out how many values are higher than that number. Then, you subtract the latter from the former, and get the desired rank. In this example, there are 5 positive values, 1 of which is greater than A2. So, you subtract 1 from 5, thus getting a rank of 4 for A2.</p>
+<p>Formulas to rank negative numbers are based on a similar logic.</p>
+<div class="sm-note"><b>Note.</b> All of the above formulas <strong>ignore zero values</strong> because 0 belongs neither to the set of&nbsp;positive&nbsp;nor to the set of negative numbers. To include zeros in your ranking, replace &gt;0 and &lt;0 with &gt;=0 and &lt;=0, respectively, where the formula logic requires.<p></p>
+<p>For example, to rank positive numbers and zeros from largest to smallest, use this formula: <code>=IF($A2&gt;=0,COUNTIF($A$2:$A$10,"&gt;"&amp;A2)+1,"")</code></p></div>
+<h3><a name="rank-ignoring-zeros"></a>How to rank data in Excel ignoring zero values</h3>
+<p>As you already know, a RANK formula is Excel handles all numbers: positive, negative and zeros. But in some cases, we just want to rank cells with data ignoring 0 values. On the web, you can find a few possible solutions for this task, but the Excel RANK IF formula, methinks, is the most universal one:</p>
+<h4>Rank numbers descending ignoring zero:</h4>
+<p><code>=IF($B2=0,"",IF($B2&gt;0,RANK($B2,$B$2:$B$10), RANK($B2,$B$2:$B$10)-COUNTIF($B$2:$B$10,0)))</code></p>
+<h4>Rank numbers ascending ignoring zero:</h4>
+<p><code>=IF($B2=0,"",IF($B2&gt;0,RANK($B2,$B$2:$B$10,1) - COUNTIF($B$2:$B$10,0), RANK($B2,$B$2:$B$10,1)))</code></p>
+<p>Where B2:B10 is the range of numbers to be ranked.</p>
+<p>The best thing about this formula is that it works beautifully both for positive and negative numbers, leaving zero values out of ranking:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/excel-rank-ignore-zero.png" alt="Rank numbers in Excel ignoring zero values" title="Rank numbers in Excel ignoring zero values"></p>
+<h4>How this formula works</h4>
+<p>At first sight, the formula may seem a bit tricky. Upon a closer look, the logic is very simple.</p>
+<p>Here's how the Excel RANK IF formula ranks numbers from largest to smallest ignoring zeros:</p>
+<ul>
+<li>The first IF checks whether the number is 0, and if it is, returns an empty string:
+<p>		IF($B2=0,"", …)
+	</p></li>
+<li>If the number is not zero, the second IF checks whether it's greater than 0, and if it is, a regular RANK / RANK.EQ function calculates its rank:
+<p>		IF($B2&gt;0,RANK($B2,$B$2:$B$10),…)
+	</p></li>
+<li>If the number is less than 0, you adjust ranking by the zero count. In this example, there are 4 positive numbers and 2 zeros. So, for the largest negative number in B10, an Excel RANK formula would return 7. But we skip zeros, and therefore we need to adjust the rank by 2 points. For this, we subtract the number of zeros from the rank:
+<p>		RANK($B2,$B$2:$B$10)-COUNTIF($B$2:$B$10,0))
+	</p></li>
+</ul>
+<p>Yep, it's that easy! The formula to ranks numbers from smallest to largest ignoring zeroes works in a similar manner, and it could be a good brain exercise to deduce its logic :)</p>
+<h3><a name="rank-absolute-value"></a>How to calculate rank in Excel by absolute value</h3>
+<p>When dealing with a list of positive and negative values, there may be a need to rank numbers by their absolute values ignoring the sign.</p>
+<p>The task can be fulfilled with one of the bellow formulas, at the heart of which is the ABS function that returns the absolute value of a number:</p>
+<h4>Rank ABS descending:</h4>
+<p><code>=SUMPRODUCT((ABS(A2)&lt;=ABS(A$2:A$7)) * (A$2:A$7&lt;&gt;"")) - SUMPRODUCT((ABS(A2)=ABS($A$2:$A$7)) * (A$2:A$7&lt;&gt;""))+1</code></p>
+<h4>Rank ABS ascending:</h4>
+<p><code>=SUMPRODUCT((ABS(A2)&gt;=ABS(A$2:A$7)) * (A$2:A$7&lt;&gt;"")) - SUMPRODUCT((ABS(A2)=ABS($A$2:$A$7)) * (A$2:A$7&lt;&gt;""))+1</code></p>
+<p>As the result, negative numbers are ranked as if they were positive numbers:<br>
+<img class="imgl2" src="./excel fungsi keceh_files/rank-excel-absolute-value.png" alt="Find rank in Excel by absolute value" title="Find rank in Excel by absolute value"></p>
+<h3><a name="get-n-largest-smallest-values"></a>How to get N largest or smallest values</h3>
+<p>If you wish to get an actual N number of the largest or smallest values rather than their ranking, use the LARGE or SMALL function, respectively.</p>
+<p>For example, we can get the top 3 scores of our students with this formula:</p>
+<p><code>=LARGE($B$2:$B$7, $D3)</code></p>
+<p>Where B2:B7 is the list of scores and D3 is the desired rank.</p>
+<p>Additionally, you can retrieve the students' names by using the <a href="https://www.ablebits.com/office-addins-blog/2014/08/13/excel-index-match-function-vlookup/">INDEX MATCH formula</a> (provided there are no duplicate scores in the top 3):</p>
+<p><code>=INDEX($A$2:$A$7,MATCH(E3,$B$2:$B$7,0))</code></p>
+<p><img class="imgl2" src="./excel fungsi keceh_files/largest-values-excel.png" alt="Use the LARGE function to get the top 3 values in the list" title="Use the LARGE function to get the top 3 values in the list"></p>
+<p>Similarly, you can use the SMALL function to pull the bottom 3 values:</p>
+<p><code>=SMALL($B$2:$B$7, $D3)</code></p>
+<p><img class="imgl2" src="./excel fungsi keceh_files/smallest-values-excel.png" alt="Use the SMALL function to get the bottom 3 values" title="Use the SMALL function to get the bottom 3 values"></p>
+<p>That's how you do ranking in Excel. To better understand and probably reverse-engineer the formulas discussed in this tutorial, you are welcome to download our <a class="ga-event" event="Download;xls-books;excel-rank-function" href="https://www.ablebits.com/excel-tutorials-examples/excel-rank-function.xlsx">Sample Rank Excel workbook</a>.</p>
+<p>I thank you for reading and hope to see you on our blog next week!</p>
+<h3>You may also be interested in:</h3>
+<ul class="nav">
+<li><a href="https://www.ablebits.com/office-addins-blog/2017/06/14/basic-excel-formulas-functions-examples/">Basic Excel formulas</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2015/08/12/useful-excel-functions-examples/">Most useful Excel functions with formula examples</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2016/08/03/calculate-cagr-excel-formulas/">How to calculate CAGR (compound annual growth rate) in Excel - formula examples</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2015/10/16/excel-replace-substitute-functions/">Using REPLACE and SUBSTITUTE functions in Excel - formula examples</a></li>
+<li><a href="https://www.ablebits.com/office-addins-blog/2016/08/24/excel-sumproduct-function-formula-examples/">Excel SUMPRODUCT function with formula examples</a></li>
+</ul>
+<div class="essb_break_scroll"></div>	</div>
+
+</div> <!-- a19Blog-BodyLeft -->
+
+<div class="a19Blog-BodyRight">
+
+<div class="gss-container" style="height: 65px;">
+<script>
+  (function() {
+    var cx = '013694892806938370304:nzni8remsfa';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="___gcse_0"><div class="gsc-control-cse gsc-control-cse-en"><div class="gsc-control-wrapper-cse" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" placeholder="Custom Search" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px; outline: none;" dir="ltr" spellcheck="false" x-webkit-grammar="builtin:search" lang="en"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;" title="Clear search box" role="button"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table></form><div class="gsc-results-wrapper-overlay"><div class="gsc-results-close-btn" tabindex="0"></div><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"><div class="gsc-tabHeader gsc-inline-block gsc-tabhActive">Custom Search</div><span class="gs-spacer"> </span></div></div><div class="gsc-positioningWrapper"><div class="gsc-tabsAreaInvisible"></div></div><div class="gsc-above-wrapper-area-invisible"><table cellspacing="0" cellpadding="0" class="gsc-above-wrapper-area-container"><tbody><tr><td class="gsc-result-info-container"><div class="gsc-result-info-invisible"></div></td><td class="gsc-orderby-container"><div class="gsc-orderby-invisible"><div class="gsc-orderby-label gsc-inline-block">Sort by:</div><div class="gsc-option-menu-container gsc-inline-block"><div class="gsc-selected-option-container gsc-inline-block"><div class="gsc-selected-option">Relevance</div><div class="gsc-option-selector"></div></div><div class="gsc-option-menu-invisible"><div class="gsc-option-menu-item gsc-option-menu-item-highlighted"><div class="gsc-option">Relevance</div></div><div class="gsc-option-menu-item"><div class="gsc-option">Date</div></div></div></div></div></td></tr></tbody></table></div><div class="gsc-adBlockInvisible"></div><div class="gsc-wrapper"><div class="gsc-adBlockInvisible"></div><div class="gsc-resultsbox-invisible"><div class="gsc-resultsRoot gsc-tabData gsc-tabdActive"><table cellspacing="0" cellpadding="0" class="gsc-resultsHeader"><tbody><tr><td class="gsc-twiddleRegionCell"><div class="gsc-twiddle"><div class="gsc-title">Web</div></div><div class="gsc-stats"></div><div class="gsc-results-selector gsc-all-results-active"><div class="gsc-result-selector gsc-one-result" title="show one result">&nbsp;</div><div class="gsc-result-selector gsc-more-results" title="show more results">&nbsp;</div><div class="gsc-result-selector gsc-all-results" title="show all results">&nbsp;</div></div></td><td class="gsc-configLabelCell"></td></tr></tbody></table><div><div class="gsc-expansionArea"></div></div></div></div></div></div><div class="gsc-modal-background-image" tabindex="0"></div></div></div></div>
+</div>
+
+
+<div class="sidebar">
+<h4 style="margin-top: 0;">Excel: featured articles</h4>
+<ul style="margin: 0;">
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;consolidate-excel-merge-sheets" href="https://www.ablebits.com/office-addins-blog/2015/09/01/consolidate-excel-merge-sheets/">Merge multiple Excel sheets into&nbsp;one</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;merge-multiple-excel-files-into-one" href="https://www.ablebits.com/office-addins-blog/2017/11/08/merge-multiple-excel-files-into-one/">Combine Excel files into one</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;compare-two-excel-files-sheets" href="https://www.ablebits.com/office-addins-blog/2016/02/25/compare-two-excel-files-sheets/">Compare 2 Excel files/sheets</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;excel-compare-two-columns-matches-differences" href="https://www.ablebits.com/office-addins-blog/2015/08/26/excel-compare-two-columns-matches-differences/">Compare 2 columns in Excel for matches and differences</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;merge-columns-excel-without-losing-data" href="https://www.ablebits.com/office-addins-blog/2013/10/13/merge-columns-excel-without-losing-data/">Merge 2 columns in Excel</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;merge-rows-excel" href="https://www.ablebits.com/office-addins-blog/2014/02/06/merge-rows-excel/">Merge Excel rows without losing data</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;excel-substring-functions-extract-text" href="https://www.ablebits.com//office-addins-blog/2017/11/15/excel-substring-functions-extract-text/">Excel substring: how to extract text from cell</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;insert-calendar-excel-datepicker-template" href="https://www.ablebits.com/office-addins-blog/2016/10/12/insert-calendar-excel-datepicker-template/">Create calendar in Excel (drop-down and printable)</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;excel-concatenate-strings-cells-columns" href="https://www.ablebits.com/office-addins-blog/2015/07/15/excel-concatenate-strings-cells-columns/">CONCATENATE in Excel: combine text strings, cells and columns</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;calculate-time-excel" href="https://www.ablebits.com/office-addins-blog/2015/06/24/calculate-time-excel/">Сalculate time in Excel - time difference, adding / subtracting times</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;trim-spaces-between-words" href="https://www.ablebits.com/office-addins-blog/2013/11/15/trim-spaces-between-words/">3 ways to remove spaces between words in Excel cells</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;excel-merge-tables-matching-columns" href="https://www.ablebits.com/office-addins-blog/2018/10/31/excel-merge-tables-matching-columns/">How to merge two or more tables in Excel</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;vlookup-multiple-values-excel" href="https://www.ablebits.com/office-addins-blog/2017/02/22/vlookup-multiple-values-excel/">Excel Vlookup: return multiple matches</a></li>
+</ul>
+
+<h4 style="margin-top: 24px;">Outlook: featured articles</h4>
+<ul style="margin: 0;">
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;create-email-templates-outlook" href="https://www.ablebits.com/office-addins-blog/2014/02/20/create-email-templates-outlook/">Сreate and use Outlook e-mail templates</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;add-bcc-outlook" href="https://www.ablebits.com//office-addins-blog/2014/02/13/add-bcc-outlook/">How to add BCC recipients in Outlook</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;merge-outlook-contacts-prevent-duplicates" href="https://www.ablebits.com/office-addins-blog/2013/11/29/merge-outlook-contacts-prevent-duplicates/">Merge duplicate contacts</a></li>
+	<li><a class="js-LogEvent" data-event="blog;bloglink-top;cannot-start-microsoft-outlook-solutions" href="https://www.ablebits.com/office-addins-blog/2013/12/06/cannot-start-microsoft-outlook-solutions/">How to fix "Cannot start Microsoft Outlook. Unable to open Outlook window" error</a></li>
+</ul>
+</div>
+
+
+<div class="tag-cloud">
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-formulas" href="https://www.ablebits.com/office-addins-blog/tag/excel-formulas/" style="font-size: 19.920792079208px;" aria-label="Excel formulas (118 items)">Excel formulas</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-functions" href="https://www.ablebits.com/office-addins-blog/tag/excel-functions/" style="font-size: 19.970297029703px;" aria-label="Excel functions (122 items)">Excel functions</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-vlookup" href="https://www.ablebits.com/office-addins-blog/tag/excel-vlookup/" style="font-size: 15.861386138614px;" aria-label="Vlookup in Excel (17 items)">Vlookup in Excel</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-merge-data" href="https://www.ablebits.com/office-addins-blog/tag/excel-merge-data/" style="font-size: 16.950495049505px;" aria-label="Merge data in Excel (29 items)">Merge data in Excel</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;sumif" href="https://www.ablebits.com/office-addins-blog/tag/sumif/" style="font-size: 13.831683168317px;" aria-label="SumIf (6 items)">SumIf</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-countif" href="https://www.ablebits.com/office-addins-blog/tag/excel-countif/" style="font-size: 14.970297029703px;" aria-label="Excel CountIf (11 items)">Excel CountIf</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-compare" href="https://www.ablebits.com/office-addins-blog/tag/excel-compare/" style="font-size: 14.574257425743px;" aria-label="Excel Compare (9 items)">Excel Compare</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-if-statement" href="https://www.ablebits.com/office-addins-blog/tag/excel-if-statement/" style="font-size: 14.970297029703px;" aria-label="Excel If statement (11 items)">Excel If statement</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-charts" href="https://www.ablebits.com/office-addins-blog/tag/excel-charts/" style="font-size: 15.960396039604px;" aria-label="Excel Charts (18 items)">Excel Charts</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;pivot-table" href="https://www.ablebits.com/office-addins-blog/tag/pivot-table/" style="font-size: 13.485148514851px;" aria-label="Pivot Table (5 items)">Pivot Table</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;updates" href="https://www.ablebits.com/office-addins-blog/tag/updates/" style="font-size: 16px;" aria-label="Updates">Updates</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-conditional-formatting" href="https://www.ablebits.com/office-addins-blog/tag/excel-conditional-formatting/" style="font-size: 16.455445544554px;" aria-label="Excel Conditional Formatting (23 items)">Excel conditional formatting</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-formatting" href="https://www.ablebits.com/office-addins-blog/tag/excel-formatting/" style="font-size: 16.356435643564px;" aria-label="Excel formatting (22 items)">Excel formatting</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-time" href="https://www.ablebits.com/office-addins-blog/tag/excel-time/" style="font-size: 13.485148514851px;" aria-label="Excel time (5 items)">Excel time</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-duplicates" href="https://www.ablebits.com/office-addins-blog/tag/excel-duplicates/" style="font-size: 15.712871287129px;" aria-label="Excel duplicates (16 items)">Excel duplicates</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-date" href="https://www.ablebits.com/office-addins-blog/tag/excel-date/" style="font-size: 16.059405940594px;" aria-label="Excel date (19 items)">Excel date</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-howto" href="https://www.ablebits.com/office-addins-blog/tag/excel-howto/" style="font-size: 21.80198019802px;" aria-label="Excel tips (286 items)">Excel tips</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;excel-macro" href="https://www.ablebits.com/office-addins-blog/tag/excel-macro/" style="font-size: 16.356435643564px;" aria-label="Excel macro (23 items)">Excel macro</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;outlook" href="https://www.ablebits.com/office-addins-blog/tag/outlook/" style="font-size: 17.445544554455px;" aria-label="Outlook (37 items)">Outlook</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;google-sheets" href="https://www.ablebits.com/office-addins-blog/tag/google-sheets/" style="font-size: 17.09900990099px;" aria-label="Google Sheets (31 items)">Google Sheets</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;outlook-duplicates" href="https://www.ablebits.com/office-addins-blog/tag/outlook-duplicates/" style="font-size: 12px;" aria-label="Outlook duplicates (2 items)">Outlook duplicates</a>
+<a class="js-LogEvent" data-event="blog;bloglink-tag;outlook-templates" href="https://www.ablebits.com/office-addins-blog/tag/outlook-templates/" style="font-size: 12px;" aria-label="Outlook templates (3 items)">Outlook templates</a>
+</div>
+
+
+<div class="sidebar">
+ <h3>Sign in</h3>
+ <ul>
+  <li><a rel="nofollow" href="https://www.ablebits.com/office-addins-blog/login2/">Log in / Register</a></li>
+ </ul>
+</div>
+
+
+</div><!--/rightcol -->
+
+</div> <!-- END: a19Blog-BodyContainer -->
+
+<div id="comments" class="a19BlogComments-Container">
+
+
+<div class="info-tile blog-post">
+			<h3 id="a19BlogComments-Title">30 Responses to <span>"Excel RANK functions with formula examples"</span></h3>
+
+
+			<ol class="a19BlogComments-CommentsList">
+					<li class="comment even thread-even depth-1" id="li-comment-309185">
+		<div id="comment-309185">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/38fbbfa7a68e81d20978681fd67f3aac.png" srcset="https://secure.gravatar.com/avatar/38fbbfa7a68e81d20978681fd67f3aac?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Sebastian</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-309185">
+			November 10, 2017 at 10:41 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Dears,<br>
+In RANK.EQ function why rank 2 is skipping to Rank 3 on re applying marks.  Could you help me please.</p>
+<p>Best regards,</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=309185#respond" onclick="return addComment.moveForm( &quot;comment-309185&quot;, &quot;309185&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Sebastian">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-310191">
+		<div id="comment-310191">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/3391d1029ea572c10e7f2ea694ada809.png" srcset="https://secure.gravatar.com/avatar/3391d1029ea572c10e7f2ea694ada809?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">sujan</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-310191">
+			November 18, 2017 at 1:35 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>-0.19<br>
+0.18<br>
+0.10<br>
+-0.04<br>
+-0.08<br>
+-0.04<br>
+-2.22<br>
+-0.67<br>
+-0.36<br>
+-0.05<br>
+-1.32<br>
+-1.36<br>
+-0.48<br>
+-1.15<br>
+0.65<br>
+0.04<br>
+0.38<br>
+-0.38<br>
+0.19<br>
+0.38<br>
+0.01<br>
+0.38<br>
+-0.68<br>
+-0.05<br>
+0.40<br>
+0.35<br>
+-0.41<br>
+-0.30<br>
+-0.02<br>
+-0.49<br>
+0.99<br>
+0.10<br>
+1.23<br>
+0.89<br>
+1.21<br>
+-1.44<br>
+-1.58<br>
+-1.38<br>
+0.10<br>
+1.00<br>
+-1.93<br>
+1.23<br>
+1.37<br>
+-1.45<br>
+-0.99<br>
+-2.05<br>
+-1.63<br>
+-1.79 </p>
+<p>How to rank this in excel?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=310191#respond" onclick="return addComment.moveForm( &quot;comment-310191&quot;, &quot;310191&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to sujan">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-gennady-terekhov even depth-2" id="li-comment-313548">
+		<div id="comment-313548">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/0f0989fc7eeace8a505b849bba7a1d94.jpeg" srcset="https://secure.gravatar.com/avatar/0f0989fc7eeace8a505b849bba7a1d94?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="https://www.ablebits.com/" class="url">Gennady Terekhov (Ablebits.com Team)</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-313548">
+			December 20, 2017 at 11:49 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hello,</p>
+<p>Suppose, your original data are in column A. If you place the following formula in B1, for example, you’ll get the result you need:</p>
+<p>=RANK(-0.19,A:A) </p>
+<p>If it doesn't help, then please send me a small sample workbook with your source data and the result you expect to get to <a href="mailto:support@ablebits.com">support@ablebits.com</a>. Please don't worry if you have confidential information there, we never disclose the data we get from our customers and delete it as soon as the problem is resolved.<br>
+Please also don't forget to include the link to this comment into your email.</p>
+<p>I'll look into your task and try to help you better.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=313548#respond" onclick="return addComment.moveForm( &quot;comment-313548&quot;, &quot;313548&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Gennady Terekhov">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-316109">
+		<div id="comment-316109">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/da83888a1bb5401ddc834604109e41d8.png" srcset="https://secure.gravatar.com/avatar/da83888a1bb5401ddc834604109e41d8?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Santosh</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-316109">
+			January 22, 2018 at 8:09 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Dear Sir / Madam,</p>
+<p>Please help me.<br>
+I have 4 Sub category each I'll give 25% ( how to find out Ranking).</p>
+<p>Regards,<br>
+Santosh<br>
+72594 19297</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=316109#respond" onclick="return addComment.moveForm( &quot;comment-316109&quot;, &quot;316109&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Santosh">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-316502">
+		<div id="comment-316502">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/684b7b93c60861e51f564cf56982184a.png" srcset="https://secure.gravatar.com/avatar/684b7b93c60861e51f564cf56982184a?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">dushmantha</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-316502">
+			January 25, 2018 at 3:43 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>how to rank data in another sheet</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=316502#respond" onclick="return addComment.moveForm( &quot;comment-316502&quot;, &quot;316502&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to dushmantha">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-318938">
+		<div id="comment-318938">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/7e3e8d7cc69d83715d4b8cf687d31a23.png" srcset="https://secure.gravatar.com/avatar/7e3e8d7cc69d83715d4b8cf687d31a23?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Obioma</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-318938">
+			February 22, 2018 at 12:08 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Thanks for helping me out to calculate Ranking of two pupils that had the same average and the same total but different positions.</p>
+<p>I was able to sort it out through your formula.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=318938#respond" onclick="return addComment.moveForm( &quot;comment-318938&quot;, &quot;318938&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Obioma">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-321752">
+		<div id="comment-321752">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/d852388cf488353db1336dfb9d639158.png" srcset="https://secure.gravatar.com/avatar/d852388cf488353db1336dfb9d639158?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Lavender 41</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-321752">
+			March 28, 2018 at 6:04 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Is there a simple way to automatically sort without using macros.</p>
+<p>Thanks a lot</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=321752#respond" onclick="return addComment.moveForm( &quot;comment-321752&quot;, &quot;321752&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Lavender 41">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-321806">
+		<div id="comment-321806">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/28468c248525c4be84c076f9930452d3.png" srcset="https://secure.gravatar.com/avatar/28468c248525c4be84c076f9930452d3?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Yogesh</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-321806">
+			March 29, 2018 at 1:08 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Great work Svetlana !! </p>
+<p>The formulas work like a charm.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=321806#respond" onclick="return addComment.moveForm( &quot;comment-321806&quot;, &quot;321806&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Yogesh">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-321815">
+		<div id="comment-321815">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/6173878b37c67c9ed20ee57f7c3f8369.png" srcset="https://secure.gravatar.com/avatar/6173878b37c67c9ed20ee57f7c3f8369?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Marycris</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-321815">
+			March 29, 2018 at 6:45 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I have a hard problem solving these: I had rank it initially based on standard queuing, from there, it will subsequently re rank once the second line be queued. </p>
+<p>sample:</p>
+<p>100  initial rank 1<br>
+200  initial rank 2<br>
+500  initial rank 3</p>
+<p>new input:</p>
+<p>300<br>
+400</p>
+<p>output of final rank:<br>
+100  final rank 1<br>
+200  final rank 2<br>
+300  final rank 3<br>
+400  final rank 4<br>
+500  final rank 5</p>
+<p>please help me</p>
+<p>what should be the best formula to get the final ranking???</p>
+<p>thanks,</p>
+<p>marycris</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=321815#respond" onclick="return addComment.moveForm( &quot;comment-321815&quot;, &quot;321815&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Marycris">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-321858">
+		<div id="comment-321858">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/8851ae4007b90db1b28c737f0402439a.png" srcset="https://secure.gravatar.com/avatar/8851ae4007b90db1b28c737f0402439a?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Shian</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-321858">
+			March 30, 2018 at 1:20 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Great post, but it is missing another application of ranking. How do I get the rank and take ties in consideration? This is the result I want for example:</p>
+<p>Name	Score	Rank<br>
+Joe		33		1<br>
+Lisa		31		2<br>
+Kevin	31		2<br>
+Paul		30		3<br>
+Fred	30		3<br>
+Denny	30		3<br>
+Sarah	30		3<br>
+Allen	30		3<br>
+Patrick	30		3<br>
+Anna	29		4<br>
+Johnny	29		4<br>
+Wendy	29		4	</p>
+<p>Etc..</p>
+<p>What formula should I use?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=321858#respond" onclick="return addComment.moveForm( &quot;comment-321858&quot;, &quot;321858&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Shian">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-322400">
+		<div id="comment-322400">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/5d55125afea73969d4e8ea9d18f23872.png" srcset="https://secure.gravatar.com/avatar/5d55125afea73969d4e8ea9d18f23872?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">HARSH KOTHARI</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-322400">
+			April 9, 2018 at 9:37 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Team Ablebits,<br>
+At the outset thanks for helping people like us.<br>
+Want to rank data with following validations /filters:<br>
+1. Filter on parameters - like order, sales, purchases<br>
+2. Positive and Negative<br>
+3. split the record, for common rank, example in case rank 2 is assigned to 2 records, it should be reassign 2 and 3 number respectively (essentially want unique number for each record)<br>
+many thanks in advance<br>
+regards<br>
+Harsh</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=322400#respond" onclick="return addComment.moveForm( &quot;comment-322400&quot;, &quot;322400&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to HARSH KOTHARI">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-329814">
+		<div id="comment-329814">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/94c32bbbfef247bc34b05c1cb3f3ba77.png" srcset="https://secure.gravatar.com/avatar/94c32bbbfef247bc34b05c1cb3f3ba77?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Jonathan Gill</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-329814">
+			June 6, 2018 at 2:10 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Thank you for these. I haven't used them in a while and this was exactly the refresher I needed. Cheers!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=329814#respond" onclick="return addComment.moveForm( &quot;comment-329814&quot;, &quot;329814&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Jonathan Gill">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-345782">
+		<div id="comment-345782">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/3aea9c6d5dc25246416d6d779dddf429.png" srcset="https://secure.gravatar.com/avatar/3aea9c6d5dc25246416d6d779dddf429?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Josh Grove</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-345782">
+			September 3, 2018 at 6:15 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I have a list that is ranked and now I have to give the ranked list a grade (E - Excellent, O - Outstanding, M - Meets Expectations, B - Below Expectations).  I can only have 10% of my list be Exceptional, 15% outstanding, 65% Meeting Expectations, and 10% below expectations.  I have 34 employees that make up this list.  I can manually assign the grades based on this but is there a way to have excel do this for me?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=345782#respond" onclick="return addComment.moveForm( &quot;comment-345782&quot;, &quot;345782&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Josh Grove">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-347987">
+		<div id="comment-347987">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/423c52abb74ab926313958bad4821a52.png" srcset="https://secure.gravatar.com/avatar/423c52abb74ab926313958bad4821a52?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Rob</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-347987">
+			September 20, 2018 at 2:08 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>This is AWESOME!! I was headed in the right direction logically, but this was the answer to MANY hours of trial and error!!!</p>
+<p>Thank YOU!!</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=347987#respond" onclick="return addComment.moveForm( &quot;comment-347987&quot;, &quot;347987&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Rob">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-357035">
+		<div id="comment-357035">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/7636d6373618952166a4ea2b80157a09.png" srcset="https://secure.gravatar.com/avatar/7636d6373618952166a4ea2b80157a09?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">PS</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-357035">
+			November 15, 2018 at 7:13 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Please see the data below where I want to calculate Overall Rank from existing ranked criteria. </p>
+<p>Note that to calculate overall rank, Rank 1 is the main criteria, followed by Rank 2 and 3. Please let me know if you have pre-built formula for this.</p>
+<p>Dcode	Rank 1	Rank 2	Rank 3	Overall Rank<br>
+1	50	50	8<br>
+2	50	3	7<br>
+3	49	25	6<br>
+4	47	14	27<br>
+5	45	17	47<br>
+6	37	7	2<br>
+7	33	47	20<br>
+8	31	34	17<br>
+9	30	2	23<br>
+10	25	21	13<br>
+11	23	13	34<br>
+12	16	37	32<br>
+13	14	6	9<br>
+14	12	30	16<br>
+15	10	40	28<br>
+16	9	26	36<br>
+17	8	32	19<br>
+18	5	1	1<br>
+19	4	24	4<br>
+20	3	45	37<br>
+21	1	46	18</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=357035#respond" onclick="return addComment.moveForm( &quot;comment-357035&quot;, &quot;357035&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to PS">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-362178">
+		<div id="comment-362178">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/19a7bf772265744057d3d65e830ca710.png" srcset="https://secure.gravatar.com/avatar/19a7bf772265744057d3d65e830ca710?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Susan</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-362178">
+			November 24, 2018 at 10:21 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>The Rank.eq function will not allow me to lock the ref array. I can't figure out why this is happening. Do I have to hand enter each and every cell?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=362178#respond" onclick="return addComment.moveForm( &quot;comment-362178&quot;, &quot;362178&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Susan">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-svetlana-cheusheva bypostauthor even depth-2" id="li-comment-362349">
+		<div id="comment-362349">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/d18b5882ffacf3784d76e45472449587.jpeg" srcset="https://secure.gravatar.com/avatar/d18b5882ffacf3784d76e45472449587?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="https://www.ablebits.com/" class="url">Svetlana Cheusheva (Ablebits.com Team)</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-362349">
+			November 25, 2018 at 9:19 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi Susan,</p>
+<p>To lock the ref range, use absolute cell references with the $ sign, e.g. $A$2:$A$10. To toggle between the reference types, simply select the reference in the formular bar and press F4.</p>
+<p>For more informatiop, please see <a href="https://www.ablebits.com/office-addins-blog/2015/11/25/relative-absolute-reference-excel/">Absolute and relative cell references in Excel</a>.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=362349#respond" onclick="return addComment.moveForm( &quot;comment-362349&quot;, &quot;362349&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Svetlana Cheusheva">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-367113">
+		<div id="comment-367113">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/c8fcbec79802c10ac7dffda8cfc649e4.png" srcset="https://secure.gravatar.com/avatar/c8fcbec79802c10ac7dffda8cfc649e4?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Yasir</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-367113">
+			December 12, 2018 at 9:25 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>1-  I want to rank a Rang,<br>
+2-  The highest number with Highest Rank<br>
+3-  Rank only top 10, rest need to be filled with 0</p>
+<p>Help please.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=367113#respond" onclick="return addComment.moveForm( &quot;comment-367113&quot;, &quot;367113&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Yasir">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-368670">
+		<div id="comment-368670">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/none.png" srcset="https://secure.gravatar.com/avatar/?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo avatar-default" height="40" width="40">			<cite class="fn">Ramazan</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-368670">
+			December 19, 2018 at 1:39 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Thanks alot for your explanations.<br>
+It was very useful<br>
+Keep continue</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=368670#respond" onclick="return addComment.moveForm( &quot;comment-368670&quot;, &quot;368670&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Ramazan">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-383133">
+		<div id="comment-383133">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/ec1d6f7868c90b13f825f404c0849363.png" srcset="https://secure.gravatar.com/avatar/ec1d6f7868c90b13f825f404c0849363?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Annabeth</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-383133">
+			January 23, 2019 at 11:45 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hello, I am trying to rank data based on a goal range. </p>
+<p>The goal is to score between 450 and 500. </p>
+<p>Currently anyone scoring 375 (as an example) is ranked higher than someone who met the goal falling between 450 and 500. </p>
+<p>Is there a way to set this up?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=383133#respond" onclick="return addComment.moveForm( &quot;comment-383133&quot;, &quot;383133&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Annabeth">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-388585">
+		<div id="comment-388585">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/fb9e8b7ba19dfde6af13357173dcc263.png" srcset="https://secure.gravatar.com/avatar/fb9e8b7ba19dfde6af13357173dcc263?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Snehalatha</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-388585">
+			February 28, 2019 at 4:34 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>how to calculate percentile rank for employee salary with designation and no of year experienc as Condition</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=388585#respond" onclick="return addComment.moveForm( &quot;comment-388585&quot;, &quot;388585&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Snehalatha">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-394275">
+		<div id="comment-394275">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/72bf94faadf01ed6cebf2f9767ed49be.png" srcset="https://secure.gravatar.com/avatar/72bf94faadf01ed6cebf2f9767ed49be?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Shawn</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-394275">
+			March 18, 2019 at 1:44 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Could you help me with a rank formula please? I need to rank negative numbers first descending then positive numbers ascending. The number closest to zero but negative is the highest ranked. The number farthest from zero but positive is the lowest ranked. The closest positive number from zero should be lower in rank than the farthest negative number from zero.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=394275#respond" onclick="return addComment.moveForm( &quot;comment-394275&quot;, &quot;394275&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Shawn">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-397926">
+		<div id="comment-397926">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/364ef30f59873eb3bb1df4e4faef6333.png" srcset="https://secure.gravatar.com/avatar/364ef30f59873eb3bb1df4e4faef6333?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Philip Johnson</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-397926">
+			March 26, 2019 at 6:16 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>For anyone having a problem with ranking skipping numbers, here is some help.  See cells F35 and F40! You're welcome! </p>
+<p><a href="https://docs.google.com/spreadsheets/d/1Y1AHRn-bRnVex-tFwbPV9bN4t46usrFAvRPsUPUn6i4/edit?usp=sharing">https://docs.google.com/spreadsheets/d/1Y1AHRn-bRnVex-tFwbPV9bN4t46usrFAvRPsUPUn6i4/edit?usp=sharing</a><br>
+formula: =SUMPRODUCT((DD34&lt;$F34:$DT34)/COUNTIF($F34:$DT34,$F34:$DT34))+1</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=397926#respond" onclick="return addComment.moveForm( &quot;comment-397926&quot;, &quot;397926&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Philip Johnson">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-400035">
+		<div id="comment-400035">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/ec4cfc0a7dad73478bdb7f999081bc19.png" srcset="https://secure.gravatar.com/avatar/ec4cfc0a7dad73478bdb7f999081bc19?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Mohammad</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-400035">
+			March 30, 2019 at 2:47 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi<br>
+If the data contains an error and we want to calculate the Rank ABS numbers ascending ignoring ERORR(ex. #value! or #n/a):, how can we do it?<br>
+for example:1,2,#value!,-5, 8, -10, 15,#N/A, 25</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=400035#respond" onclick="return addComment.moveForm( &quot;comment-400035&quot;, &quot;400035&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Mohammad">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-400663">
+		<div id="comment-400663">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/e27aece7227152b1ddd9f48f57ad0f2f.png" srcset="https://secure.gravatar.com/avatar/e27aece7227152b1ddd9f48f57ad0f2f?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Alex</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-400663">
+			April 1, 2019 at 9:50 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi all, I am trying to get a priority ranked list based on "Impact" (where highest number is higher impact) vs "Effort" (where lowest number is lowest effort), I want to basically get highest "Impact" / low "Effort" items on top of the list. For contest I have speadsheet where the "Impact" rating is in column H (H6 downwards) and "Effort" rating (1 = Low, 2 = Medium, 3 = High, 4 = Very High)is in column I (I6 downwards). I would like a rank of 1st to however many entries we have to be displayed in column EF (EF6 downwards)</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=400663#respond" onclick="return addComment.moveForm( &quot;comment-400663&quot;, &quot;400663&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Alex">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-401960">
+		<div id="comment-401960">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/ef5e9698e1d8e41a52b5916b9e575cca.png" srcset="https://secure.gravatar.com/avatar/ef5e9698e1d8e41a52b5916b9e575cca?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Matthew Collen</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-401960">
+			April 4, 2019 at 12:44 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Is there any way to do rank where you don't skip?<br>
+For instance<br>
+Score     Rank<br>
+30         1<br>
+28         2<br>
+28         2<br>
+27         4   </p>
+<p>I would like it so that the 27 is a 3, is this possible?</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=401960#respond" onclick="return addComment.moveForm( &quot;comment-401960&quot;, &quot;401960&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Matthew Collen">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	<ul class="children">
+	<li class="comment even depth-2" id="li-comment-402354">
+		<div id="comment-402354">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/ef5e9698e1d8e41a52b5916b9e575cca.png" srcset="https://secure.gravatar.com/avatar/ef5e9698e1d8e41a52b5916b9e575cca?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Matthew Collen</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-402354">
+			April 5, 2019 at 6:13 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I found an answer to this...<br>
+=SUMPRODUCT((G2 &lt; G$2:G$27)/COUNTIF(G$2:G$27,G$2:G$27))+1<br>
+Is there any way to do the above based on a value in another column?  Let's say column A contains a group number assignment (1,2 and 3).</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=402354#respond" onclick="return addComment.moveForm( &quot;comment-402354&quot;, &quot;402354&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Matthew Collen">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-403257">
+		<div id="comment-403257">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/6752c4891e7634a8e079b54e5001ced2.png" srcset="https://secure.gravatar.com/avatar/6752c4891e7634a8e079b54e5001ced2?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Baha</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-403257">
+			April 8, 2019 at 7:44 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Help me how to rank multiple categories. First pass and fail. Second look at mark</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=403257#respond" onclick="return addComment.moveForm( &quot;comment-403257&quot;, &quot;403257&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Baha">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-421182">
+		<div id="comment-421182">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/8a691025260c5c34a508dd4a71dbd9e6.png" srcset="https://secure.gravatar.com/avatar/8a691025260c5c34a508dd4a71dbd9e6?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">bob denis</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-421182">
+			May 25, 2019 at 7:21 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>I have 20 golfers with all their gross scores from holes 1 through 18 and a total gross ... all that data in a row for each golfer. We pay 4 best gross scores. When there is a tie we go back to each hole starting at hole #1 and look for the lower score(s) which eliminates the other golfers for this payout. Then go to next hole and continue until there is only 1 golfer remaining who gets this payout award for the rank position ($40 for 1st, $30 for 2nd, $20 for 3rd, $10 for 4th). We encountered a situation where 4 golfers had the same GROSS score, on hole #1 2 of them had the same score and better (lower) than the other 2. The tie between these lower 2 finally broke by hole #10; this determined payouts for 1st and 2nd. Of the remaining 2 golfers to determine payout 3 and 4, the tie break came on hole # 5. We did all this manually/visually. Can we get this in xls formulas?? Thank you.<br>
+btw ... tie breaks is a common occurrence in golf so a formula solution would help many tournament organizers.</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=421182#respond" onclick="return addComment.moveForm( &quot;comment-421182&quot;, &quot;421182&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to bob denis">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-even depth-1" id="li-comment-427914">
+		<div id="comment-427914">
+		<div class="comment-author vcard">
+			<img alt="" src="./excel fungsi keceh_files/4eb0170cbc531bfeaaf539b52c80ed19.png" srcset="https://secure.gravatar.com/avatar/4eb0170cbc531bfeaaf539b52c80ed19?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Ramesh Pk</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#comment-427914">
+			June 22, 2019 at 10:25 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Excellent! after trying various methods, RANK.EQ($B2,$B$2:$B$7)+COUNTIFS($B$2:$B$7,$B2,$C$2:$C$7,"&gt;"&amp;$C2) really worked for ranking with 4 columns!<br>
+Thanks</p>
+</div>
+
+		<div class="reply">
+			<a rel="nofollow" class="comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/?replytocom=427914#respond" onclick="return addComment.moveForm( &quot;comment-427914&quot;, &quot;427914&quot;, &quot;respond&quot;, &quot;13841&quot; )" aria-label="Reply to Ramesh Pk">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+			</ol>
+
+<div class="hr"></div>
+
+<div id="respond">
+<h3>Post a comment</h3>
+<div class="cancel-comment-reply">
+        <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#respond" style="display:none;">Click here to cancel reply.</a></small>
+</div>
+
+
+<form action="https://www.ablebits.com/office-addins-blog/wp-comments-post.php" method="post" id="commentform">
+
+
+<p><input tabindex="1" type="text" name="author" id="author" value="" size="22" placeholder="Name" required="" autocomplete="name">
+<label for="author">Name </label></p>
+
+<p><input tabindex="2" type="text" name="email" id="email" value="" size="22" placeholder="name@example.com" autocomplete="email">
+<label for="email">E-mail (not published) </label></p>
+
+
+<textarea tabindex="3" name="comment" id="comment" rows="7"></textarea>
+
+<div id="submit-frame">
+<input tabindex="4" id="sendcomment" type="submit" value="Send" alt="Send comment">
+<input type="hidden" name="comment_post_ID" value="13841" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+<br><br>
+</div>
+<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="04cddb32ab"></p><p style="display: none;"></p><!-- <div class="sm-note">Please note that <b>we are on holiday until Sep-17</b>, so we won’t be able to reply to your comments for a while, sorry.</div>  -->
+<div class="sm-note">Unfortunately, due to the volume of comments received we cannot guarantee that we will be able to give you a timely response. When posting a question, please be very clear and concise. We thank you for understanding!</div>
+
+
+<input type="hidden" id="ak_js" name="ak_js" value="1563794298777"></form>
+
+
+</div>
+
+</div>
+</div><!-- #comments -->
+<!-- NAV -->
+
+
+</div> <!-- END: a19Section a19Section--Blog -->
+
+<!-- Menu -->
+<div id="id-SectionContainerMenu" class="a19SectionContainer a19SectionContainer--Menu">
+    <div id="id-TopMenu" class="a19TopMenu-Container">
+    <a class="a19TopMenu-Logo" href="https://www.ablebits.com/" title="Excel add-ins and Outlook tools - Ablebits.com"><img class="a19TopMenu-LogoImg" src="./excel fungsi keceh_files/ablebits-logo-desktop.svg" alt="Excel add-ins and Outlook tools - Ablebits.com" width="141" height="21"></a>
+    <nav>
+    <ul class="a19TopMenu-TopList">
+        <li class="a19TopMenu-TItem"><a href="https://www.ablebits.com/" class="a19TopMenu-TLink">Home</a></li>
+        <li class="a19TopMenu-TItem a19TopMenu-TItem--Dropdown"><a href="https://www.ablebits.com/addins.php" class="a19TopMenu-TLink a19TopMenu-TLink--Dropdown">Products</a>
+            <div class="a19TopMenu-SubListContainer a19TopMenu-SubListContainer--Products">
+                <div id="abTopMenuCategoriesNavigator" class="a19ProductMenu-Container">
+                    <div class="a19ProductMenu-CategoryLinksContainer">
+                        <a href="https://www.ablebits.com/excel-addins.php" class="a19ProductMenu-CategoryLink a19ProductMenu-CategoryLink--New a19ProductMenu-CategoryLink--Active" data-category-index="0">Excel Add-ins</a>
+                        <a href="https://www.ablebits.com/outlook-plugins.php" class="a19ProductMenu-CategoryLink a19ProductMenu-CategoryLink--New" data-category-index="1">Outlook Plug-ins</a>
+                        <a href="https://www.ablebits.com/excel-mac-addins.php" class="a19ProductMenu-CategoryLink" data-category-index="2">Excel Mac apps</a>
+                        <a href="https://www.ablebits.com/excel-online-addins.php" class="a19ProductMenu-CategoryLink" data-category-index="3">Excel online add-ins</a>
+                        <a href="https://www.ablebits.com/outlook-online-addins.php" class="a19ProductMenu-CategoryLink" data-category-index="4">Outlook online add-ins</a>
+                        <a href="https://www.ablebits.com/google-sheets-addons.php" class="a19ProductMenu-CategoryLink a19ProductMenu-CategoryLink--New" data-category-index="5">Google Sheets add-ons</a>
+                        <a href="https://www.ablebits.com/google-docs-addons.php" class="a19ProductMenu-CategoryLink" data-category-index="6">Google Docs add-ons</a>
+                        <a href="https://www.ablebits.com/word-addins.php" class="a19ProductMenu-CategoryLink" data-category-index="7">Word Add-ons</a>
+                        <a href="https://www.ablebits.com/development-tools.php" class="a19ProductMenu-CategoryLink" data-category-index="8">Development Tools</a>
+                    </div>
+                    <div class="a19ProductMenu-CategoriesContainer">
+                        <div class="a19ProductMenu-ProductsContainer" data-category="0">
+                            <div class="a19ProductMenu-CollectionContainer">
+                                <a href="https://www.ablebits.com/excel-suite/index.php" class="js-LogEvent a19ProductMenu-CollectionTitle" data-event="cta19-click;lp-ultimate-suite;top-menu-title">60+ professional tools in one Excel Suite</a>
+                                <div class="a19ProductMenu-CollectionText">This comprehensive set of time-saving tools will help you accomplish any task impeccably without errors or delays.</div>
+                                <a href="https://www.ablebits.com/excel-suite/index.php" class="js-LogEvent a19ProductMenu-CollectionButton a19ProductMenu-CollectionButton--More" data-event="cta19-click;lp-ultimate-suite;top-menu">Read More</a>
+                                <a href="https://www.ablebits.com/files/get.php?addin=xl-suite&amp;f=top-menu" class="js-LogEvent a19ProductMenu-CollectionButton a19ProductMenu-CollectionButton--Download" data-event="Download;xl-suite;top-menu">Free download</a>
+                            </div>
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Add-ins for Microsoft Excel 2019 - 2007</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/excel-lookup-tables/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--xl-merge-tables-excel">Merge Excel worksheets</a>
+                                <a href="https://www.ablebits.com/compare-excel-files/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductMenu-ProductLink--New a19ProductIcon--xl-compare">Compare Excel sheets</a>
+                                <a href="https://www.ablebits.com/excel-remove-duplicates/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--xl-duplicate-remover-excel">Remove duplicates in Excel</a>
+                                <a href="https://www.ablebits.com/excel-merge-cells/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--xl-merge-cells-wizard">Merge cells in Excel</a>
+
+                                <a href="https://www.ablebits.com/consolidate-worksheets-excel/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--2Line a19ProductIcon--xl-consolidate-worksheets">Combine and consolidate<br> Excel files</a>
+                                <a href="https://www.ablebits.com/excel-clean-cells/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductMenu-ProductLink--2Line a19ProductMenu-ProductLink--Update a19ProductIcon--xl-cell-cleaner">Text tools: trim spaces, split, extract, count, etc.</a>
+                                <a href="https://www.ablebits.com/excel-date-time-calculator/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--New a19ProductIcon--xl-date-wizard">Calculate dates and time</a>
+                                <a href="https://www.ablebits.com/excel-addins.php" class="a19ProductMenu-AllProductsLink">See all products</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="1">
+                            <div class="a19ProductMenu-CollectionContainer">
+                                <a href="https://www.ablebits.com/outlook-addins-collection/index.php" class="js-LogEvent a19ProductMenu-CollectionTitle" data-event="cta19-click;lp-outlook-collection;top-menu-title">Add-ins Collection for Outlook</a>
+                                <div class="a19ProductMenu-CollectionText">These 8 tools will boost your inbox productivity and simplify your emailing routine.</div>
+                                <a href="https://www.ablebits.com/outlook-addins-collection/index.php" class="js-LogEvent a19ProductMenu-CollectionButton a19ProductMenu-CollectionButton--More" data-event="cta19-click;lp-outlook-collection;top-menu">Read More</a>
+                                <a href="https://www.ablebits.com/files/get.php?addin=ol-collection&amp;f=top-menu" class="js-LogEvent a19ProductMenu-CollectionButton a19ProductMenu-CollectionButton--Download" data-event="Download;ol-collection;top-menu">Free download</a>
+                            </div>
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Plug-ins for Microsoft Outlook 2019 - 2007</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/outlook-templates-phrases/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--ol-template-phrases">Reply to email with template</a>
+                                <a href="https://www.ablebits.com/outlook-email-alert/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--ol-important-mail">Alerts for important email</a>
+                                <a href="https://www.ablebits.com/outlook-blind-carbon-copy-bcc-email-addins/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--ol-auto-bcc">Auto BCC in Outlook</a>
+                                <a href="https://www.ablebits.com/outlook-view-headers/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--ol-view-headers">Analyze email headers</a>
+                                <!-- <a href="/outlook-bcc-silent-email/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--ol-silent-bcc">Silent BCC for Outlook</a> -->
+                                <a href="https://www.ablebits.com/outlook-check-email/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--ol-outgoing-email-checker">Check e-mail before sending</a>
+                                <a href="https://www.ablebits.com/outlook-sender-timezone/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--ol-sender-timezone">See sender's time-zone</a>
+                                <a href="https://www.ablebits.com/outlook-plugins.php" class="a19ProductMenu-AllProductsLink">See all products</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="2">
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Apps for Excel for Mac</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/merge-worksheets-excel-mac/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--xl-mac-merge-tables">Merge two worksheets</a>
+                                <a href="https://www.ablebits.com/excel-mac-count-sum-color/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--xl-mac-count-sum-color">Count &amp; Sum colored cells</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="3">
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Add-ins for Microsoft Excel online</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/excel-online/duplicate-remover/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--xlo-duplicate-remover">Duplicate Remover for Excel Online</a>
+                                <a href="https://www.ablebits.com/excel-online/text-to-columns/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--xlo-text2columns">Split text to columns</a>
+                                <a href="https://www.ablebits.com/excel-online/advanced-find-replace/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--xlo-find-replace">Advanced Find and Replace </a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="4">
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Add-ins for Microsoft Outlook online</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/outlook-online/template-phrases/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--2Line a19ProductIcon--olo-template-phrases">Template Phrases for Outlook Online</a>
+                                <a href="https://www.ablebits.com/outlook-online/attachments/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductMenu-ProductLink--2Line a19ProductIcon--olo-attachments">Attachments for Outlook Online</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="5">
+                            <div class="a19ProductMenu-CollectionContainer">
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/power-tools/index.php" class="js-LogEvent a19ProductMenu-CollectionTitle" data-event="cta19-click;lp-power-tools;top-menu-title">20+ tools to boost your Google Sheets</a>
+                                <div class="a19ProductMenu-CollectionText">This smart package will ease many routine operations and solve complex tedious tasks in your spreadsheets.</div>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/power-tools/index.php" class="js-LogEvent a19ProductMenu-CollectionButton a19ProductMenu-CollectionButton--More" data-event="cta19-click;lp-power-tools;top-menu">Read More</a>
+                                <a href="https://www.ablebits.com/files/get.php?addin=gs-power-tools&amp;f=top-menu" class="js-LogEvent a19ProductMenu-CollectionButton a19ProductMenu-CollectionButton--Download" data-event="Download;gs-power-tools;top-menu">Try it for free</a>
+                            </div>
+
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Add-ons for Google Sheets</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <!-- <a href="/google-sheets-add-ons/power-tools/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--gs-power-tools">Power Tools</a> -->
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/merge-sheets/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--gs-merge-tables">Merge Sheets</a>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/merge-values/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--gs-merge-values">Merge Values</a>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/remove-duplicates/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--gs-remove-duplicates">Remove Duplicates</a>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/combine-duplicate-rows/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--New a19ProductMenu-ProductLink--Right a19ProductIcon--gs-combine-duplicates">Combine Duplicate Rows</a>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/combine-sheets/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--New a19ProductIcon--gs-combine-sheets">Combine Sheets</a>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/find-replace/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--gs-find-replace">Find &amp; Replace</a>
+                                <a href="https://www.ablebits.com/google-sheets-add-ons/split-names/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--gs-split-names">Split Names</a>
+                                <a href="https://www.ablebits.com/google-sheets-addons.php" class="a19ProductMenu-AllProductsLink">See all products</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="6">
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Add-ons for Google Docs</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/google-docs-add-ons/doc-explorer/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--gd-doc-explorer">Search &amp; Navigate</a>
+                                <a href="https://www.ablebits.com/google-docs-add-ons/doc-tools/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--gd-doc-tools">Doc Tools</a>
+                                <a href="https://www.ablebits.com/google-docs-add-ons/styles/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--gd-styles">Styles for Google Docs</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="7">
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Add-ons for Microsoft Word 2013 - 2007</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/word-links-checker/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--wd-link-checker">Find broken links</a>
+                            </div>
+                        </div>
+                        <div class="a19ProductMenu-ProductsContainer a19ProductMenu-ProductsContainer--Hide" data-category="8">
+                            <div class="a19ProductMenu-HostTitleContainer"><span class="a19ProductMenu-HostTitle">Development Tools</span></div>
+                            <div class="a19ProductMenu-ProductLinksContainer">
+                                <a href="https://www.ablebits.com/addin-express/net.php" class="a19ProductMenu-ProductLink a19ProductIcon--dt-adx-net">Create Office add-ins in .NET</a>
+                                <a href="https://www.ablebits.com/addin-express/delphi.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductMenu-ProductLink--2Line a19ProductIcon--dt-adx-vcl">Develop Office plug-ins in Delphi</a>
+                                <a href="https://www.ablebits.com/internet-explorer-addons/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--dt-adx-ie">Program IE add-ons</a>
+                                <a href="https://www.ablebits.com/programming-outlook-security/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--dt-outlook-secyurity-manager">Disable Outlook security</a>
+                                <a href="https://www.ablebits.com/designer-wix-setup-projects/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--dt-wix-designer">Designer for WiX setup projects</a>
+                                <a href="https://www.ablebits.com/vdproj-wix-converter/index.php" class="a19ProductMenu-ProductLink a19ProductMenu-ProductLink--Right a19ProductIcon--dt-vdproj2wix-converter">VDProj to WiX Converter</a>
+                                <a href="https://www.ablebits.com/outlook-forms-views/index.php" class="a19ProductMenu-ProductLink a19ProductIcon--dt-adx-extensions-outlook">Customize Outlook forms and views</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="a19TopMenu-TItem a19TopMenu-TItem--Dropdown"><a href="https://www.ablebits.com/downloads/index.php" class="a19TopMenu-TLink a19TopMenu-TLink--Dropdown">Download</a>
+            <div class="a19TopMenu-SubListContainer"><ul class="a19TopMenu-SubList">
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/downloads/index.php">Actual versions</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/downloads/archived.php">Archived versions</a></li>
+            </ul></div>
+        </li>
+
+        <li class="a19TopMenu-TItem"><a href="https://www.ablebits.com/docs/" class="a19TopMenu-TLink a19TopMenu-TLink">Docs</a></li>
+        <li class="a19TopMenu-TItem a19TopMenu-TItem--Dropdown"><a href="https://www.ablebits.com/support/index.php" class="a19TopMenu-TLink a19TopMenu-TLink--Dropdown">Support</a>
+            <div class="a19TopMenu-SubListContainer"><ul class="a19TopMenu-SubList">
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/support/index.php">Contact support service</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/support/bug-report.php">Report a bug</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/docs/">Frequently asked questions</a></li>
+            </ul></div>
+        </li>
+
+        <li class="a19TopMenu-TItem"><a href="https://www.ablebits.com/office-addins-blog/" class="a19TopMenu-TLink a19TopMenu-TLink a19TopMenu-TLink--Active">Blog</a></li>
+        <li class="a19TopMenu-TItem"><a href="https://www.ablebits.com/about-us.php" class="a19TopMenu-TLink">About us</a></li>
+        <li class="a19TopMenu-TItem a19TopMenu-TItem--Dropdown"><a href="https://www.ablebits.com/purchase/index.php" class="a19TopMenu-TLink a19TopMenu-TLink--Dropdown">Purchase</a>
+            <div class="a19TopMenu-SubListContainer"><ul class="a19TopMenu-SubList">
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/purchase/index.php">Buy online</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/purchase/customers-say.php">Customers say</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/docs/microsoft-office-add-ins-purchasing/">Purchasing FAQ</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/docs/microsoft-office-add-ins-licensing/">Licensing FAQ</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/docs/microsoft-office-add-ins-purchasing/#provide-formal-quotes">Get a Formal Quote</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/docs/microsoft-office-add-ins-purchasing/#place-purchase-order">Purchase Orders</a></li>
+                <li class="a19TopMenu-SItem"><a class="a19TopMenu-SLink" href="https://www.ablebits.com/docs/ablebits-eula/">License Agreement (EULA)</a></li>
+            </ul></div>
+        </li>
+    </ul>
+    </nav>
+    <div class="a19TopMenu-Burger" id="id-MobileBurger"></div>
+    <div class="a19TopMenuMobile" id="id-MobileMenu">
+        <div class="a19TopMenuMobile-ListContainer">
+            <ul class="a19TopMenuMobile-List">
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/">Home</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/addins.php">Products</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/downloads/index.php">Downloads</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/docs/">Docs</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/support/index.php">Support</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/office-addins-blog/">Blog</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/about-us.php">About us</a></li>
+                <li><a class="a19TopMenuMobile-Link" href="https://www.ablebits.com/purchase/index.php">Purchase</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="a19SectionContainer a19SectionContainer--Footer"><div class="a19Section a19Section--Footer">
+	<div class="a19Footer-SocialButtons"><a href="https://www.facebook.com/ablebits" title="Ablebits.com on Facebook" data-event="cta19-click;2social;Facebook" class="js-LogEvent a19Footer-Button a19Footer-Button--Facebook"></a><a title="Ablebits Youtube channel" href="https://www.youtube.com/Ablebits" data-event="cta19-click;2social;Youtube" class="js-LogEvent a19Footer-Button a19Footer-Button--Youtube"></a></div>
+    <div class="a19Footer-Copyright">Copyright © 2003 - 2019 4Bits Ltd. All rights reserved. &nbsp; <a class="a19Footer-Link" href="https://www.ablebits.com/docs/ablebits-privacy-policy/">Privacy&nbsp;policy</a> &nbsp; <a class="a19Footer-Link" href="https://www.ablebits.com/docs/ablebits-terms-of-use/">Terms&nbsp;of&nbsp;use</a> &nbsp; <a class="a19Footer-Link" href="https://www.ablebits.com/support/index.php">Contact&nbsp;us</a></div>
+    <div class="a19Footer-Copyright a19Footer-Copyright--Microsoft">Microsoft and the Office logos are trademarks or registered trademarks of Microsoft Corporation. Google Chrome is a trademark of Google LLC.</div>
+</div></div>
+
+
+
+<script type="text/javascript">
+	var bnBlogId = "v2018-autumn-01";
+	var bnQuotesNumber = 19;
+	var bnDelayTime = 2500;
+	var bnQuotesAnimationInterval = 5000;
+</script>
+<a id="bn-maximize" class="a19BnSuiteSmall-Link" href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#" title="Ultimate Suite for Excel - 60+ professional tools to do your daily work"><div id="common-floatbanner-small" class="a19BnSuiteSmall-Pane"><div id="id-bnSuiteRibbonSmall" class="a19BnSuiteSmall-Ribbon" style="width: 3798px;"></div><div class="a19BnSuiteSmall-Text a19BnSuiteSmall-Text--Standard">Ultimate Suite 2018.5 for Excel</div></div></a>
+
+<div id="common-floatbanner-big" class="a19BnSuiteFull-Pane" style="display: block; bottom: 0px;"><a href="https://www.ablebits.com/excel-suite/index.php" id="bn-br5-offer" class="ga-bn-event" title="" style="width: 1349px;"><div class="a19BnSuiteFull-CTA a19BnSuiteFull-CTA--Standard"><div id="bn-br5-says-0" style="display: none; opacity: 0;" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Intro">60+ professional tools for Excel 2019-2007 to do your daily work</div><div class="a19BnSuiteReview-Author a19BnSuiteReview-Author--NoAuthor"></div></div><div id="bn-br5-says-1" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text">Incredible product, even better tech support…AbleBits totally delivers!</div><div class="a19BnSuiteReview-Author">Deborah Bryant</div></div><div id="bn-br5-says-2" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text">Anyone who works with Excel is sure to find their work made easier</div><div class="a19BnSuiteReview-Author">Jackie Lee</div></div><div id="bn-br5-says-3" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text">The best spent money on software I've ever spent!</div><div class="a19BnSuiteReview-Author">Patrick Raugh</div></div><div id="bn-br5-says-4" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text">Ablebits is a fantastic product - easy to use and so efficient.</div><div class="a19BnSuiteReview-Author">Debra Celmer</div></div><div id="bn-br5-says-5" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">Excel is at its best now</div><div class="a19BnSuiteReview-Author">Annie C.</div></div><div id="bn-br5-says-6" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text">I don't know how to thank you enough for your Excel add-ins</div><div class="a19BnSuiteReview-Author">Jennifer Morningstar</div></div><div id="bn-br5-says-7" class="a19BnSuiteReview-Container" style="opacity: 0; display: none;"><div class="a19BnSuiteReview-Text">Anybody who experiences it, is bound to love it!</div><div class="a19BnSuiteReview-Author">Kumar Nepa</div></div><div id="bn-br5-says-8" class="a19BnSuiteReview-Container" style="opacity: 1; display: block;"><div class="a19BnSuiteReview-Text">AbleBits suite has really helped me when I was in a crunch!</div><div class="a19BnSuiteReview-Author">Nelda Fink</div></div><div id="bn-br5-says-9" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text">I have enjoyed every bit of it and time am using it</div><div class="a19BnSuiteReview-Author">Christian Onyekachi Nwosu</div></div><div id="bn-br5-says-10" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">It's the best $100 we've ever spent!</div><div class="a19BnSuiteReview-Author">Mike Cavanagh</div></div><div id="bn-br5-says-11" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text">I love the program, and I can't imagine using Excel without it!</div><div class="a19BnSuiteReview-Author">Robert Madsen</div></div><div id="bn-br5-says-12" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">One word… WOW!</div><div class="a19BnSuiteReview-Author">Dave Brown</div></div><div id="bn-br5-says-13" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">Love the products!</div><div class="a19BnSuiteReview-Author">David Johnston</div></div><div id="bn-br5-says-14" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text">It is like having an expert at my shoulder helping me…</div><div class="a19BnSuiteReview-Author">Linda Shakespeare</div></div><div id="bn-br5-says-15" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">Your software really helps make my job easier</div><div class="a19BnSuiteReview-Author">Jeannie C.</div></div><div id="bn-br5-says-16" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text">Thanks for a terrific product that is worth every single cent!</div><div class="a19BnSuiteReview-Author">Dianne Young</div></div><div id="bn-br5-says-17" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">I love your product</div><div class="a19BnSuiteReview-Author">Brad Gibson</div></div><div id="bn-br5-says-18" class="a19BnSuiteReview-Container"><div class="a19BnSuiteReview-Text a19BnSuiteReview-Text--Big">Awesome!!!</div><div class="a19BnSuiteReview-Author">Sheila Blanchard</div></div></div><div class="a19BnSuiteFull-Menu">&nbsp;</div><div class="a19BnSuiteFull-RibbonContainer"><div id="id-bnBigRibbonTooltip" class="a19BnSuiteFull-RibbonTooltip" style="display: block; left: 588px; bottom: 64px;"><p><b>Find Broken Links</b> – find and fix broken formula references to other workbooks.</p></div><div id="id-bnBigRibbonHighlight" class="a19BnSuiteFull-RibbonHighlight" style="left: 568px; top: 27px; width: 122px; height: 23px;"></div><div id="id-bnSuiteRibbonFull" class="a19BnSuiteFull-Ribbon" style="width: 3798px; left: -1492px;"></div></div></a><a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#" id="bn-minimize" class="a19BnSuiteFull-Minimize a19BnSuiteFull-Minimize--Standard">&nbsp;</a>
+</div>
+<script defer="" src="./excel fungsi keceh_files/jquery.min.js.download"></script>
+
+<div class="essb_links essb_counters essb_displayed_sidebar essb_share essb_sidebar_transition essb_template_round-retina essb_template_modern-light-retina essb_1083519341 essb_icon_animation13 essb_nospace essb_mobile_hidden print-no" id="essb_displayed_sidebar_1083519341" data-essb-postid="13841" data-essb-position="sidebar" data-essb-button-style="icon_hover" data-essb-template="round-retina essb_template_modern-light-retina" data-essb-counter-pos="hidden" data-essb-url="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/" data-essb-twitter-url="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/" data-essb-instance="1083519341"><ul class="essb_links_list essb_hide_name"><li class="essb_item essb_totalcount_item essb_totalcount_item_before" data-counter-pos="hidden"><span class="essb_totalcount essb_t_before" title=""><span class="essb_t_nb">104</span> shares</span></li><li class="essb_item essb_link_facebook nolightbox"> <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;t=Excel+RANK+functions+with+formula+examples" title="" onclick="essb.window(&#39;https://www.facebook.com/sharer/sharer.php?u=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;t=Excel+RANK+functions+with+formula+examples&#39;,&#39;facebook&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_facebook"></span><span class="essb_network_name">Share</span></a><span class="essb_counter_hidden" data-cnt="8" data-cnt-short=""></span></li><li class="essb_item essb_link_buffer nolightbox"> <a href="https://bufferapp.com/add?url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;text=Excel+RANK+functions+with+formula+examples&amp;via=&amp;picture=&amp;count=horizontal&amp;source=button" title="" onclick="essb.window(&#39;https://bufferapp.com/add?url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;text=Excel+RANK+functions+with+formula+examples&amp;via=&amp;picture=&amp;count=horizontal&amp;source=button&#39;,&#39;buffer&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_buffer"></span><span class="essb_network_name">Share</span></a><span class="essb_counter_hidden" data-cnt="4" data-cnt-short=""></span></li><li class="essb_item essb_link_flipboard nolightbox"> <a href="https://share.flipboard.com/bookmarklet/popout?url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;title=Excel+RANK+functions+with+formula+examples" title="" onclick="essb.window(&#39;https://share.flipboard.com/bookmarklet/popout?url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;title=Excel+RANK+functions+with+formula+examples&#39;,&#39;flipboard&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_flipboard"></span><span class="essb_network_name">Flipboard</span></a><span class="essb_counter_hidden" data-cnt="17" data-cnt-short=""></span></li><li class="essb_item essb_link_linkedin nolightbox"> <a href="https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=EasySocialShareButtons&amp;title=Excel+RANK+functions+with+formula+examples&amp;url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/" title="" onclick="essb.window(&#39;https://www.linkedin.com/shareArticle?mini=true&amp;ro=true&amp;trk=EasySocialShareButtons&amp;title=Excel+RANK+functions+with+formula+examples&amp;url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&#39;,&#39;linkedin&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_linkedin"></span><span class="essb_network_name">Share</span></a><span class="essb_counter_hidden" data-cnt="12" data-cnt-short=""></span></li><li class="essb_item essb_link_pocket nolightbox"> <a href="https://getpocket.com/save?title=Excel+RANK+functions+with+formula+examples&amp;url=https%3A%2F%2Fwww.ablebits.com%2Foffice-addins-blog%2F2017%2F09%2F06%2Fexcel-rank-functions%2F" title="" onclick="essb.window(&#39;https://getpocket.com/save?title=Excel+RANK+functions+with+formula+examples&amp;url=https%3A%2F%2Fwww.ablebits.com%2Foffice-addins-blog%2F2017%2F09%2F06%2Fexcel-rank-functions%2F&#39;,&#39;pocket&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_pocket"></span><span class="essb_network_name">Pocket</span></a><span class="essb_counter_hidden" data-cnt="13" data-cnt-short=""></span></li><li class="essb_item essb_link_twitter nolightbox"> <a href="https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/#" title="" onclick="essb.window(&#39;https://twitter.com/intent/tweet?text=Excel+RANK+functions+with+formula+examples&amp;url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;counturl=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&#39;,&#39;twitter&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_twitter"></span><span class="essb_network_name">Twitter</span></a><span class="essb_counter_hidden" data-cnt="10" data-cnt-short=""></span></li><li class="essb_item essb_link_reddit nolightbox"> <a href="http://reddit.com/submit?url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;title=Excel+RANK+functions+with+formula+examples" title="" onclick="essb.window(&#39;http://reddit.com/submit?url=https://www.ablebits.com/office-addins-blog/2017/09/06/excel-rank-functions/&amp;title=Excel+RANK+functions+with+formula+examples&#39;,&#39;reddit&#39;,&#39;1083519341&#39;); return false;" target="_blank" rel="nofollow" class="nolightbox"><span class="essb_icon essb_icon_reddit"></span><span class="essb_network_name">Reddit</span></a><span class="essb_counter_hidden" data-cnt="0" data-cnt-short=""></span></li></ul></div><script async="async" type="text/javascript" src="./excel fungsi keceh_files/form.js.download"></script>
+<link rel="stylesheet" id="essb-compiled-css" href="./excel fungsi keceh_files/2566c291e59e185c12a331fef1e235f3.css" type="text/css" media="all"><script type="text/javascript" src="./excel fungsi keceh_files/2566c291e59e185c12a331fef1e235f3.js.download" async=""></script></div> <!-- main-frame -->
+
+	<script defer="" src="./excel fungsi keceh_files/blog-v114.js.gz"></script>
+
+
+
+
+<script defer="" src="./excel fungsi keceh_files/cookieconsent.min.js.download"></script>
+<script>
+window.addEventListener("load", function(){
+
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#0095d7"
+
+    },
+    "button": {
+      "background": "#fff",
+      "text": "#333333"
+    }
+  },
+onStatusChange: function(status) {
+	try {ga('send', 'event', 'cookieconsent', 'accept cookie', '');	}catch(e) {}
+    },
+
+onPopupOpen: function() {
+	try {ga('send', 'event', 'cookieconsent', 'show', '');}	catch(e) {}
+},
+  "position": "top",
+  "static": true,
+  "location": false,
+  "content": {
+    "message": "This website uses cookies to ensure we give you the best experience and service. By accessing this site, you consent to the use of cookies. For more information, refer to",
+    "link": "Ablebits Privacy Policy",
+    "href": "https://www.ablebits.com/docs/ablebits-privacy-policy/"
+  }
+})});
+</script>
+
+<script>
+var sPageID="blog";
+var bLoadTabsUI=false;
+window.addEventListener("load", function(){
+	if( null==AbCommon.readCookie("ab-lpage")) {
+		AbCommon.writeCookie("ab-lpage",window.location.pathname,15552000);
+	};
+});
+</script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-3022676-2', 'auto', {'allowLinker': true });
+ga('require', 'linker'); ga('linker:autoLink', ['shareit.com'], false, true);
+ga('set', 'dimension1', "\"" + window.devicePixelRatio + "\"");
+ga('send', 'pageview');
+</script>
+
+
+<!-- Dynamic page generated in 0.184 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2019-07-22 10:37:25 -->
+
+<!-- Compression = gzip --><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 184px; display: none; top: 392px; position: absolute; left: 949px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body></html>
