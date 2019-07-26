@@ -8,10 +8,12 @@
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
+	<!-- load headernya-->
     <?php $this->load->view("main/header.php") ?>
+    <!--load main-sidebarnya-->
     <?php $this->load->view("main/main-sidebar.php") ?>
 	<!-- Content Wrapper. Contains page content -->
-	  <div class="content-wrapper">
+	<div class="content-wrapper">
 	    <!-- Content Header (Page header) -->
 	    <section class="content-header">
 	      <h1>
@@ -221,11 +223,10 @@
 	      <!-- /.row -->
 	    </section>
 	    <!-- /.content -->
-	  </div>
-	  <!-- /.content-wrapper -->
-  <?php $this->load->view("main/footer.php") ?>
-		
-		
+	</div>
+	<!-- /.content-wrapper -->
+	<!--footer-->
+	<?php $this->load->view("main/footer.php") ?>	
   	<div class="control-sidebar-bg"></div>
   </div>
   <?php $this->load->view("main/script.php") ?>
