@@ -1,1 +1,6 @@
-thead, th {text-align: center;}
+thead th {
+	text-align: center;
+}
+tr {
+	text-align: center;
+}

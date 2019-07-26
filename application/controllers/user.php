@@ -10,7 +10,16 @@ class user extends CI_Controller{
  
   function index()
   {
-    $this->load->view('user/index');
+  	$data = [
+		'title'		=> 'User'
+		// 'css'   	=> [
+            
+  //       ],
+		// 'js' 		=> [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+	];
+    $this->load->view('user/index', $data);
   }
  
 }

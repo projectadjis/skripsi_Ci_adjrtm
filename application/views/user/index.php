@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 2 | Dashboard</title>
+	<title>
+	<?php 
+		echo $title;
+	?>		
+	</title>
 	<?php $this->load->view("main/head.php") ?>
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
@@ -17,7 +21,7 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				User
+				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modaladd' data-remote='false' data-backdrop='static'>ADD</a>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-user"></i> User</a></li>
@@ -63,6 +67,35 @@
 		<!-- /.content -->
 	</div>
 	<!-- /.content-wrapper -->
+	<!-- MODAL ADD -->
+	<div class="modal fade" id="modaladd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">Add User</h4>
+	            </div>
+	            <div class="modal-body">
+		            <div class="tab-content clearfix">
+					    <div class="tab-pane active">
+					        <form method="post" action="<?php echo base_url('Employee/save'); ?>">
+					            <div class="form-group">
+					                <label>Nik</label>
+					                <input type="text" name="employee_nik" id="employee_nik" class="form-control" required>
+					            </div>  
+					            <div class="form-group">
+					                <label>Name</label>
+					                <input type="text" name="employee_nama" id="employee_nama" class="form-control" required>
+					            </div>
+					            </div>
+					            <input type="submit" name="submit" id="submit" class="btn btn-success submit" value="Save" style="width: 100%;"> 
+					        </form>
+					    </div>
+					</div> 
+	            </div>
+	        </div>
+	    </div>
+	</div>
 	<!--footer-->
 	<?php $this->load->view("main/footer.php") ?>	
   	<div class="control-sidebar-bg"></div>
