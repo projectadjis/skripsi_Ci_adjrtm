@@ -4,3 +4,6 @@ thead th {
 tr {
 	text-align: center;
 }
+button[type=submit], button[type=reset] {
+    width: 40%;
+}

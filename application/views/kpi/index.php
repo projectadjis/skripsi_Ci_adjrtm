@@ -136,8 +136,8 @@
 					</div>
 					<!--/.col (right) -->
 					<div class="box-footer">
-						<button type="submit" class="btn btn-success pull-right">Save</button><br>
-		                <button type="reset" class="btn btn-danger" style="margin-left:960px;">Cancel</button>
+						<button type="submit" class="btn btn-success pull-right">Save</button>
+		                <button type="reset" class="btn btn-warning">Reset</button>
 		            </div>
 			</div>
 				<!-- /.row -->

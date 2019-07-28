@@ -83,18 +83,18 @@
 	            <div class="modal-body">
 		            <div class="tab-content clearfix">
 					    <div class="tab-pane active">
-					        <form method="post" action="<?php echo base_url('Employee/save'); ?>">
-					            <div class="form-group">
-					                <label>Nik</label>
-					                <input type="text" name="employee_nik" id="employee_nik" class="form-control" required>
-					            </div>  
 					            <div class="form-group">
 					                <label>Name</label>
-					                <input type="text" name="employee_nama" id="employee_nama" class="form-control" required>
+					                <input type="text" name="karyawan_name" class="form-control" required>
+					            </div>  
+					            <div class="form-group">
+					                <label>Position</label>
+					                <input type="text" name="karyawan_position" class="form-control" required>
 					            </div>
+					            <div class="box-footer">
+									<button type="submit" class="btn btn-success pull-right" id="adjis">Save</button>
+					                <button type="reset" class="btn btn-warning">Reset</button>
 					            </div>
-					            <input type="submit" name="submit" id="submit" class="btn btn-success submit" value="Save" style="width: 100%;"> 
-					        </form>
 					    </div>
 					</div> 
 	            </div>
