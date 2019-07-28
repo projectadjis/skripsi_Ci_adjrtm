@@ -47,13 +47,20 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td><button type="button" class="btn bg-maroon" style="pointer-events: none;">Approved</button></td>
-										<td><a href="" class="btn btn-success"><i class="fa fa-bar-chart-o"></i>&nbsp;KPI</a></td>
-									</tr>
+									<?php
+								        $count = 0;
+								        foreach($karyawan->result() as $row){
+								            $count++;
+								            echo "<tr>";
+								            echo "<td>$count</td>";
+								            echo "<td>$row->karyawan_name</td>";
+								            echo "<td>$row->karyawan_position</td>";
+								            echo "<td>$row->karyawan_status</td>";
+								            // echo "<td><button type='button' class='btn bg-maroon' style='pointer-events: none;'>Approved</button></td>";
+								            echo "<td><a href='' class='btn btn-success'><i class='fa fa-bar-chart-o'></i>&nbsp;KPI</a></td>";
+								            echo "</tr>";
+								        }
+								    ?>
 								</tbody>
 							</table>
 						</div>

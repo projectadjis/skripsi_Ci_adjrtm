@@ -12,13 +12,14 @@ class user extends CI_Controller{
   function index()
   {
   	$data = [
-		'title'		=> 'User'
+		'title'		=> 'User',
 		// 'css'   	=> [
             
   //       ],
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
+        'karyawan' => $this->m_user->get_karyawan()
 	];
     $this->load->view('user/index', $data);
   }
@@ -26,7 +27,7 @@ class user extends CI_Controller{
   function save()
   {
     $data                = $this->input->post();
-    $save                = $this->m_user->insert_user($data);
+    $save                = $this->M_user->insert_user($data);
     $hasil               = [];
     if ($save > 0) {
         $hasil['pesan']  = "Data has been saved";

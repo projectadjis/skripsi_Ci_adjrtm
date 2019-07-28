@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 class M_user extends CI_Model {
 
-    private $table;
+    public $table;
 
     function __construct() {
         parent::__construct();
@@ -28,6 +28,12 @@ class M_user extends CI_Model {
     function insert_user($data) {
         $this->db->insert($this->table, $data);
         return $this->db->affected_rows();
+    }
+
+    function get_karyawan() {
+        $this->db->order_by("karyawan_id", 'desc');
+        $q = $this->db->get('tb_karyawan');
+        return $q;
     }
 
 	function _get_datatables_query($term='')
