@@ -21,7 +21,8 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modaladd' data-remote='false' data-backdrop='static'>ADD</a>
+				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modaladd' data-remote='false' data-backdrop='static'>ADD</a>&nbsp;
+				<button class="btn btn-success adjis-toastr">COBA TOASTR</button>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-user"></i> User</a></li>
