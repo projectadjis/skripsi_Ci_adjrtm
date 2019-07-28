@@ -32,6 +32,8 @@
   <!-- DataTables -->
   <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <!-- Toastr -->
+  <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/toastr/toastr.min.js"></script>
   
   <!-- SELECT2 -->
   <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/select2/dist/js/select2.js"></script>

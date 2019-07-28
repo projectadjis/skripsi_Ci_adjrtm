@@ -1,1 +1,9 @@
-thead, th {text-align: center;}
+thead th {
+	text-align: center;
+}
+tr {
+	text-align: center;
+}
+button[type=submit], button[type=reset] {
+    width: 40%;
+}

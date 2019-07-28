@@ -3,7 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 2 | Dashboard</title>
+	<title>
+	<?php 
+		echo $title;
+	?>		
+	</title>
 	<?php $this->load->view("main/head.php") ?>
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
@@ -17,7 +21,8 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				User
+				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modaladd' data-remote='false' data-backdrop='static'>ADD</a>&nbsp;
+				<button class="btn btn-success adjis-toastr">COBA TOASTR</button>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-user"></i> User</a></li>
@@ -42,13 +47,20 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td><button type="button" class="btn bg-maroon" style="pointer-events: none;">Approved</button></td>
-										<td><a href="" class="btn btn-success"><i class="fa fa-bar-chart-o"></i>&nbsp;KPI</a></td>
-									</tr>
+									<?php
+								        $count = 0;
+								        foreach($karyawan->result() as $row){
+								            $count++;
+								            echo "<tr>";
+								            echo "<td>$count</td>";
+								            echo "<td>$row->karyawan_name</td>";
+								            echo "<td>$row->karyawan_position</td>";
+								            echo "<td>$row->karyawan_status</td>";
+								            // echo "<td><button type='button' class='btn bg-maroon' style='pointer-events: none;'>Approved</button></td>";
+								            echo "<td><a href='' class='btn btn-success'><i class='fa fa-bar-chart-o'></i>&nbsp;KPI</a></td>";
+								            echo "</tr>";
+								        }
+								    ?>
 								</tbody>
 							</table>
 						</div>
@@ -64,8 +76,39 @@
 	</div>
 	<!-- /.content-wrapper -->
 	<!--footer-->
-	<?php $this->load->view("main/footer.php") ?>	
+	<?php $this->load->view("main/footer.php");?>	
   	<div class="control-sidebar-bg"></div>
+  	
+	<!-- MODAL ADD -->
+	<div class="modal fade" id="modaladd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">Add User</h4>
+	            </div>
+	            <div class="modal-body">
+		            <div class="tab-content clearfix">
+					    <div class="tab-pane active">
+					            <div class="form-group">
+					                <label>Name</label>
+					                <input type="text" name="karyawan_name" class="form-control" required>
+					            </div>  
+					            <div class="form-group">
+					                <label>Position</label>
+					                <input type="text" name="karyawan_position" class="form-control" required>
+					            </div>
+					            <div class="box-footer">
+									<button type="submit" class="btn btn-success pull-right" id="adjis">Save</button>
+					                <button type="reset" class="btn btn-warning">Reset</button>
+					            </div>
+					    </div>
+					</div> 
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- END MODAL ADD -->
   </div>
   <?php $this->load->view("main/script.php") ?>
 </body>

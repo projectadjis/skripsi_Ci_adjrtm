@@ -105,6 +105,27 @@ LIBS = {
 		      'info'        : true,
 		      'autoWidth'   : true
 		})
+	},
+	_ajax: function (toUrl, toData) {
+		//var finalUrl = (!/^(f|ht)tps?:\/\//i.test(toUrl) ? (options.siteUrl + toUrl) : toUrl)
+		var getUrl   = window.location;
+		var baseUrl  = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		var finalUrl = baseUrl+"/"+toUrl
+		return $.ajax({
+			type: 'post',
+			url: finalUrl,
+			data: toData,
+		})
+	},
+	_jsonToQueryString: function (obj) {
+		var str = [];
+		for (var p in obj) {
+			if (obj.hasOwnProperty(p)) {
+				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+			}
+		}
+
+		return str.join("&");
 	}
 	
 
