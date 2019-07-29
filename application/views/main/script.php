@@ -35,7 +35,7 @@
   <!-- Toastr -->
   <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/toastr/toastr.min.js"></script>
   <!-- SELECT2 -->
-  <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/select2/dist/js/select2.js"></script>
+  <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/select2/dist/js/select2.full.min.js"></script>
   <!-- SWEET ALERT -->
   <script src="<?php echo base_url(); ?>assets/adminlte/bower_components/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
   <?php 

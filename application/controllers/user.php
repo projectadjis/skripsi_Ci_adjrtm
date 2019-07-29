@@ -7,6 +7,7 @@ class user extends CI_Controller{
   {
     parent::__construct();
     $this->load->model('m_user');
+    $this->load->model('m_position');
   }
  
   function index()
@@ -19,7 +20,8 @@ class user extends CI_Controller{
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
-        'karyawan' => $this->get_karyawan()
+        'karyawan' => $this->get_karyawan(),
+        'position' => $this->get_position()
 	];
     $this->load->view('user/index', $data);
   }
@@ -42,6 +44,11 @@ class user extends CI_Controller{
   function get_karyawan()
   {
     return $this->m_user->get_karyawan();
+  }
+
+  function get_position()
+  {
+    return $this->m_position->get_position();
   }
 
   function get_data_karyawan()

@@ -7,3 +7,6 @@ tr {
 button[type=submit], button[type=reset] {
     width: 40%;
 }
+select .select2 {
+	width: 100%;
+}

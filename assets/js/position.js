@@ -1,4 +1,4 @@
-weight_criteria = {
+position = {
 
 	__construct() {
 
@@ -6,8 +6,15 @@ weight_criteria = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#weight-criteria')
-			weight_criteria.save._save()
+			LIBS._dataTable('#position-table')
+			LIBS._modalDelete('#position-table','.delete_record','position-id','#modalDelete','input[name="position_id"]')
+			position.save._save()
+			position.delete._delete()
+		},
+		_buttonReset(){
+			$('#button-reset').on('click',function(){
+	            $('input[name="position_name"]').val('');
+	        })
 		},
 
 	},
@@ -19,12 +26,9 @@ weight_criteria = {
 		_save(){
 			$('#button-save').on('click',function(){
 	            let args = {
-					weight_criteria_teknispekerjaan	  : $('input[name="weight_criteria_teknispekerjaan"]').val(),
-					weight_criteria_nonteknispekerjaan: $('input[name="weight_criteria_nonteknispekerjaan"]').val(),
-					weight_criteria_kepribadian	      : $('input[name="weight_criteria_kepribadian"]').val(),
-					weight_criteria_keterampilan	  : $('input[name="weight_criteria_keterampilan"]').val()
+					position_name	  : $('input[name="position_name"]').val(),
 				}
-	            LIBS._ajax("weight/weight_criteria/save", LIBS._jsonToQueryString(args)).done((res) => {
+	            LIBS._ajax("position/save", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
 						let objek = $.parseJSON(res)
 		                if (objek.status == 1) {
@@ -46,9 +50,9 @@ weight_criteria = {
 		_delete(){
 			$('#button-delete').on('click',function(){
 	            let args = {
-					weight_criteria_id	  : $('input[name="weight_criteria_id"]').val()
+					position_id	  : $('input[name="position_id"]').val()
 				}
-	            LIBS._ajax("weight/weight_criteria/delete", LIBS._jsonToQueryString(args)).done((res) => {
+	            LIBS._ajax("position/delete", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
 						let hapus = $.parseJSON(res)
 		                if (hapus.status == 1) {

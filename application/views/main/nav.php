@@ -9,8 +9,13 @@
         <a href="<?php echo base_url('user'); ?>">
            <i class="fa fa-user"></i><span>User</span>
         </a>
-    </li>
-    <li class="treeview <?php if($this->uri->segment(1)=="weight_alternative"){echo "active";} elseif($this->uri->segment(1)=="weight_criteria"){echo "active";} ?>">
+  </li>
+  <li class="<?php if($this->uri->segment(1)=="position"){echo "active";}?>">
+        <a href="<?php echo base_url('position'); ?>">
+           <i class="fa fa-deaf"></i><span>Position</span>
+        </a>
+  </li>
+  <li class="treeview <?php if($this->uri->segment(1)=="weight_alternative"){echo "active";} elseif($this->uri->segment(1)=="weight_criteria"){echo "active";} ?>">
         <a href="#">
           <i class="fa fa-chain"></i>
           <span>Weight</span>

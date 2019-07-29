@@ -8,6 +8,8 @@ user = {
 		init() {
 			LIBS._dataTableServerSide('#user-table','user/get_data_karyawan')
 			LIBS._modalDelete('#user-table','.delete_record','karyawan-id','#modalDelete','input[name="karyawan_id"]')
+			LIBS._select2()
+			this._buttonReset()
 			this._modalUpdateUser()
 			//this._sweetAlert()
 			user.save._save()
@@ -24,6 +26,11 @@ user = {
 	            $('input[name="karyawan_id_edit"]').val(karyawan_id)
 	            $('input[name="karyawan_name_edit"]').val(karyawan_name)
 	            $('input[name="karyawan_position_edit"]').val(karyawan_position)
+	        })
+		},
+		_buttonReset(){
+			$('#button-reset').on('click',function(){
+	            $('input[name="karyawan_name"]').val('');
 	        })
 		}
 		// _sweetAlert() {
@@ -51,7 +58,7 @@ user = {
 			$('#button-save').on('click',function(){
 	            let args = {
 					karyawan_name	  : $('input[name="karyawan_name"]').val(),
-					karyawan_position : $('input[name="karyawan_position"]').val()
+					karyawan_position : $('select[name="karyawan_position"]').val()
 				}
 	            LIBS._ajax("user/save", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
@@ -101,7 +108,7 @@ user = {
 	            let args = {
 					karyawan_id	      : $('input[name="karyawan_id_edit"]').val(),
 					karyawan_name	  : $('input[name="karyawan_name_edit"]').val(),
-					karyawan_position : $('input[name="karyawan_position_edit"]').val()
+					karyawan_position : $('select[name="karyawan_position_edit"]').val()
 				}
 	            LIBS._ajax("user/update", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {

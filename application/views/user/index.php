@@ -38,7 +38,7 @@
 							<table id="user-table" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th>#</th>
 										<th>Name</th>
 										<th>Position</th>
 										<th>Status</th>
@@ -70,7 +70,7 @@
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup"><span aria-hidden="true">&times;</span></button>
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	            <h4 class="modal-title" id="modaladdLabel">Add &nbsp;<?php echo $title; ?> </h4>
 	            </div>
 	            <div class="modal-body">
@@ -81,12 +81,19 @@
 					                <input type="text" name="karyawan_name" class="form-control" required>
 					            </div>  
 					            <div class="form-group">
-					                <label>Position</label>
-					                <input type="text" name="karyawan_position" class="form-control" required>
+					                <label>Position</label><br>
+					                <select class="form-control select2" name="karyawan_position">
+						                 <?php 
+						                 foreach($position->result() as $row){
+						                 	echo "<option value='$row->position_name'>$row->position_name</option>";
+						                 }
+
+						                 ?>
+					                </select>
 					            </div>
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save">Save</button>
-					                <button type="reset" class="btn btn-warning">Reset</button>
+					                <button type="reset" class="btn btn-warning" id="button-reset">Reset</button>
 					            </div>
 					    </div>
 					</div> 
@@ -113,8 +120,29 @@
 					                    <input type="text" name="karyawan_name_edit" class="form-control" required>
 					                </div>  
 					                <div class="form-group">
-					                    <label>Position</label>
-					                    <input type="text" name="karyawan_position_edit" class="form-control" required>
+					                    <label>Position</label><br>
+					                    <select class="form-control select2" name="karyawan_position">
+							                  <option value="1" selected="selected">Lead Staff Admin</option>
+							                  <option value="2">Lead VPC</option>
+							                  <option value="3">Lead DOCON</option>
+							                  <option value="4">Lead Buyer</option>
+							                  <option value="5">Lead TKDN</option>
+							                  <option value="6">Adm PO</option>
+							                  <option value="7">Adm RO</option>
+							                  <option value="8">VPC</option>
+							                  <option value="9">VPC EDOCS</option>
+							                  <option value="10">DOCON</option>
+							                  <option value="11">DOCON EDOCS</option>
+							                  <option value="12">Buyer Mechanical</option>
+							                  <option value="13">Buyer Instrument</option>
+							                  <option value="14">Buyer Pipe / Pipeline</option>
+							                  <option value="15">Buyer Civil</option>
+							                  <option value="16">Buyer Electrical</option>
+							                  <option value="17">Buyer Telecomunication</option>
+							                  <option value="18">Buyer Process</option>
+							                  <option value="19">Adm TKDN</option>
+							                  <option value="20">Adm TKDN EDOCS</option>
+						                </select>
 					                </div>
 					            <input type="submit" name="submit" class="btn btn-warning" id="button-update" value="Update">
 					      </div>
