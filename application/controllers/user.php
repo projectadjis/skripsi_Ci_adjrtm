@@ -57,9 +57,9 @@ class user extends CI_Controller{
       $row[] = $field->karyawan_position;
       $row[] = $field->karyawan_status;
       $row[] = "
-          <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position' data-karyawan_status='$field->karyawan_status'><i class='fa fa-pencil'></i>&nbsp;Edit
+          <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_id='$field->karyawan_id' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position'><i class='fa fa-pencil'></i>&nbsp;Edit
           </a>&nbsp;
-          <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md sweet-6'><i class='fa fa-trash'></i>&nbsp;Delete
+          <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
           </a>
       ";
 
@@ -76,7 +76,7 @@ class user extends CI_Controller{
     echo json_encode($output);
   }
 
-   function delete()
+  function delete()
   {
     $karyawan_id         = $this->input->post();
     $delete              = $this->m_user->delete_user($karyawan_id);
@@ -87,6 +87,26 @@ class user extends CI_Controller{
     } else {
         $hasil['pesan']  = "Fail";
         $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function update()
+  {
+    $data                       = $this->input->post();
+    $karyawan_id['karyawan_id'] = $data['karyawan_id'];
+    $update_karyawan            = [
+      'karyawan_name'     => $data['karyawan_name'],
+      'karyawan_position' => $data['karyawan_position']
+    ];
+    $update                     = $this->m_user->update_user($update_karyawan, $karyawan_id);
+    $hasil                      = [];
+    if ($update > 0) {
+        $hasil['pesan']         = "Data has been update";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['pesan']         = "Fail";
+        $hasil['status']        = 0;
     }
     echo json_encode($hasil);
   }

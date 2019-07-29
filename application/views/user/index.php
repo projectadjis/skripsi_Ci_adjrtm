@@ -21,8 +21,7 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modaladd' data-remote='false' data-backdrop='static'>ADD</a>&nbsp;
-				<button class="btn btn-success adjis-toastr">COBA TOASTR</button>
+				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modalAdd' data-remote='false' data-backdrop='static'>ADD</a>&nbsp;
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-user"></i> User</a></li>
@@ -67,12 +66,12 @@
   	<div class="control-sidebar-bg"></div>
   	
 	<!-- MODAL ADD -->
-	<div class="modal fade" id="modaladd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	<div class="modal fade" id="modalAdd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup"><span aria-hidden="true">&times;</span></button>
-	            <h4 class="modal-title" id="modaladdLabel">Add User</h4>
+	            <h4 class="modal-title" id="modaladdLabel">Add &nbsp;<?php echo $title; ?> </h4>
 	            </div>
 	            <div class="modal-body">
 		            <div class="tab-content clearfix">
@@ -97,13 +96,41 @@
 	</div>
 	<!-- END MODAL ADD -->
 
+	<!-- MODAL UPDATE -->
+	<div class="modal fade" id="modalUpdate" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup1"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">UPDATE &nbsp;<?php echo $title; ?> </h4>
+	            </div>
+	            <div class="modal-body">
+	                 <div class="tab-content clearfix">
+					      <div class="tab-pane active">
+					                <div class="form-group">
+					                    <label>Nama</label>
+					                    <input type="hidden" name="karyawan_id_edit" class="form-control">
+					                    <input type="text" name="karyawan_name_edit" class="form-control" required>
+					                </div>  
+					                <div class="form-group">
+					                    <label>Position</label>
+					                    <input type="text" name="karyawan_position_edit" class="form-control" required>
+					                </div>
+					            <input type="submit" name="submit" class="btn btn-warning" id="button-update" value="Update">
+					      </div>
+					</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
 	<!-- MODAL DELETE -->
 	<div class="modal fade" id="modalDelete" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
 	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup2"><span aria-hidden="true">&times;</span></button>
-	            <h4 class="modal-title" id="modaladdLabel">DELETE EMPLOYEE</h4>
+	            <h4 class="modal-title" id="modaladdLabel">DELETE &nbsp;<?php echo $title; ?> </h4>
 	            </div>
 	            <div class="modal-body">
 	                 <div class="tab-content clearfix">

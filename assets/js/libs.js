@@ -152,7 +152,14 @@ LIBS = {
 	            ],
 
 	        })
-	}
+	},
+	_modalDelete:  function (parameter, parameterClass, parameterData, modalHapusID, inputFormTarget) {
+		$(parameter).on('click',parameterClass,function(){
+            let data =$(this).data(parameterData)
+            $(modalHapusID).modal('show')
+            $(inputFormTarget).val(data)
+        })
+	},
 	
 
 }

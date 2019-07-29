@@ -30,6 +30,11 @@ class M_user extends CI_Model {
         return $this->db->affected_rows();
     }
 
+    function update_user($update_karyawan, $karyawan_id) {
+        $this->db->where($karyawan_id);
+		return $this->db->update($this->table, $update_karyawan);
+    }
+
     function delete_user($karyawan_id) {
         $this->db->where($karyawan_id);
 		return $this->db->delete($this->table);
