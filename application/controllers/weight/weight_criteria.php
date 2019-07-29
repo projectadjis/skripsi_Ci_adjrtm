@@ -19,10 +19,9 @@ class weight_criteria extends CI_Controller{
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
-        'weight_criteria' => $this->m_weight_criteria->get_weight_criteria()
+        'weight_criteria' => $this->get_weight_criteria()
 	];
-	print_r($data['weight_criteria']); die();
-    $this->load->view('weight/weight_criteria/index');
+    $this->load->view('weight/weight_criteria/index', $data);
   }
 
   function get_weight_criteria()
@@ -56,6 +55,44 @@ class weight_criteria extends CI_Controller{
     } else {
         $hasil['pesan']  = "Fail";
         $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function use_criteria()
+  {
+    $data                                     = $this->input->post();
+    $weight_criteria_id['weight_criteria_id'] = $data['weight_criteria_id'];
+    $use_weight_criteria                      = [
+		      'weight_criteria_status'     => 1
+    ];
+    $use                        = $this->m_weight_criteria->use_weight_criteria($use_weight_criteria, $weight_criteria_id);
+    $hasil                      = [];
+    if ($use > 0) {
+        $hasil['pesan']         = "Record Has Been Used";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['pesan']         = "Fail";
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function stop_criteria()
+  {
+    $data                                     = $this->input->post();
+    $weight_criteria_id['weight_criteria_id'] = $data['weight_criteria_id'];
+    $stop_weight_criteria                      = [
+		      'weight_criteria_status'     => 0
+    ];
+    $use                        = $this->m_weight_criteria->stop_weight_criteria($stop_weight_criteria, $weight_criteria_id);
+    $hasil                      = [];
+    if ($use > 0) {
+        $hasil['pesan']         = "Record Has Been Stoped";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['pesan']         = "Fail";
+        $hasil['status']        = 0;
     }
     echo json_encode($hasil);
   }

@@ -42,17 +42,6 @@
 									</tr>
 								</thead>
 								<tbody align="center">
-									<!-- <tr>
-										<td>1</td>
-										<td>40</td>
-										<td>30</td>
-										<td>20</td>
-										<td>10</td>
-										<td>
-											<a href="#" class="btn bg-olive use"><i class="fa fa-play"></i>&nbsp;Use</a>&nbsp;
-											<a href="#" class="btn bg-maroon stop" style="display: none;"><i class="fa fa-stop"></i>&nbsp;Stop</a>&nbsp;<a href="" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Delete</a>
-										</td>
-									</tr> -->
 									<?php
 										$no=0;
 	                                    foreach ($weight_criteria->result() as $row) {
@@ -63,7 +52,17 @@
 	                                        echo "<td>" . $row->weight_criteria_nonteknispekerjaan . "</td>";
 	                                        echo "<td>" . $row->weight_criteria_kepribadian . "</td>";
 	                                        echo "<td>" . $row->weight_criteria_keterampilan . "</td>";
-	                                        echo "<td><a class='delete_record btn btn-danger' data-weight_criteria_id='$row->weight_criteria_id'><i class='fa fa-trash'></i>&nbsp;Delete</a></td>";
+
+	                                        if ($row->weight_criteria_status == 1) {
+		                                        echo "<td>
+		                                        <a class='stop_record btn bg-maroon' data-weight-criteria-id='$row->weight_criteria_id'><i class='fa fa-stop'></i>&nbsp;Stop</a>
+		                                        </td>";
+	                                        } else {
+	                                        	echo "<td>
+		                                        <a class='use_record btn bg-olive' data-weight-criteria-id='$row->weight_criteria_id'><i class='fa fa-play'></i>&nbsp;Use</a>&nbsp;
+		                                        <a class='delete_record btn btn-danger' data-weight-criteria-id='$row->weight_criteria_id'><i class='fa fa-trash'></i>&nbsp;Delete</a>
+		                                        </td>";
+	                                        }
 
 	                                        echo "</tr>";
 	                                    }
@@ -123,6 +122,30 @@
 	    </div>
 	</div>
 	<!-- END MODAL ADD -->
+
+	<!-- MODAL DELETE -->
+	<div class="modal fade" id="modalDelete" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup2"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">DELETE &nbsp;<?php echo $title; ?> </h4>
+	            </div>
+	            <div class="modal-body">
+	                 <div class="tab-content clearfix">
+					      <div class="tab-pane active">
+					        	    <input type="hidden" name="weight_criteria_id" id="weight_criteria_id" class="form-control">
+					                <strong>Anda yakin mau menghapus record ini?</strong>
+					            <div class="modal-footer">
+					 	             <button type="submit" id="button-delete" class="btn btn-danger">Hapus</button>
+					 	        </div> 
+					      </div>
+					</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- END MODAL DELETE -->
   </div>
   <?php $this->load->view("main/script.php") ?>
 </body>
