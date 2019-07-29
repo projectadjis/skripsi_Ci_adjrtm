@@ -108,8 +108,8 @@ LIBS = {
 	},
 	_ajax: function (toUrl, toData) {
 		//var finalUrl = (!/^(f|ht)tps?:\/\//i.test(toUrl) ? (options.siteUrl + toUrl) : toUrl)
-		var getUrl   = window.location;
-		var baseUrl  = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		var getUrl   = window.location
+		var baseUrl  = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]
 		var finalUrl = baseUrl+"/"+toUrl
 		return $.ajax({
 			type: 'post',
@@ -126,6 +126,32 @@ LIBS = {
 		}
 
 		return str.join("&");
+	},
+	_dataTableServerSide: function (parameter, toUrl) {
+		let getUrl   = window.location;
+		let baseUrl  = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+		let finalUrl = baseUrl+"/"+toUrl
+
+	        $(parameter).DataTable({ 
+
+	            "processing": true, 
+	            "serverSide": true, 
+	            "order": [], 
+	            
+	            "ajax": {
+	                "url": finalUrl,
+	                "type": "POST"
+	            },
+
+	            
+	            "columnDefs": [
+		            { 
+		                "targets": [ 0 ], 
+		                "orderable": false, 
+		            },
+	            ],
+
+	        })
 	}
 	
 

@@ -19,7 +19,7 @@ class user extends CI_Controller{
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
-        'karyawan' => $this->m_user->get_karyawan()
+        'karyawan' => $this->get_karyawan()
 	];
     $this->load->view('user/index', $data);
   }
@@ -27,7 +27,7 @@ class user extends CI_Controller{
   function save()
   {
     $data                = $this->input->post();
-    $save                = $this->M_user->insert_user($data);
+    $save                = $this->m_user->insert_user($data);
     $hasil               = [];
     if ($save > 0) {
         $hasil['pesan']  = "Data has been saved";
@@ -39,6 +39,11 @@ class user extends CI_Controller{
     echo json_encode($hasil);
   }
 
+  function get_karyawan()
+  {
+    return $this->m_user->get_karyawan();
+  }
+
   function get_data_karyawan()
   {
     $list = $this->m_user->get_datatables();
@@ -46,7 +51,7 @@ class user extends CI_Controller{
     $no = $_POST['start'];
     foreach ($list as $field) {
       $no++;
-      $row = array();
+      $row = [];
       $row[] = $no;
       $row[] = $field->karyawan_name;
       $row[] = $field->karyawan_position;

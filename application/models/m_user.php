@@ -39,7 +39,7 @@ class M_user extends CI_Model {
 	function _get_datatables_query($term='')
 	{
 		
-		$this->db->select('karyawan.karyawan_name, karyawan.karyawan_position, karyawan.karyawan_status');
+		$this->db->select('tb_karyawan.karyawan_name, tb_karyawan.karyawan_position, tb_karyawan.karyawan_status');
 		$this->db->from($this->table);
 
 		$i = 0;

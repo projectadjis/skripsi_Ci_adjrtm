@@ -6,14 +6,9 @@ user = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#user-table')
+			LIBS._dataTableServerSide('#user-table','user/get_data_karyawan')
 			this._toastr()
 			user.save._save()
-			//console.log(window.location.origin + window.location.pathname + window.location.hash)
-			// var getUrl = window.location;
-			// var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-			// var coba    = "user/save"
-			// console.log(baseUrl+"/"+coba)
 			
 		},
 		_toastr(){
@@ -37,20 +32,16 @@ user = {
 					if (res) {
 						var objek = $.parseJSON(res)
 		                if (objek.status == 1) {
-		                    $('#modaladd').modal('hide');
+		                    $('#modaladd').modal('hide')
 		                    toastr['success'](objek.pesan)
-		                    setTimeout(function () {
-		                        //do something               
-		                        location.reload(true);
-		                    }, 2000);
+		                    setTimeout(() => { window.location.reload() }, 2000)
 		                } else {
 		                    toastr['error'](objek.pesan)
 		                }
 					}
 				})
-	            return false;
 	        })
 		}
-	}
+	},
 
 }
