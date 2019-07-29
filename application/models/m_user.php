@@ -30,6 +30,11 @@ class M_user extends CI_Model {
         return $this->db->affected_rows();
     }
 
+    function delete_user($karyawan_id) {
+        $this->db->where($karyawan_id);
+		return $this->db->delete($this->table);
+    }
+
     function get_karyawan() {
         $this->db->order_by("karyawan_id", 'desc');
         $q = $this->db->get('tb_karyawan');
@@ -39,7 +44,7 @@ class M_user extends CI_Model {
 	function _get_datatables_query($term='')
 	{
 		
-		$this->db->select('tb_karyawan.karyawan_name, tb_karyawan.karyawan_position, tb_karyawan.karyawan_status');
+		$this->db->select('tb_karyawan.karyawan_id,tb_karyawan.karyawan_name, tb_karyawan.karyawan_position, tb_karyawan.karyawan_status');
 		$this->db->from($this->table);
 
 		$i = 0;

@@ -56,7 +56,12 @@ class user extends CI_Controller{
       $row[] = $field->karyawan_name;
       $row[] = $field->karyawan_position;
       $row[] = $field->karyawan_status;
-      $row[] = "<a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position' data-karyawan_status='$field->karyawan_status'><i class='fa fa-pencil'></i>&nbsp;Edit</a>&nbsp;<a href='javascript:void(0);' data-karyawan_name='$field->karyawan_name' class='hapus_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Hapus</a>";
+      $row[] = "
+          <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position' data-karyawan_status='$field->karyawan_status'><i class='fa fa-pencil'></i>&nbsp;Edit
+          </a>&nbsp;
+          <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md sweet-6'><i class='fa fa-trash'></i>&nbsp;Delete
+          </a>
+      ";
 
       $data[] = $row;
     }
@@ -69,6 +74,21 @@ class user extends CI_Controller{
     ];
     //output dalam format JSON
     echo json_encode($output);
+  }
+
+   function delete()
+  {
+    $karyawan_id         = $this->input->post();
+    $delete              = $this->m_user->delete_user($karyawan_id);
+    $hasil               = [];
+    if ($delete > 0) {
+        $hasil['pesan']  = "Data has been deleted";
+        $hasil['status'] = 1;
+    } else {
+        $hasil['pesan']  = "Fail";
+        $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
   }
  
 }

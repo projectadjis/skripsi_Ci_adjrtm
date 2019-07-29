@@ -86,7 +86,7 @@
 					                <input type="text" name="karyawan_position" class="form-control" required>
 					            </div>
 					            <div class="box-footer">
-									<button type="submit" class="btn btn-success pull-right" id="adjis">Save</button>
+									<button type="submit" class="btn btn-success pull-right" id="button-save">Save</button>
 					                <button type="reset" class="btn btn-warning">Reset</button>
 					            </div>
 					    </div>
@@ -96,6 +96,30 @@
 	    </div>
 	</div>
 	<!-- END MODAL ADD -->
+
+	<!-- MODAL DELETE -->
+	<div class="modal fade" id="modalDelete" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup2"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">DELETE EMPLOYEE</h4>
+	            </div>
+	            <div class="modal-body">
+	                 <div class="tab-content clearfix">
+					      <div class="tab-pane active">
+					        	    <input type="hidden" name="karyawan_id" id="karyawan_id" class="form-control">
+					                <strong>Anda yakin mau menghapus record ini?</strong>
+					            <div class="modal-footer">
+					 	             <button type="submit" id="button-delete" class="btn btn-danger">Hapus</button>
+					 	        </div> 
+					      </div>
+					</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- END MODAL DELETE -->
   </div>
   <?php $this->load->view("main/script.php") ?>
 </body>

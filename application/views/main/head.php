@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
 <!-- Toastr -->
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/bower_components/toastr/toastr.min.css">
+<!-- Sweet Alert -->
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/adminlte/bower_components/bootstrap-sweetalert/dist/sweetalert.css">
 
   	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
