@@ -62,13 +62,26 @@ class user extends CI_Controller{
       $row[] = $no;
       $row[] = $field->karyawan_name;
       $row[] = $field->karyawan_position;
-      $row[] = $field->karyawan_status;
-      $row[] = "
-          <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_id='$field->karyawan_id' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position'><i class='fa fa-pencil'></i>&nbsp;Edit
-          </a>&nbsp;
-          <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
-          </a>
-      ";
+
+      if ($field->karyawan_status == 0){
+        $row[] = "<button class='btn btn-primary btn-md' style='pointer-events: none;'>Belum Penilaian</button>";
+        $row[] = "
+            <a class='kpi_record btn bg-navy btn-md' data-karyawan_id='$field->karyawan_id'><i class='fa fa-bar-chart-o'></i>&nbsp;KPI
+            </a>&nbsp;
+            <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_id='$field->karyawan_id' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position'><i class='fa fa-pencil'></i>&nbsp;Edit
+            </a>&nbsp;
+            <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
+            </a>
+        ";  
+      } else {
+        $row[] = "<button class='btn btn-success btn-md' style='pointer-events: none;'>Sudah Penilaian</button>";
+        $row[] = "
+            <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_id='$field->karyawan_id' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position'><i class='fa fa-pencil'></i>&nbsp;Edit
+            </a>&nbsp;
+            <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
+            </a>
+        "; 
+      }
 
       $data[] = $row;
     }

@@ -30,6 +30,7 @@
 			<div class="row">
 					<!-- left column -->
 					<form role="form"></form>
+					<input type="hidden" name="karyawan_id" value="<?php echo $karyawan_id; ?>">
 					<div class="col-md-6">
 						<!-- general form elements -->
 						<div class="box box-primary">
@@ -40,15 +41,15 @@
 								<div class="box-body">
 									<div class="form-group">
 										<label>Efektivitas dan Efisiensi Kerja</label>
-										<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="efektivitas_teknis_pekerjaan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Ketepatan Waktu dalam Penyelesaian Tugas</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="ketepatan_teknis_pekerjaan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Kemampuan mencapai target / standar perusahaan</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="kemampuan_teknis_pekerjaan" placeholder="Skor 0-16">
 									</div>
 								</div>
 						</div>
@@ -60,15 +61,15 @@
 								<div class="box-body">
 									<div class="form-group">
 										<label>Tertib Administrasi</label>
-										<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="tertib_nonteknis_pekerjaan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Inisiatif</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="inisiatif_nonteknis_pekerjaan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Kerja Sama dan Koordinasi Antar Bagian</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="kerjasama_nonteknis_pekerjaan" placeholder="Skor 0-16">
 									</div>
 								</div>
 						</div>
@@ -85,19 +86,19 @@
 								<div class="box-body">
 									<div class="form-group">
 										<label>Perilaku</label>
-										<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="perilaku_kepribadian" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Kedisiplinan / Absensi </label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="kedisiplinan_kepribadian" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Tanggung Jawab, Loyalitas, dan Keikutsertaan dalam kegiatan kantor</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="tanggung_kepribadian" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Ketaatan dalam Pelaksanaan Perintah</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="ketaatan_kepribadian" placeholder="Skor 0-16">
 									</div>
 								</div>
 						</div>
@@ -109,35 +110,35 @@
 								<div class="box-body">
 									<div class="form-group">
 										<label>Bahasa Inggris (Pasif / Sedang / Lancar)</label>
-										<input type="number" class="form-control" id="exampleInputEmail1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="inggris_keterampilan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Aplikasi Excel (Dasar / Menengah / Pasif) </label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="excel_keterampilan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Aplikasi Ms.Word (Dasar / Menengah / Mahir)</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="msword_keterampilan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Kemampuan Menyusun dokumen indeks berdasarkan jenis dokumen</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="indeks_keterampilan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Kemampuan edit dokumen / scanning</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="dokumen_keterampilan" placeholder="Skor 0-16">
 									</div>
 									<div class="form-group">
 										<label>Pemahaman dokumen projek (RFQ / PO / Kontrak / Requisiotion MOM)</label>
-										<input type="number" class="form-control" id="exampleInputPassword1" placeholder="Skor 0-16">
+										<input type="number" class="form-control" name="pemahaman_keterampilan" placeholder="Skor 0-16">
 									</div>
 								</div>
 						</div>
 					</div>
 					<!--/.col (right) -->
 					<div class="box-footer">
-						<button type="submit" class="btn btn-success pull-right">Save</button>
-		                <button type="reset" class="btn btn-warning">Reset</button>
+						<button type="submit" class="btn btn-success pull-right" id="button-save-kpi">Save</button>
+		                <button type="reset" class="btn btn-warning" id="button-reset-kpi">Reset</button>
 		            </div>
 			</div>
 				<!-- /.row -->
