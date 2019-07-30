@@ -33,6 +33,19 @@
       		<i class="fa fa-bar-chart-o"></i><span>Hasil KPI</span>
       	</a>
   	</li>
+    <li class="treeview <?php if($this->uri->segment(1)=="generate_alternative"){echo "active";} elseif($this->uri->segment(1)=="generate_preference"){echo "active";} ?>">
+        <a href="#">
+          <i class="fa fa-bolt"></i>
+          <span>Generate</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<?php if($this->uri->segment(1)=="generate_alternative"){echo "active";}?>"><a href="<?php echo base_url('generate_alternative') ?>"><i class="fa fa-circle-o"></i>Generate's Alternative</a></li>
+          <li class="<?php if($this->uri->segment(1)=="generate_preference"){echo "active";}?>"><a href="<?php echo base_url('generate_preference') ?>"><i class="fa fa-circle-o"></i>Generate's Preference</a></li>
+        </ul>
+    </li>
   	<li class="<?php if($this->uri->segment(1)=="alternative"){echo "active";}?>">
       	<a href="<?php echo base_url('alternative'); ?>">
       		<i class="fa fa-snowflake-o"></i><span>Alternative</span>
@@ -53,39 +66,4 @@
         	<i class="fa fa-line-chart"></i><span>Rank</span>
         </a>
     </li>
- 	<<!-- li class="<?php if($this->uri->segment(1)=="Employee"){echo "active";}?>">
- 		<a href="<?php echo base_url('Employee'); ?>">
- 			<i class="fa fa-user"></i> <span>Employee</span>
- 		</a>
- 	</li>
-
- 	<li class="<?php if($this->uri->segment(2)=="Indonesia"){echo "active";}?>">
- 		<a href="<?php echo base_url('Indonesia/Indonesia'); ?>">
- 			<i class="fa fa-files-o"></i> <span>Indonesia</span>
- 		</a>
- 	</li> -->
-
- 	<!-- <li class="treeview <?php if($this->uri->segment(2)=="Provinces"){echo "active";} elseif($this->uri->segment(2)=="Regencies"){echo "active";} elseif($this->uri->segment(2)=="Districts"){echo "active";} elseif($this->uri->segment(2)=="Villages"){echo "active";} elseif($this->uri->segment(2)=="Indonesia"){echo "active";} ?> ">
- 		<a href="#">
- 			<i class="fa fa-files-o"></i>
- 			<span>Indonesia</span>
- 			<span class="pull-right-container">
- 				<i class="fa fa-angle-left pull-right"></i>
- 			</span>
- 		</a>
- 		<ul class="treeview-menu">
- 			<li class="<?php if($this->uri->segment(2)=="Provinces"){echo "active";}?>"><a href="<?php echo base_url('Indonesia/Provinces'); ?>"><i class="fa fa-circle-o"></i> Provinces</a></li>
- 			<li class="<?php if($this->uri->segment(2)=="Regencies"){echo "active";}?>"><a href="<?php echo base_url('Indonesia/Regencies'); ?>"><i class="fa fa-circle-o"></i> Regencies</a></li>
- 			<li class="<?php if($this->uri->segment(2)=="Districts"){echo "active";}?>"><a href="<?php echo base_url('Indonesia/Districts'); ?>"><i class="fa fa-circle-o"></i> Districts</a></li>
- 			<li class="<?php if($this->uri->segment(2)=="Villages"){echo "active";}?>"><a href="<?php echo base_url('Indonesia/Villages'); ?>"><i class="fa fa-circle-o"></i> Villages</a></li>
-
- 			<li class="<?php if($this->uri->segment(2)=="Indonesia"){echo "active";}?>"><a href="<?php echo base_url('Indonesia/Indonesia'); ?>"><i class="fa fa-circle-o"></i> Indonesia</a></li>
- 		</ul>
- 	</li>  -->
- 	
- 	<!-- <li class="<?php if($this->uri->segment(2)=="Kodepos"){echo "active";}?>">
- 		<a href="<?php echo base_url('Indonesia/Kodepos'); ?>">
- 			<i class="fa fa-envelope-o"></i> <span>Kode Pos</span>
- 		</a>
- 	</li> -->
  </ul>

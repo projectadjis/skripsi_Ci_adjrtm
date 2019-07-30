@@ -52,5 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller']   = 'menuutama';
 $route['weight_alternative']   = 'weight/weight_alternative';
 $route['weight_criteria']      = 'weight/weight_criteria';
+$route['generate_alternative'] = 'generate/generate_alternative';
+$route['generate_preference']  = 'generate/generate_preference';
 $route['404_override']         = '';
 $route['translate_uri_dashes'] = FALSE;
