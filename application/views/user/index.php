@@ -21,8 +21,7 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modaladd' data-remote='false' data-backdrop='static'>ADD</a>&nbsp;
-				<button class="btn btn-success adjis-toastr">COBA TOASTR</button>
+				User &nbsp; <a href="" class="btn btn-success" data-toggle='modal' data-target='#modalAdd' data-remote='false' data-backdrop='static'>ADD</a>&nbsp;
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="#"><i class="fa fa-user"></i> User</a></li>
@@ -39,7 +38,7 @@
 							<table id="user-table" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th>#</th>
 										<th>Name</th>
 										<th>Position</th>
 										<th>Status</th>
@@ -47,20 +46,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<?php
-								        $count = 0;
-								        foreach($karyawan->result() as $row){
-								            $count++;
-								            echo "<tr>";
-								            echo "<td>$count</td>";
-								            echo "<td>$row->karyawan_name</td>";
-								            echo "<td>$row->karyawan_position</td>";
-								            echo "<td>$row->karyawan_status</td>";
-								            // echo "<td><button type='button' class='btn bg-maroon' style='pointer-events: none;'>Approved</button></td>";
-								            echo "<td><a href='' class='btn btn-success'><i class='fa fa-bar-chart-o'></i>&nbsp;KPI</a></td>";
-								            echo "</tr>";
-								        }
-								    ?>
+									
 								</tbody>
 							</table>
 						</div>
@@ -80,12 +66,12 @@
   	<div class="control-sidebar-bg"></div>
   	
 	<!-- MODAL ADD -->
-	<div class="modal fade" id="modaladd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	<div class="modal fade" id="modalAdd" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
 	    <div class="modal-dialog">
 	        <div class="modal-content">
 	            <div class="modal-header">
-	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup"><span aria-hidden="true">&times;</span></button>
-	            <h4 class="modal-title" id="modaladdLabel">Add User</h4>
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">Add &nbsp;<?php echo $title; ?> </h4>
 	            </div>
 	            <div class="modal-body">
 		            <div class="tab-content clearfix">
@@ -95,12 +81,19 @@
 					                <input type="text" name="karyawan_name" class="form-control" required>
 					            </div>  
 					            <div class="form-group">
-					                <label>Position</label>
-					                <input type="text" name="karyawan_position" class="form-control" required>
+					                <label>Position</label><br>
+					                <select class="form-control select2" name="karyawan_position">
+						                 <?php 
+						                 foreach($position->result() as $row){
+						                 	echo "<option value='$row->position_name'>$row->position_name</option>";
+						                 }
+
+						                 ?>
+					                </select>
 					            </div>
 					            <div class="box-footer">
-									<button type="submit" class="btn btn-success pull-right" id="adjis">Save</button>
-					                <button type="reset" class="btn btn-warning">Reset</button>
+									<button type="submit" class="btn btn-success pull-right" id="button-save">Save</button>
+					                <button type="reset" class="btn btn-warning" id="button-reset">Reset</button>
 					            </div>
 					    </div>
 					</div> 
@@ -109,6 +102,79 @@
 	    </div>
 	</div>
 	<!-- END MODAL ADD -->
+
+	<!-- MODAL UPDATE -->
+	<div class="modal fade" id="modalUpdate" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup1"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">UPDATE &nbsp;<?php echo $title; ?> </h4>
+	            </div>
+	            <div class="modal-body">
+	                 <div class="tab-content clearfix">
+					      <div class="tab-pane active">
+					                <div class="form-group">
+					                    <label>Nama</label>
+					                    <input type="hidden" name="karyawan_id_edit" class="form-control">
+					                    <input type="text" name="karyawan_name_edit" class="form-control" required>
+					                </div>  
+					                <div class="form-group">
+					                    <label>Position</label><br>
+					                    <select class="form-control select2" name="karyawan_position">
+							                  <option value="1" selected="selected">Lead Staff Admin</option>
+							                  <option value="2">Lead VPC</option>
+							                  <option value="3">Lead DOCON</option>
+							                  <option value="4">Lead Buyer</option>
+							                  <option value="5">Lead TKDN</option>
+							                  <option value="6">Adm PO</option>
+							                  <option value="7">Adm RO</option>
+							                  <option value="8">VPC</option>
+							                  <option value="9">VPC EDOCS</option>
+							                  <option value="10">DOCON</option>
+							                  <option value="11">DOCON EDOCS</option>
+							                  <option value="12">Buyer Mechanical</option>
+							                  <option value="13">Buyer Instrument</option>
+							                  <option value="14">Buyer Pipe / Pipeline</option>
+							                  <option value="15">Buyer Civil</option>
+							                  <option value="16">Buyer Electrical</option>
+							                  <option value="17">Buyer Telecomunication</option>
+							                  <option value="18">Buyer Process</option>
+							                  <option value="19">Adm TKDN</option>
+							                  <option value="20">Adm TKDN EDOCS</option>
+						                </select>
+					                </div>
+					            <input type="submit" name="submit" class="btn btn-warning" id="button-update" value="Update">
+					      </div>
+					</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<!-- MODAL DELETE -->
+	<div class="modal fade" id="modalDelete" role="dialog" aria-labelledby="modaladdLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="tutup2"><span aria-hidden="true">&times;</span></button>
+	            <h4 class="modal-title" id="modaladdLabel">DELETE &nbsp;<?php echo $title; ?> </h4>
+	            </div>
+	            <div class="modal-body">
+	                 <div class="tab-content clearfix">
+					      <div class="tab-pane active">
+					        	    <input type="hidden" name="karyawan_id" id="karyawan_id" class="form-control">
+					                <strong>Anda yakin mau menghapus record ini?</strong>
+					            <div class="modal-footer">
+					 	             <button type="submit" id="button-delete" class="btn btn-danger">Hapus</button>
+					 	        </div> 
+					      </div>
+					</div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- END MODAL DELETE -->
   </div>
   <?php $this->load->view("main/script.php") ?>
 </body>

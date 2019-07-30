@@ -7,6 +7,7 @@ class user extends CI_Controller{
   {
     parent::__construct();
     $this->load->model('m_user');
+    $this->load->model('m_position');
   }
  
   function index()
@@ -19,7 +20,8 @@ class user extends CI_Controller{
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
-        'karyawan' => $this->m_user->get_karyawan()
+        'karyawan' => $this->get_karyawan(),
+        'position' => $this->get_position()
 	];
     $this->load->view('user/index', $data);
   }
@@ -27,7 +29,7 @@ class user extends CI_Controller{
   function save()
   {
     $data                = $this->input->post();
-    $save                = $this->M_user->insert_user($data);
+    $save                = $this->m_user->insert_user($data);
     $hasil               = [];
     if ($save > 0) {
         $hasil['pesan']  = "Data has been saved";
@@ -39,6 +41,16 @@ class user extends CI_Controller{
     echo json_encode($hasil);
   }
 
+  function get_karyawan()
+  {
+    return $this->m_user->get_karyawan();
+  }
+
+  function get_position()
+  {
+    return $this->m_position->get_position();
+  }
+
   function get_data_karyawan()
   {
     $list = $this->m_user->get_datatables();
@@ -46,12 +58,17 @@ class user extends CI_Controller{
     $no = $_POST['start'];
     foreach ($list as $field) {
       $no++;
-      $row = array();
+      $row = [];
       $row[] = $no;
       $row[] = $field->karyawan_name;
       $row[] = $field->karyawan_position;
       $row[] = $field->karyawan_status;
-      $row[] = "<a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position' data-karyawan_status='$field->karyawan_status'><i class='fa fa-pencil'></i>&nbsp;Edit</a>&nbsp;<a href='javascript:void(0);' data-karyawan_name='$field->karyawan_name' class='hapus_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Hapus</a>";
+      $row[] = "
+          <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_id='$field->karyawan_id' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position'><i class='fa fa-pencil'></i>&nbsp;Edit
+          </a>&nbsp;
+          <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
+          </a>
+      ";
 
       $data[] = $row;
     }
@@ -64,6 +81,41 @@ class user extends CI_Controller{
     ];
     //output dalam format JSON
     echo json_encode($output);
+  }
+
+  function delete()
+  {
+    $karyawan_id         = $this->input->post();
+    $delete              = $this->m_user->delete_user($karyawan_id);
+    $hasil               = [];
+    if ($delete > 0) {
+        $hasil['pesan']  = "Data has been deleted";
+        $hasil['status'] = 1;
+    } else {
+        $hasil['pesan']  = "Fail";
+        $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function update()
+  {
+    $data                       = $this->input->post();
+    $karyawan_id['karyawan_id'] = $data['karyawan_id'];
+    $update_karyawan            = [
+      'karyawan_name'     => $data['karyawan_name'],
+      'karyawan_position' => $data['karyawan_position']
+    ];
+    $update                     = $this->m_user->update_user($update_karyawan, $karyawan_id);
+    $hasil                      = [];
+    if ($update > 0) {
+        $hasil['pesan']         = "Data has been update";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['pesan']         = "Fail";
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
   }
  
 }
