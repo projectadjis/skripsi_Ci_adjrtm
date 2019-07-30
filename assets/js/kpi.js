@@ -7,6 +7,7 @@ kpi = {
 
 		init() {
 			kpi.save_kpi._save_kpi()
+			kpi.hasil_kpi._hasil_kpi()
 		},
 
 	},
@@ -64,6 +65,15 @@ kpi = {
 					}
 				})
 	        })
+		}
+	},
+	hasil_kpi: {
+
+		init() {
+			this._hasil_kpi()
+		},
+		_hasil_kpi() {
+			LIBS._dataTableServerSide('#hasil-kpi-table','kpi/get_data_kpi')
 		}
 	},
 

@@ -28,9 +28,9 @@
           <li class="<?php if($this->uri->segment(1)=="weight_alternative"){echo "active";}?>"><a href="<?php echo base_url('weight_alternative') ?>"><i class="fa fa-circle-o"></i>Weight's Alternative</a></li>
         </ul>
     </li>
-    <li class="<?php if($this->uri->segment(1)=="kpi"){echo "active";}?>">
-      	<a href="<?php echo base_url('kpi'); ?>">
-      		<i class="fa fa-bar-chart-o"></i><span>KPI</span>
+    <li class="<?php if($this->uri->segment(2)=="hasil_kpi"){echo "active";}?>">
+      	<a href="<?php echo base_url('kpi/hasil_kpi'); ?>">
+      		<i class="fa fa-bar-chart-o"></i><span>Hasil KPI</span>
       	</a>
   	</li>
   	<li class="<?php if($this->uri->segment(1)=="alternative"){echo "active";}?>">
