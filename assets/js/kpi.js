@@ -48,10 +48,14 @@ kpi = {
 
 	            let args = {
 					karyawan_id	             : $('input[name="karyawan_id"]').val(),
-					kpi_teknis_pekerjaan     : sumTeknisPekerjaan,
-					kpi_nonteknis_pekerjaan  : sumNonTeknisPekerjaan,
-					kpi_kepribadian          : sumKepribadian,
-					kpi_keterampilan         : sumKeterampilan
+					kpi_teknis_pekerjaan     						     : sumTeknisPekerjaan,
+					kpi_nonteknis_pekerjaan  						     : sumNonTeknisPekerjaan,
+					kpi_kepribadian          						     : sumKepribadian,
+					kpi_keterampilan         						     : sumKeterampilan,
+					weight_alternative_aspek_teknis_pekerjaan_unique     : 1,
+					weight_alternative_aspek_nonteknis_pekerjaan_unique  : 2,
+					weight_alternative_aspek_kepribadian_unique          : 3,
+					weight_alternative_aspek_keterampilan_unique         : 4
 				}
 	            LIBS._ajax("kpi/save_kpi", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {

@@ -18,21 +18,18 @@ generate_alternative = {
 		},
 		_save_generate_alternative() {
 			$('#button-save-generate-alternative').on('click',function(){
-				// let a = $('input[name="date_generate_alternative"]').val()
-				// let b = new Date(a)
-				// console.log(b)
 	            let args = {
-					date_generate_alternative : $('input[name="date_generate_alternative"]').val()
+					generate_alternative_date : $('input[name="generate_alternative_date"]').val()
 				}
 	            LIBS._ajax("generate/generate_alternative/save_generate_alternative", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
-						// let objek = $.parseJSON(res)
-		    //             if (objek.status == 1) {
-		    //                 toastr['success'](objek.pesan)
-		    //                 setTimeout(() => { window.location.reload() }, 1000)
-		    //             } else {
-		    //                 toastr['error'](objek.pesan)
-		    //             }
+						let save_generate_alternative = $.parseJSON(res)
+		                if (save_generate_alternative.status == 1) {
+		                    toastr['success'](save_generate_alternative.pesan)
+		                    setTimeout(() => { window.location.reload() }, 1000)
+		                } else {
+		                    toastr['error'](save_generate_alternative.pesan)
+		                }
 					}
 				})
 	        })

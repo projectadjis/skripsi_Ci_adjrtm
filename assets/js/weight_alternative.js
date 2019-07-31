@@ -34,7 +34,8 @@ weight_alternative = {
 	            let args = {
 					weight_alternative_aspek_teknis_pekerjaan_rangedown : $('input[name="weight_alternative_aspek_teknis_pekerjaan_rangedown"]').val(),
 					weight_alternative_aspek_teknis_pekerjaan_rangeup   : $('input[name="weight_alternative_aspek_teknis_pekerjaan_rangeup"]').val(),
-					weight_alternative_aspek_teknis_pekerjaan_score     : $('input[name="weight_alternative_aspek_teknis_pekerjaan_score"]').val()
+					weight_alternative_aspek_teknis_pekerjaan_score     : $('input[name="weight_alternative_aspek_teknis_pekerjaan_score"]').val(),
+					weight_alternative_aspek_teknis_pekerjaan_unique    : 1
 				}
 	            LIBS._ajax("weight/weight_alternative/save_teknis_pekerjaan", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
@@ -61,7 +62,8 @@ weight_alternative = {
 	            let args = {
 					weight_alternative_aspek_nonteknis_pekerjaan_rangedown : $('input[name="weight_alternative_aspek_nonteknis_pekerjaan_rangedown"]').val(),
 					weight_alternative_aspek_nonteknis_pekerjaan_rangeup   : $('input[name="weight_alternative_aspek_nonteknis_pekerjaan_rangeup"]').val(),
-					weight_alternative_aspek_nonteknis_pekerjaan_score     : $('input[name="weight_alternative_aspek_nonteknis_pekerjaan_score"]').val()
+					weight_alternative_aspek_nonteknis_pekerjaan_score     : $('input[name="weight_alternative_aspek_nonteknis_pekerjaan_score"]').val(),
+					weight_alternative_aspek_nonteknis_pekerjaan_unique    : 2
 				}
 	            LIBS._ajax("weight/weight_alternative/save_nonteknis_pekerjaan", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
@@ -88,7 +90,8 @@ weight_alternative = {
 	            let args = {
 					weight_alternative_aspek_kepribadian_rangedown : $('input[name="weight_alternative_aspek_kepribadian_rangedown"]').val(),
 					weight_alternative_aspek_kepribadian_rangeup   : $('input[name="weight_alternative_aspek_kepribadian_rangeup"]').val(),
-					weight_alternative_aspek_kepribadian_score     : $('input[name="weight_alternative_aspek_kepribadian_score"]').val()
+					weight_alternative_aspek_kepribadian_score     : $('input[name="weight_alternative_aspek_kepribadian_score"]').val(),
+					weight_alternative_aspek_kepribadian_unique    : 3
 				}
 	            LIBS._ajax("weight/weight_alternative/save_kepribadian", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
@@ -115,7 +118,8 @@ weight_alternative = {
 	            let args = {
 					weight_alternative_aspek_keterampilan_rangedown : $('input[name="weight_alternative_aspek_keterampilan_rangedown"]').val(),
 					weight_alternative_aspek_keterampilan_rangeup   : $('input[name="weight_alternative_aspek_keterampilan_rangeup"]').val(),
-					weight_alternative_aspek_keterampilan_score     : $('input[name="weight_alternative_aspek_keterampilan_score"]').val()
+					weight_alternative_aspek_keterampilan_score     : $('input[name="weight_alternative_aspek_keterampilan_score"]').val(),
+					weight_alternative_aspek_keterampilan_unique    : 4
 				}
 	            LIBS._ajax("weight/weight_alternative/save_keterampilan", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {

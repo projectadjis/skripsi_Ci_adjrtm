@@ -39,7 +39,7 @@
 			                  <div class="input-group-addon">
 			                    <i class="fa fa-calendar"></i>
 			                  </div>
-			                  <input type="text" name="date_generate_alternative" class="form-control pull-left datepicker" id="datepicker" style="width: 200px">
+			                  <input type="text" name="generate_alternative_date" class="form-control pull-left datepicker" id="datepicker" style="width: 200px">
 			                </div>
 			                <!-- /.input group -->
 			              </div>

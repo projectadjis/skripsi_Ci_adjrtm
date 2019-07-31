@@ -101,4 +101,10 @@ class M_kpi extends CI_Model {
         return $this->db->count_all_results();
     }
 
+    function get_kpi() {
+        $this->db->order_by("kpi_id", 'asc');
+        $q = $this->db->get($this->table_kpi);
+        return $q;
+    }
+
 }
