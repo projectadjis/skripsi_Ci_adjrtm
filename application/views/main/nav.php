@@ -33,7 +33,7 @@
       		<i class="fa fa-bar-chart-o"></i><span>Hasil KPI</span>
       	</a>
   	</li>
-    <li class="treeview <?php if($this->uri->segment(1)=="generate_alternative"){echo "active";} elseif($this->uri->segment(1)=="generate_preference"){echo "active";} ?>">
+    <li class="treeview <?php if($this->uri->segment(1)=="generate_alternative"){echo "active";} elseif($this->uri->segment(1)=="generate_normalization"){echo "active";} elseif($this->uri->segment(1)=="generate_preference"){echo "active";} ?>">
         <a href="#">
           <i class="fa fa-bolt"></i>
           <span>Generate</span>
@@ -43,6 +43,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<?php if($this->uri->segment(1)=="generate_alternative"){echo "active";}?>"><a href="<?php echo base_url('generate_alternative') ?>"><i class="fa fa-circle-o"></i>Generate's Alternative</a></li>
+          <li class="<?php if($this->uri->segment(1)=="generate_normalization"){echo "active";}?>"><a href="<?php echo base_url('generate_normalization') ?>"><i class="fa fa-circle-o"></i>Generate's Normalization</a></li>
           <li class="<?php if($this->uri->segment(1)=="generate_preference"){echo "active";}?>"><a href="<?php echo base_url('generate_preference') ?>"><i class="fa fa-circle-o"></i>Generate's Preference</a></li>
         </ul>
     </li>

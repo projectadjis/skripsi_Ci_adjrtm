@@ -1,4 +1,4 @@
-generate_alternative = {
+generate_normalization = {
 
 	__construct() {
 
@@ -7,7 +7,7 @@ generate_alternative = {
 
 		init() {
 			LIBS._datepicker()
-			generate_alternative.save_generate_alternative._save_generate_alternative()
+			//generate_normalization.save_generate_alternative._save_generate_alternative()
 		},
 
 	},
@@ -17,9 +17,6 @@ generate_alternative = {
 			this._save_generate_alternative()
 		},
 		_save_generate_alternative() {
-			let baseUrl  = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1]
-		    let finalUrl = baseUrl+"/"+"alternative"
-
 			$('#button-save-generate-alternative').on('click',function(){
 	            let args = {
 					generate_alternative_date : $('input[name="generate_alternative_date"]').val()
@@ -29,7 +26,7 @@ generate_alternative = {
 						let save_generate_alternative = $.parseJSON(res)
 		                if (save_generate_alternative.status == 1) {
 		                    toastr['success'](save_generate_alternative.pesan)
-		                    setTimeout(() => { window.location.replace(finalUrl) }, 1000)
+		                    setTimeout(() => { window.location.reload() }, 1000)
 		                } else {
 		                    toastr['error'](save_generate_alternative.pesan)
 		                }

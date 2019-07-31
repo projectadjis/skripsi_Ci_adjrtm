@@ -1,0 +1,1 @@
+m_generate_normalization.php
