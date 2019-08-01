@@ -41,6 +41,7 @@
 										<th>Preference Aspek Non Teknis Pekerjaan</th>
 										<th>Preference Aspek Kepribadian</th>
 										<th>Preference Aspek Keterampilan</th>
+										<th>Total Preference</th>
 										<th>Date Generate</th>
 									</tr>
 								</thead>

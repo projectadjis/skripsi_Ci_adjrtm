@@ -16,18 +16,20 @@ class M_preference extends CI_Model {
         		null,
         		'karyawan_name',
         		'karyawan_position',
-        		'generate_preference_teknis_pekerjaan',
-        		'generate_preference_nonteknis_pekerjaan',
+        		'generate_preference_teknispekerjaan',
+        		'generate_preference_nonteknispekerjaan',
         		'generate_preference_kepribadian',
-        		'generate_preference_keterampilan'
+        		'generate_preference_keterampilan',
+        		'total_preference'
         ];
         $this->column_search = [
         	    'karyawan_name',
         		'karyawan_position',
-        		'generate_preference_teknis_pekerjaan',
-        		'generate_preference_nonteknis_pekerjaan',
+        		'generate_preference_teknispekerjaan',
+        		'generate_preference_nonteknispekerjaan',
         		'generate_preference_kepribadian',
-        		'generate_preference_keterampilan'
+        		'generate_preference_keterampilan',
+        		'total_preference'
         ];
         $this->order         = [
         	  'tb_karyawan.karyawan_name' => 'asc'

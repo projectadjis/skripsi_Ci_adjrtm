@@ -29,6 +29,7 @@ class M_generate_preference extends CI_Model {
 
     function get_weight_criteria() {
         $this->db->order_by("weight_criteria_id", 'asc');
+        $this->db->where("weight_criteria_status", 1);
         $q = $this->db->get($this->table_weight_criteria);
         return $q;
     }

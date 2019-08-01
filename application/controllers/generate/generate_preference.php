@@ -47,12 +47,15 @@ class generate_preference extends CI_Controller{
 
       $generate_preference_keterampilan        = $weight_criteria_keterampilan * $generate_normalization_keterampilan;
 
+      $total_preference                        = $generate_preference_teknispekerjaan + $generate_preference_nonteknispekerjaan + $generate_preference_kepribadian + $generate_preference_keterampilan;
+
       $insert = [
                       "generate_preference_teknispekerjaan"    => $generate_preference_teknispekerjaan,
                       "generate_preference_nonteknispekerjaan" => $generate_preference_nonteknispekerjaan,
                       "generate_preference_kepribadian"        => $generate_preference_kepribadian,
                       "generate_preference_keterampilan"       => $generate_preference_keterampilan,
                       "generate_preference_date"               => $generate_preference_date,
+                      "total_preference"                       => $total_preference,
                       "generate_normalization_id"              => $generate_normalization_id,
                       "karyawan_id"                            => $karyawan_id
       ];

@@ -30,6 +30,7 @@ class preference extends CI_Controller{
       $row[] = $field->generate_preference_nonteknispekerjaan;
       $row[] = $field->generate_preference_kepribadian;
       $row[] = $field->generate_preference_keterampilan;
+      $row[] = $field->total_preference;
       $row[] = $date_generate;
 
       $data[] = $row;
