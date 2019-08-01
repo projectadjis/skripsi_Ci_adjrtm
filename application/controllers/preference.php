@@ -11,7 +11,17 @@ class preference extends CI_Controller{
  
   function index()
   {
-    $this->load->view('preference/index');
+    $data = [
+    'title'   => 'Preference',
+    // 'css'    => [
+            
+  //       ],
+    // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+      'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('preference/index', $data);
   }
 
   function get_data_generate_preference()

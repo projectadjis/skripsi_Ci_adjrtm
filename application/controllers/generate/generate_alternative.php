@@ -13,7 +13,17 @@ class generate_alternative extends CI_Controller{
  
   function index()
   {
-    $this->load->view('generate/generate_alternative/index');
+    $data = [
+   'title'   => "Generate's Alternative",
+   // 'css'    => [
+            
+  //       ],
+   // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('generate/generate_alternative/index', $data);
   }
 
   function save_generate_alternative()

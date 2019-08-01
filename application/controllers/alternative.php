@@ -11,17 +11,17 @@ class alternative extends CI_Controller{
  
   function index()
   {
- //  	$data = [
-	// 	'title'		=> 'Position',
-	// 	// 'css'   	=> [
+  	$data = [
+		'title'		=> 'Alternative',
+		// 'css'   	=> [
             
- //  //       ],
-	// 	// 'js' 		=> [
- //  //           'adminlte/bower_components/chart.js/Chart'
- //  //       ],
- //        'karyawan_id' => $this->input->get('karyawan_id')
-	// ];
-    $this->load->view('alternative/index');
+  //       ],
+		// 'js' 		=> [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+	  ];
+    $this->load->view('alternative/index', $data);
   }
 
   function get_data_generate_alternative()

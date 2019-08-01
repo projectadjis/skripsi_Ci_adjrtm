@@ -27,7 +27,7 @@ class kpi extends CI_Controller{
   function hasil_kpi()
   {
     $data = [
-    //'title'   => 'Position',
+    'title'   => 'Hasil KPI',
     // 'css'    => [
             
   //       ],
@@ -36,7 +36,7 @@ class kpi extends CI_Controller{
   //       ],
         //'hasil_kpi' => $this->get_data_kpi()
   ];
-    $this->load->view('kpi/hasilkpi');
+    $this->load->view('kpi/hasilkpi', $data);
   }
 
   function save_kpi()

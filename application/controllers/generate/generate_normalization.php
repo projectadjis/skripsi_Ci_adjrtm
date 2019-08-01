@@ -12,7 +12,17 @@ class generate_normalization extends CI_Controller{
  
   function index()
   {
-    $this->load->view('generate/generate_normalization/index');
+    $data = [
+   'title'   => "Generate's Normalization",
+   // 'css'    => [
+            
+  //       ],
+   // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('generate/generate_normalization/index', $data);
   }
 
   function save_generate_normalization()

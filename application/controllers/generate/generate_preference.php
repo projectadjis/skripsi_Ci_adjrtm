@@ -11,7 +11,17 @@ class generate_preference extends CI_Controller{
  
   function index()
   {
-    $this->load->view('generate/generate_preference/index');
+    $data = [
+   'title'   => "Generate's Preference",
+   // 'css'    => [
+            
+  //       ],
+   // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('generate/generate_preference/index', $data);
   }
 
   function save_generate_preference()
