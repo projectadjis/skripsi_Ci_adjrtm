@@ -3,7 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 2 | Normalization</title>
+	<title>
+	HASIL KPI
+	</title>
 	<?php $this->load->view("main/head.php") ?>
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
@@ -17,11 +19,11 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				Normalization
+				Hasil KPI
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-superpowers"></i>Normalization</a></li>
-				<li class="active">Normalization</li>
+				<li><a href="#"><i class="fa fa-bar-chart-o"></i> Hasil KPI</a></li>
+				<li class="active">Hasil KPI</li>
 			</ol>
 		</section>
 
@@ -31,20 +33,19 @@
 				<div class="col-xs-12">
 					<div class="box">
 						<div class="box-body">
-							<table id="normalization-table" class="table table-bordered table-striped">
+							<table id="hasil-kpi-table" class="table table-bordered table-striped">
 								<thead>
 									<tr>
 										<th>#</th>
 										<th>Name</th>
 										<th>Position</th>
-										<th>Normalization Aspek Teknis Pekerjaan</th>
-										<th>Normalization Aspek Non Teknis Pekerjaan</th>
-										<th>Normalization Aspek Kepribadian</th>
-										<th>Normalization Aspek Keterampilan</th>
-										<th>Date Generate</th>
+										<th>Total KPI Teknis Pekerjaan</th>
+										<th>Total KPI Non Teknis Pekerjaan</th>
+										<th>Total KPI Kepribadian</th>
+										<th>Total KPI Keterampilan</th>
 									</tr>
 								</thead>
-								<tbody>
+								<tbody>	
 								</tbody>
 							</table>
 						</div>
@@ -60,8 +61,10 @@
 	</div>
 	<!-- /.content-wrapper -->
 	<!--footer-->
-	<?php $this->load->view("main/footer.php") ?>	
+	<?php $this->load->view("main/footer.php");?>	
   	<div class="control-sidebar-bg"></div>
+  
+
   </div>
   <?php $this->load->view("main/script.php") ?>
 </body>

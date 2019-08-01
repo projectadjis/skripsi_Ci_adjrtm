@@ -6,7 +6,7 @@ normalization = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#normalization-table')
+			LIBS._dataTableServerSide('#normalization-table','normalization/get_data_generate_normalization')
 		},
 
 	}

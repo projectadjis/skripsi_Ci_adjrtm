@@ -164,6 +164,20 @@ LIBS = {
 		$(".select2").select2({
 		    width: '100%'
 		})
+	},
+	_datepicker:  function () {
+		let date = new Date();
+		let today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+		let formatDate = today.toString().split("/").join("-")
+	
+		$('#datepicker').datepicker({
+	       todayHighlight: true,
+	       format: "dd-mm-yyyy",
+		   //startDate: today,
+           autoclose: true
+	    })
+
+	    $('.datepicker').datepicker('setDate', formatDate);
 	}
 
 }

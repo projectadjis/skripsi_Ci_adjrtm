@@ -6,7 +6,7 @@ preference = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#preference-table')
+			LIBS._dataTableServerSide('#preference-table','preference/get_data_generate_preference')
 		},
 
 	}

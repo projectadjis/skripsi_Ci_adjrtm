@@ -15,6 +15,7 @@ user = {
 			user.save._save()
 			user.update._update()
 			user.delete._delete()
+			this._kpi()
 			
 		},
 		_modalUpdateUser(){
@@ -31,6 +32,14 @@ user = {
 		_buttonReset(){
 			$('#button-reset').on('click',function(){
 	            $('input[name="karyawan_name"]').val('');
+	        })
+		},
+		_kpi(){
+			$('#user-table').on('click','.kpi_record',function(){
+	            let data = $(this).data('karyawan_id')
+				let baseUrl  = window.location.protocol + "//" + window.location.host + "/" + window.location.pathname.split('/')[1]
+				let finalUrl = baseUrl+"/"+"kpi/?karyawan_id="+data
+	            window.location.replace(finalUrl)
 	        })
 		}
 		// _sweetAlert() {

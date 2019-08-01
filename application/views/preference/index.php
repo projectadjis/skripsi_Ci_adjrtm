@@ -34,25 +34,17 @@
 							<table id="preference-table" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th>#</th>
 										<th>Name</th>
 										<th>Position</th>
-										<th>Normalization (C1)</th>
-										<th>Normalization (C2)</th>
-										<th>Normalization (C3)</th>
-										<th>Normalization (C4)</th>
+										<th>Preference Aspek Teknis Pekerjaan</th>
+										<th>Preference Aspek Non Teknis Pekerjaan</th>
+										<th>Preference Aspek Kepribadian</th>
+										<th>Preference Aspek Keterampilan</th>
+										<th>Date Generate</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Internet</td>
-										<td>Internet</td>
-										<td>4</td>
-										<td>4</td>
-										<td>4</td>
-										<td>4</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>

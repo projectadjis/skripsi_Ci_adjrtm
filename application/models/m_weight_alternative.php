@@ -38,13 +38,19 @@ class M_weight_alternative extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    function get_weight_alternative_aspek_teknis_pekerjaan() {
+    function get_weight_alternative_aspek_teknis_pekerjaan($param_weight_alternative_aspek_teknis_pekerjaan = NULL) {
+        if ($param_weight_alternative_aspek_teknis_pekerjaan != NULL) {
+            $this->db->where($param_weight_alternative_aspek_teknis_pekerjaan);
+        }
         $this->db->order_by("weight_alternative_aspek_teknis_pekerjaan_rangedown", 'asc');
         $q = $this->db->get($this->table_teknis_pekerjaan);
         return $q;
     }
 
-    function get_weight_alternative_aspek_nonteknis_pekerjaan() {
+    function get_weight_alternative_aspek_nonteknis_pekerjaan($param_weight_alternative_aspek_nonteknis_pekerjaan = NULL) {
+        if ($param_weight_alternative_aspek_nonteknis_pekerjaan != NULL) {
+            $this->db->where($param_weight_alternative_aspek_nonteknis_pekerjaan);
+        }
         $this->db->order_by("weight_alternative_aspek_nonteknis_pekerjaan_rangedown", 'asc');
         $q = $this->db->get($this->table_nonteknis_pekerjaan);
         return $q;
@@ -60,6 +66,42 @@ class M_weight_alternative extends CI_Model {
         $this->db->order_by("weight_alternative_aspek_keterampilan_rangedown", 'asc');
         $q = $this->db->get($this->table_keterampilan);
         return $q;
+    }
+
+    function get_generate_weight_alternative_teknis_pekerjaan($kpi_teknis_pekerjaan, $karyawan_id) {
+        return $this->db->query("SELECT * FROM tb_kpi
+        JOIN tb_weight_alternative_aspek_teknis_pekerjaan 
+        ON tb_kpi.weight_alternative_aspek_teknis_pekerjaan_unique = tb_weight_alternative_aspek_teknis_pekerjaan.weight_alternative_aspek_teknis_pekerjaan_unique
+        WHERE '$kpi_teknis_pekerjaan' 
+        BETWEEN 
+        weight_alternative_aspek_teknis_pekerjaan_rangedown AND weight_alternative_aspek_teknis_pekerjaan_rangeup AND karyawan_id = '$karyawan_id' ");
+    }
+
+    function get_generate_weight_alternative_nonteknis_pekerjaan($kpi_nonteknis_pekerjaan, $karyawan_id) {
+        return $this->db->query("SELECT * FROM tb_kpi
+        JOIN tb_weight_alternative_aspek_nonteknis_pekerjaan 
+        ON tb_kpi.weight_alternative_aspek_nonteknis_pekerjaan_unique = tb_weight_alternative_aspek_nonteknis_pekerjaan.weight_alternative_aspek_nonteknis_pekerjaan_unique
+        WHERE '$kpi_nonteknis_pekerjaan' 
+        BETWEEN 
+        weight_alternative_aspek_nonteknis_pekerjaan_rangedown AND weight_alternative_aspek_nonteknis_pekerjaan_rangeup AND karyawan_id = '$karyawan_id' ");
+    }
+
+    function get_generate_weight_alternative_kepribadian($kpi_kepribadian, $karyawan_id) {
+        return $this->db->query("SELECT * FROM tb_kpi
+        JOIN tb_weight_alternative_aspek_kepribadian 
+        ON tb_kpi.weight_alternative_aspek_kepribadian_unique = tb_weight_alternative_aspek_kepribadian.weight_alternative_aspek_kepribadian_unique
+        WHERE '$kpi_kepribadian' 
+        BETWEEN 
+        weight_alternative_aspek_kepribadian_rangedown AND weight_alternative_aspek_kepribadian_rangeup AND karyawan_id = '$karyawan_id' ");
+    }
+
+    function get_generate_weight_alternative_keterampilan($kpi_keterampilan, $karyawan_id) {
+        return $this->db->query("SELECT * FROM tb_kpi
+        JOIN tb_weight_alternative_aspek_keterampilan 
+        ON tb_kpi.weight_alternative_aspek_keterampilan_unique = tb_weight_alternative_aspek_keterampilan.weight_alternative_aspek_keterampilan_unique
+        WHERE '$kpi_keterampilan' 
+        BETWEEN 
+        weight_alternative_aspek_keterampilan_rangedown AND weight_alternative_aspek_keterampilan_rangeup AND karyawan_id = '$karyawan_id' ");
     }
 
     function delete_teknis_pekerjaan($weight_alternative_aspek_teknis_pekerjaan_id) {
