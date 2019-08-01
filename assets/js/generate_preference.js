@@ -7,6 +7,7 @@ generate_preference = {
 
 		init() {
 			LIBS._datepicker()
+			generate_preference.save_generate_preference._save_generate_preference()
 		},
 
 	},
