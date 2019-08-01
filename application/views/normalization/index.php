@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 2 | Dashboard</title>
+	<title>AdminLTE 2 | Normalization</title>
 	<?php $this->load->view("main/head.php") ?>
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
@@ -34,25 +34,17 @@
 							<table id="normalization-table" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th>No</th>
+										<th>#</th>
 										<th>Name</th>
 										<th>Position</th>
-										<th>Normalization (C1)</th>
-										<th>Normalization (C2)</th>
-										<th>Normalization (C3)</th>
-										<th>Normalization (C4)</th>
+										<th>Normalization Aspek Teknis Pekerjaan</th>
+										<th>Normalization Aspek Non Teknis Pekerjaan</th>
+										<th>Normalization Aspek Kepribadian</th>
+										<th>Normalization Aspek Keterampilan</th>
+										<th>Date Generate</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>1</td>
-										<td>Internet</td>
-										<td>Internet</td>
-										<td>4</td>
-										<td>4</td>
-										<td>4</td>
-										<td>4</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>

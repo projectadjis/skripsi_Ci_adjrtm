@@ -28,6 +28,7 @@
 		<!-- Main content -->
 		<section class="content">
 			<div class="row">
+				<div class="col-md-12">
 					<div class="box box-primary">
 			            <div class="box-body">
 			              <!-- Date -->
@@ -38,7 +39,7 @@
 			                  <div class="input-group-addon">
 			                    <i class="fa fa-calendar"></i>
 			                  </div>
-			                  <input type="text" class="form-control pull-left datepicker" id="datepicker" style="width: 200px">
+			                  <input type="text" name="generate_preference_date" class="form-control pull-left datepicker" id="datepicker" style="width: 200px">
 			                </div>
 			                <!-- /.input group -->
 			              </div>
@@ -46,9 +47,10 @@
 			            </div>
 			            <!-- /.box-body -->
 			            <div class="box-footer">
-							<input type="submit" class="btn btn-success pull-left" id="button-save-kpi" value="Process">
+							<input type="submit" class="btn btn-success pull-left" id="button-save-generate-preference" value="Process">
 			            </div>
 			        </div>
+			    </div>
 			</div>
 				<!-- /.row -->
 		</section>
