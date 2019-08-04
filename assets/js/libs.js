@@ -1,6 +1,6 @@
 LIBS = {
 
-	_dataTableAlternative: function (parameter, addButton, editButton, saveEditButton, cancelEditButton, deleteButton) {
+	_dataTableAlternativeOrigin: function (parameter, addButton, editButton, saveEditButton, cancelEditButton, deleteButton) {
 		let counter = 0
 		    let t = $(parameter).DataTable({
 				      'paging'      : false,
@@ -66,6 +66,27 @@ LIBS = {
 		        $(deleteButton).removeAttr('style')
 	        })
 	},
+	_dataTableAlternative: function (parameter, addButton) {
+		let counter = 0
+		    let t = $(parameter).DataTable({
+				      'paging'      : false,
+				      'lengthChange': false,
+				      'searching'   : false,
+				      'ordering'    : false,
+				      'info'        : false,
+				      'autoWidth'   : false
+				    })
+ 			
+ 			if (t.rows().count() == 5 ) {
+			    $(addButton).attr("disabled", true)
+			}
+
+ 			$(addButton).on('click', function (e) {
+			    if (t.rows().count() == 5 ) {
+			    	 e.stopPropagation()
+			    }
+		    })
+	},
 	_dataTableCriteria: function (parameter, addButton) {
 		let counter = 0
 		    let t = $(parameter).DataTable({
@@ -77,7 +98,6 @@ LIBS = {
 				      'autoWidth'   : true
 				    })
  			
- 			//console.log(t.row().index())
  			// add button
 		    $(addButton).on('click', function () {
 			        t.row.add([
