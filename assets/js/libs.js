@@ -87,7 +87,7 @@ LIBS = {
 			    }
 		    })
 	},
-	_dataTableCriteria: function (parameter, addButton) {
+	_dataTableCriteriaOrigin: function (parameter, addButton) {
 		let counter = 0
 		    let t = $(parameter).DataTable({
 				      'paging'      : true,
@@ -115,6 +115,22 @@ LIBS = {
 		          t.row($(this).closest('tr') ).remove().draw()
 		        })
 		    })
+	},
+	_dataTableCriteria: function (parameter) {
+		let a = $(parameter).DataTable({
+		      'paging'      : true,
+		      'lengthChange': true,
+		      'searching'   : true,
+		      'ordering'    : true,
+		      'info'        : true,
+		      'autoWidth'   : true
+		})
+		// var d = a.column(5).data().toArray()
+		// if (a.column(5).data().toArray()) {
+		// 	toastr['warning']('ea')
+		// }
+		//console.log(d[0][key].Value)
+        //console.log(d)
 	},
 	_dataTable: function (parameter) {
 		$(parameter).DataTable({

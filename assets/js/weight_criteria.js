@@ -6,7 +6,7 @@ weight_criteria = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#weight-criteria')
+			LIBS._dataTableCriteria('#weight-criteria')
 			LIBS._modalDelete('#weight-criteria','.delete_record','weight-criteria-id','#modalDelete','input[name="weight_criteria_id"]')
 			weight_criteria.save._save()
 			weight_criteria.delete._delete()
