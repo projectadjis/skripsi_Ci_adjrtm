@@ -78,7 +78,7 @@ LIBS = {
 				    })
  			
  			if (t.rows().count() == 5 ) {
-			    $(addButton).attr("disabled", true)
+			    $(addButton).attr("disabled", true).css("pointer-events", "none")
 			}
 
  			$(addButton).on('click', function (e) {

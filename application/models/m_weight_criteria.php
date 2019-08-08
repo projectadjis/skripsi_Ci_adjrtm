@@ -33,6 +33,12 @@ class M_weight_criteria extends CI_Model {
 		return $this->db->update($this->table, $use_weight_criteria);
     }
 
+    function check_weight_criteria() {
+        $this->db->having('weight_criteria_status',  1);
+        $q = $this->db->get($this->table)->result();
+        return $q;
+    }
+
     function stop_weight_criteria($stop_weight_criteria, $weight_criteria_id) {
         $this->db->where($weight_criteria_id);
 		return $this->db->update($this->table, $stop_weight_criteria);
