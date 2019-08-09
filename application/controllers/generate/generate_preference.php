@@ -83,5 +83,33 @@ class generate_preference extends CI_Controller{
     }
     echo json_encode($hasil);
   }
+
+  function check_available_weight_criteria()
+  { 
+    $check = $this->m_generate_preference->check_available_weight_criteria();
+    $hasil                      = [];
+    if (count($check) == 0) {
+        $hasil['pesan']         = "Please set weight criteria before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function check_generate_preference()
+  { 
+    $previousDate = date('Y-m-d', strtotime('-6 month'));
+    $today = date('Y-m-d');
+    $check = $this->m_generate_preference->check_generate_preference($previousDate, $today);
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot generate's preference because you have been generate before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
  
 }

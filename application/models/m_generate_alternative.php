@@ -47,4 +47,11 @@ class M_generate_alternative extends CI_Model {
         return $q;
     }
 
+    function check_generate_alternative($previousDate, $today) {
+        $this->db->where('generate_alternative_date >=', $previousDate);
+        $this->db->where('generate_alternative_date <=', $today);
+        $q = $this->db->get($this->table)->result();
+        return $q;
+    }
+
 }

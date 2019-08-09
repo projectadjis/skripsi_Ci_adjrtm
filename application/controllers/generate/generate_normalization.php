@@ -93,5 +93,20 @@ class generate_normalization extends CI_Controller{
     }
     echo json_encode($hasil);
   }
+
+  function check_generate_normalization()
+  { 
+    $previousDate = date('Y-m-d', strtotime('-6 month'));
+    $today = date('Y-m-d');
+    $check = $this->m_generate_normalization->check_generate_normalization($previousDate, $today);
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot generate's normalization because you have been generate before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
  
 }
