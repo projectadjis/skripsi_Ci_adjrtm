@@ -1,6 +1,6 @@
 LIBS = {
 
-	_dataTableAlternative: function (parameter, addButton, editButton, saveEditButton, cancelEditButton, deleteButton) {
+	_dataTableAlternativeOrigin: function (parameter, addButton, editButton, saveEditButton, cancelEditButton, deleteButton) {
 		let counter = 0
 		    let t = $(parameter).DataTable({
 				      'paging'      : false,
@@ -66,7 +66,28 @@ LIBS = {
 		        $(deleteButton).removeAttr('style')
 	        })
 	},
-	_dataTableCriteria: function (parameter, addButton) {
+	_dataTableAlternative: function (parameter, addButton) {
+		let counter = 0
+		    let t = $(parameter).DataTable({
+				      'paging'      : false,
+				      'lengthChange': false,
+				      'searching'   : false,
+				      'ordering'    : false,
+				      'info'        : false,
+				      'autoWidth'   : false
+				    })
+ 			
+ 			if (t.rows().count() == 5 ) {
+			    $(addButton).attr("disabled", true).css("pointer-events", "none")
+			}
+
+ 			$(addButton).on('click', function (e) {
+			    if (t.rows().count() == 5 ) {
+			    	 e.stopPropagation()
+			    }
+		    })
+	},
+	_dataTableCriteriaOrigin: function (parameter, addButton) {
 		let counter = 0
 		    let t = $(parameter).DataTable({
 				      'paging'      : true,
@@ -77,7 +98,6 @@ LIBS = {
 				      'autoWidth'   : true
 				    })
  			
- 			//console.log(t.row().index())
  			// add button
 		    $(addButton).on('click', function () {
 			        t.row.add([
@@ -95,6 +115,22 @@ LIBS = {
 		          t.row($(this).closest('tr') ).remove().draw()
 		        })
 		    })
+	},
+	_dataTableCriteria: function (parameter) {
+		let a = $(parameter).DataTable({
+		      'paging'      : true,
+		      'lengthChange': true,
+		      'searching'   : true,
+		      'ordering'    : true,
+		      'info'        : true,
+		      'autoWidth'   : true
+		})
+		// var d = a.column(5).data().toArray()
+		// if (a.column(5).data().toArray()) {
+		// 	toastr['warning']('ea')
+		// }
+		//console.log(d[0][key].Value)
+        //console.log(d)
 	},
 	_dataTable: function (parameter) {
 		$(parameter).DataTable({

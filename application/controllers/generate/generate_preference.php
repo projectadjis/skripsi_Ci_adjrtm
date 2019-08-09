@@ -11,7 +11,17 @@ class generate_preference extends CI_Controller{
  
   function index()
   {
-    $this->load->view('generate/generate_preference/index');
+    $data = [
+   'title'   => "Generate's Preference",
+   // 'css'    => [
+            
+  //       ],
+   // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('generate/generate_preference/index', $data);
   }
 
   function save_generate_preference()
@@ -47,12 +57,15 @@ class generate_preference extends CI_Controller{
 
       $generate_preference_keterampilan        = $weight_criteria_keterampilan * $generate_normalization_keterampilan;
 
+      $total_preference                        = $generate_preference_teknispekerjaan + $generate_preference_nonteknispekerjaan + $generate_preference_kepribadian + $generate_preference_keterampilan;
+
       $insert = [
                       "generate_preference_teknispekerjaan"    => $generate_preference_teknispekerjaan,
                       "generate_preference_nonteknispekerjaan" => $generate_preference_nonteknispekerjaan,
                       "generate_preference_kepribadian"        => $generate_preference_kepribadian,
                       "generate_preference_keterampilan"       => $generate_preference_keterampilan,
                       "generate_preference_date"               => $generate_preference_date,
+                      "total_preference"                       => $total_preference,
                       "generate_normalization_id"              => $generate_normalization_id,
                       "karyawan_id"                            => $karyawan_id
       ];
@@ -67,6 +80,34 @@ class generate_preference extends CI_Controller{
     } else {
         $hasil['pesan']  = "Generate preference has been fail";
         $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function check_available_weight_criteria()
+  { 
+    $check = $this->m_generate_preference->check_available_weight_criteria();
+    $hasil                      = [];
+    if (count($check) == 0) {
+        $hasil['pesan']         = "Please set weight criteria before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function check_generate_preference()
+  { 
+    $previousDate = date('Y-m-d', strtotime('-6 month'));
+    $today = date('Y-m-d');
+    $check = $this->m_generate_preference->check_generate_preference($previousDate, $today);
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot generate's preference because you have been generate before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
     }
     echo json_encode($hasil);
   }

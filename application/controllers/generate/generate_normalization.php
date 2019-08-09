@@ -12,7 +12,17 @@ class generate_normalization extends CI_Controller{
  
   function index()
   {
-    $this->load->view('generate/generate_normalization/index');
+    $data = [
+   'title'   => "Generate's Normalization",
+   // 'css'    => [
+            
+  //       ],
+   // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('generate/generate_normalization/index', $data);
   }
 
   function save_generate_normalization()
@@ -80,6 +90,21 @@ class generate_normalization extends CI_Controller{
     } else {
         $hasil['pesan']  = "Generate Normalization has been fail";
         $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function check_generate_normalization()
+  { 
+    $previousDate = date('Y-m-d', strtotime('-6 month'));
+    $today = date('Y-m-d');
+    $check = $this->m_generate_normalization->check_generate_normalization($previousDate, $today);
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot generate's normalization because you have been generate before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
     }
     echo json_encode($hasil);
   }

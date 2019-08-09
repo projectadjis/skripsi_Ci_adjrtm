@@ -78,6 +78,19 @@ class weight_criteria extends CI_Controller{
     echo json_encode($hasil);
   }
 
+  function check_criteria()
+  {
+    $check = $this->m_weight_criteria->check_weight_criteria();
+    $hasil                      = [];
+    if (count($check) == 1) {
+        $hasil['pesan']         = "Cannot use the record because you have been use another record";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
+
   function stop_criteria()
   {
     $data                                     = $this->input->post();

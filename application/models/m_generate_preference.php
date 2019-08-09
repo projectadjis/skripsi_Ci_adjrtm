@@ -29,7 +29,21 @@ class M_generate_preference extends CI_Model {
 
     function get_weight_criteria() {
         $this->db->order_by("weight_criteria_id", 'asc');
+        $this->db->where("weight_criteria_status", 1);
         $q = $this->db->get($this->table_weight_criteria);
+        return $q;
+    }
+
+    function check_available_weight_criteria() {
+        $this->db->where("weight_criteria_status", 1);
+        $q = $this->db->get($this->table_weight_criteria)->result();
+        return $q;
+    }
+
+    function check_generate_preference($previousDate, $today) {
+        $this->db->where('generate_preference_date >=', $previousDate);
+        $this->db->where('generate_preference_date <=', $today);
+        $q = $this->db->get($this->table)->result();
         return $q;
     }
 

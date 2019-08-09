@@ -47,4 +47,11 @@ class M_generate_normalization extends CI_Model {
         return $q;
     }
 
+    function check_generate_normalization($previousDate, $today) {
+        $this->db->where('generate_normalization_date >=', $previousDate);
+        $this->db->where('generate_normalization_date <=', $today);
+        $q = $this->db->get($this->table)->result();
+        return $q;
+    }
+
 }

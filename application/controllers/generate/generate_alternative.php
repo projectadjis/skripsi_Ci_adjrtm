@@ -13,7 +13,17 @@ class generate_alternative extends CI_Controller{
  
   function index()
   {
-    $this->load->view('generate/generate_alternative/index');
+    $data = [
+   'title'   => "Generate's Alternative",
+   // 'css'    => [
+            
+  //       ],
+   // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+        'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('generate/generate_alternative/index', $data);
   }
 
   function save_generate_alternative()
@@ -71,6 +81,21 @@ class generate_alternative extends CI_Controller{
     } else {
         $hasil['pesan']  = "Generate Alternative has been fail";
         $hasil['status'] = 0;
+    }
+    echo json_encode($hasil);
+  }
+
+  function check_generate_alternative()
+  { 
+    $previousDate = date('Y-m-d', strtotime('-6 month'));
+    $today = date('Y-m-d');
+    $check = $this->m_generate_alternative->check_generate_alternative($previousDate, $today);
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot generate's alternative because you have been generate before";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
     }
     echo json_encode($hasil);
   }

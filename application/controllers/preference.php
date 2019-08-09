@@ -11,7 +11,17 @@ class preference extends CI_Controller{
  
   function index()
   {
-    $this->load->view('preference/index');
+    $data = [
+    'title'   => 'Preference',
+    // 'css'    => [
+            
+  //       ],
+    // 'js'     => [
+  //           'adminlte/bower_components/chart.js/Chart'
+  //       ],
+      'karyawan_id' => $this->input->get('karyawan_id')
+    ];
+    $this->load->view('preference/index', $data);
   }
 
   function get_data_generate_preference()
@@ -30,6 +40,7 @@ class preference extends CI_Controller{
       $row[] = $field->generate_preference_nonteknispekerjaan;
       $row[] = $field->generate_preference_kepribadian;
       $row[] = $field->generate_preference_keterampilan;
+      $row[] = $field->total_preference;
       $row[] = $date_generate;
 
       $data[] = $row;

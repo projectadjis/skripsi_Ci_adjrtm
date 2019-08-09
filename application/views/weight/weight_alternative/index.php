@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 2 | Dashboard</title>
+	<title><?php echo $title ?></title>
 	<?php $this->load->view("main/head.php") ?>
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
@@ -34,7 +34,7 @@
 						<!-- general form elements -->
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<h3 class="box-title"><b>ASPEK TEKNIS PEKERJAAN&nbsp;<a class="btn btn-success" data-toggle='modal' data-target='#modalAddTeknisPekerjaan' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
+								<h3 class="box-title"><b>ASPEK TEKNIS PEKERJAAN&nbsp;<a id="add-teknis-pekerjaan" class="btn btn-success" data-toggle='modal' data-target='#modalAddTeknisPekerjaan' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
 							</div>
 							<!-- /.box-header -->
 								<table id="aspek-teknis-pekerjaan-table" class="table table-bordered table-striped">
@@ -69,7 +69,7 @@
 						</div>
 						<div class="box box-success">
 							<div class="box-header with-border">
-								<h3 class="box-title"><b>ASPEK NON TEKNIS&nbsp;<a class="btn btn-success" data-toggle='modal' data-target='#modalAddNonTeknisPekerjaan' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
+								<h3 class="box-title"><b>ASPEK NON TEKNIS PEKERJAAN&nbsp;<a id="add-nonteknis-pekerjaan" class="btn btn-success" data-toggle='modal' data-target='#modalAddNonTeknisPekerjaan' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
 							</div>
 							<!-- /.box-header -->
 								<table id="aspek-nonteknis-pekerjaan-table" class="table table-bordered table-striped">
@@ -109,7 +109,7 @@
 					<div class="col-md-6">
 					  	<div class="box box-warning">
 							<div class="box-header with-border">
-								<h3 class="box-title"><b>ASPEK KEPRIBADIAN&nbsp;<a class="btn btn-success" data-toggle='modal' data-target='#modalAddKepribadian' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
+								<h3 class="box-title"><b>ASPEK KEPRIBADIAN&nbsp;<a id="add-kepribadian" class="btn btn-success" data-toggle='modal' data-target='#modalAddKepribadian' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
 							</div>
 							<!-- /.box-header -->
 								<table id="aspek-kepribadian-table" class="table table-bordered table-striped">
@@ -144,7 +144,7 @@
 						</div>
 						<div class="box box-danger">
 							<div class="box-header with-border">
-								<h3 class="box-title"><b>ASPEK KETERAMPILAN&nbsp;<a class="btn btn-success" data-toggle='modal' data-target='#modalAddKeterampilan' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
+								<h3 class="box-title"><b>ASPEK KETERAMPILAN&nbsp;<a id="add-keterampilan" class="btn btn-success" data-toggle='modal' data-target='#modalAddKeterampilan' data-remote='false' data-backdrop='static'>ADD</a></b></h3>
 							</div>
 							<!-- /.box-header -->
 								<table id="aspek-keterampilan-table" class="table table-bordered table-striped">

@@ -6,10 +6,10 @@ weight_alternative = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#aspek-teknis-pekerjaan-table')
-	  		LIBS._dataTable('#aspek-nonteknis-pekerjaan-table')
-	  		LIBS._dataTable('#aspek-kepribadian-table')
-	  		LIBS._dataTable('#aspek-keterampilan-table')
+			LIBS._dataTableAlternative('#aspek-teknis-pekerjaan-table', '#add-teknis-pekerjaan')
+	  		LIBS._dataTableAlternative('#aspek-nonteknis-pekerjaan-table', '#add-nonteknis-pekerjaan')
+	  		LIBS._dataTableAlternative('#aspek-kepribadian-table', '#add-kepribadian')
+	  		LIBS._dataTableAlternative('#aspek-keterampilan-table', '#add-keterampilan')
 	  		LIBS._modalDelete('#aspek-teknis-pekerjaan-table','.delete_record_weight_alternative_aspek_teknis_pekerjaan','weight-alternative-aspek-teknis-pekerjaan-id','#modalDeleteAspekTeknisPekerjaan','input[name="weight_alternative_aspek_teknis_pekerjaan_id"]')
 	  		LIBS._modalDelete('#aspek-nonteknis-pekerjaan-table','.delete_record_weight_alternative_aspek_nonteknis_pekerjaan','weight-alternative-aspek-nonteknis-pekerjaan-id','#modalDeleteAspekNonTeknisPekerjaan','input[name="weight_alternative_aspek_nonteknis_pekerjaan_id"]')
 	  		LIBS._modalDelete('#aspek-kepribadian-table','.delete_record_weight_alternative_aspek_kepribadian','weight-alternative-aspek-kepribadian-id','#modalDeleteAspekKepribadian','input[name="weight_alternative_aspek_kepribadian_id"]')

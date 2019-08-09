@@ -16,16 +16,16 @@ class M_normalization extends CI_Model {
         		null,
         		'karyawan_name',
         		'karyawan_position',
-        		'generate_normalization_teknis_pekerjaan',
-        		'generate_normalization_nonteknis_pekerjaan',
+        		'generate_normalization_teknispekerjaan',
+        		'generate_normalization_nonteknispekerjaan',
         		'generate_normalization_kepribadian',
         		'generate_normalization_keterampilan'
         ];
         $this->column_search = [
         	    'karyawan_name',
         		'karyawan_position',
-        		'generate_normalization_teknis_pekerjaan',
-        		'generate_normalization_nonteknis_pekerjaan',
+        		'generate_normalization_teknispekerjaan',
+        		'generate_normalization_nonteknispekerjaan',
         		'generate_normalization_kepribadian',
         		'generate_normalization_keterampilan'
         ];

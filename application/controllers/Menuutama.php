@@ -11,7 +11,7 @@ class menuutama extends CI_Controller{
   function index()
   {
   	$data = [
-		//'title'		=> 'Leave History',
+		'title'		=> 'Dashboard',
 		// 'css'   	=> [
             
   //       ],

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AdminLTE 2 | Dashboard</title>
+	<title><?php echo $title ?></title>
 	<?php $this->load->view("main/head.php") ?>
 </head>
 <body data-controller="<?php echo currentRoute('class'); ?>" data-method="<?php echo currentRoute('method'); ?>" class="hold-transition skin-blue sidebar-mini">
@@ -41,6 +41,7 @@
 										<th>Preference Aspek Non Teknis Pekerjaan</th>
 										<th>Preference Aspek Kepribadian</th>
 										<th>Preference Aspek Keterampilan</th>
+										<th>Total Preference</th>
 										<th>Date Generate</th>
 									</tr>
 								</thead>

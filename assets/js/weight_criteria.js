@@ -6,15 +6,14 @@ weight_criteria = {
 	index: {
 
 		init() {
-			LIBS._dataTable('#weight-criteria')
+			LIBS._dataTableCriteria('#weight-criteria')
 			LIBS._modalDelete('#weight-criteria','.delete_record','weight-criteria-id','#modalDelete','input[name="weight_criteria_id"]')
 			weight_criteria.save._save()
 			weight_criteria.delete._delete()
-			weight_criteria.use_criteria._use_criteria()
+			weight_criteria.check_criteria._check_criteria()
 			weight_criteria.stop_criteria._stop_criteria()
 
 		},
-
 	},
 	save: {
 
@@ -23,11 +22,16 @@ weight_criteria = {
 		},
 		_save(){
 			$('#button-save').on('click',function(){
+				let weight_criteria_teknispekerjaan    = $('input[name="weight_criteria_teknispekerjaan"]').val()
+				let weight_criteria_nonteknispekerjaan = $('input[name="weight_criteria_nonteknispekerjaan"]').val()
+				let weight_criteria_kepribadian        = $('input[name="weight_criteria_kepribadian"]').val()
+				let weight_criteria_keterampilan       = $('input[name="weight_criteria_keterampilan"]').val()
+				
 	            let args = {
-					weight_criteria_teknispekerjaan	  : $('input[name="weight_criteria_teknispekerjaan"]').val(),
-					weight_criteria_nonteknispekerjaan: $('input[name="weight_criteria_nonteknispekerjaan"]').val(),
-					weight_criteria_kepribadian	      : $('input[name="weight_criteria_kepribadian"]').val(),
-					weight_criteria_keterampilan	  : $('input[name="weight_criteria_keterampilan"]').val()
+					weight_criteria_teknispekerjaan	  : weight_criteria_teknispekerjaan / 100,
+					weight_criteria_nonteknispekerjaan: weight_criteria_nonteknispekerjaan / 100,
+					weight_criteria_kepribadian	      : weight_criteria_kepribadian / 100,
+					weight_criteria_keterampilan	  : weight_criteria_keterampilan / 100
 				}
 	            LIBS._ajax("weight/weight_criteria/save", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
@@ -72,13 +76,12 @@ weight_criteria = {
 		init() {
 			this._use_criteria()
 		},
-		_use_criteria(){
-			$('.use_record').on('click',function(){
-
-	            let args = {
-					weight_criteria_id	  : $(this).data('weight-criteria-id')
+		_use_criteria(classButton){
+				let args = {
+					weight_criteria_id	  : classButton.data('weight-criteria-id')
 				}
-	            LIBS._ajax("weight/weight_criteria/use_criteria", LIBS._jsonToQueryString(args)).done((res) => {
+
+				LIBS._ajax("weight/weight_criteria/use_criteria", LIBS._jsonToQueryString(args)).done((res) => {
 					if (res) {
 						let use_criteria = $.parseJSON(res)
 		                if (use_criteria.status == 1) {
@@ -87,9 +90,10 @@ weight_criteria = {
 		                } else {
 		                    toastr['error'](use_criteria.pesan)
 		                }
+					} else {
+						return false
 					}
 				})
-	        })
 		}
 	},
 	stop_criteria : {
@@ -110,6 +114,28 @@ weight_criteria = {
 		                    setTimeout(() => { window.location.reload() }, 1000)
 		                } else {
 		                    toastr['error'](stop_criteria.pesan)
+		                }
+					}
+				})
+	        })
+		}
+	},
+	check_criteria : {
+		init() {
+			this._check_criteria()
+		},
+		_check_criteria(){
+			$('.use_record').on('click',function(){
+				LIBS._ajax("weight/weight_criteria/check_criteria").done((check) => {
+					if (check) {
+						let check_criteria = $.parseJSON(check)
+		                if (check_criteria.status == 1) {
+		                    toastr['warning'](check_criteria.pesan)
+		                    return false
+		                } 
+		                else if (check_criteria.status == 0) {
+		                	let valueButton = $(this)
+		                	weight_criteria.use_criteria._use_criteria(valueButton)
 		                }
 					}
 				})
