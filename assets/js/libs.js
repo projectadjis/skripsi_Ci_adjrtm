@@ -214,6 +214,13 @@ LIBS = {
 	    })
 
 	    $('.datepicker').datepicker('setDate', formatDate);
-	}
+	},
+	_modalValidation: function(variabelElementModal, titleElementModal){
+		let required = 'is required'
+		if (variabelElementModal == '') {
+			toastr['warning'](titleElementModal).append(required)
+			return false
+		}
+	},
 
 }

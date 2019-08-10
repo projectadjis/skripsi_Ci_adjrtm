@@ -10,8 +10,9 @@ class M_preference extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        $this->table          = "tb_generate_preference";
-        $this->table_karyawan = "tb_karyawan";
+        $this->table                 = "tb_generate_preference";
+        $this->table_karyawan        = "tb_karyawan";
+        $this->table_weight_criteria = "tb_weight_criteria";
         $this->column_order   = [
         		null,
         		'karyawan_name',
@@ -20,7 +21,8 @@ class M_preference extends CI_Model {
         		'generate_preference_nonteknispekerjaan',
         		'generate_preference_kepribadian',
         		'generate_preference_keterampilan',
-        		'total_preference'
+        		'total_preference',
+        		'weight_criteria_unique'
         ];
         $this->column_search = [
         	    'karyawan_name',
@@ -29,7 +31,8 @@ class M_preference extends CI_Model {
         		'generate_preference_nonteknispekerjaan',
         		'generate_preference_kepribadian',
         		'generate_preference_keterampilan',
-        		'total_preference'
+        		'total_preference',
+        		'weight_criteria_unique'
         ];
         $this->order         = [
         	  'tb_karyawan.karyawan_name' => 'asc'
@@ -41,6 +44,7 @@ class M_preference extends CI_Model {
 		
 		$this->db->select('*');
 		$this->db->join($this->table_karyawan, 'tb_generate_preference.karyawan_id = tb_karyawan.karyawan_id','left');
+		$this->db->join($this->table_weight_criteria, 'tb_generate_preference.weight_criteria_id = tb_weight_criteria.weight_criteria_id','left');
         $this->db->from($this->table);
 
 		$i = 0;

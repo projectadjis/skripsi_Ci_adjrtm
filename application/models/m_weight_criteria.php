@@ -9,7 +9,8 @@ class M_weight_criteria extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        $this->table = "tb_weight_criteria";
+        $this->table                   = "tb_weight_criteria";
+        $this->tableGeneratePreference = "tb_generate_preference";
     }
 
     function insert_weight_criteria($data) {
@@ -36,6 +37,12 @@ class M_weight_criteria extends CI_Model {
     function check_weight_criteria() {
         $this->db->having('weight_criteria_status',  1);
         $q = $this->db->get($this->table)->result();
+        return $q;
+    }
+
+    function check_before_delete_criteria($data) {
+        $this->db->where($data);
+        $q = $this->db->get($this->tableGeneratePreference)->result();
         return $q;
     }
 

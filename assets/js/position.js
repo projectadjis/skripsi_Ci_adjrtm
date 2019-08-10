@@ -24,22 +24,28 @@ position = {
 			this._save()
 		},
 		_save(){
-			$('#button-save').on('click',function(){
-	            let args = {
-					position_name	  : $('input[name="position_name"]').val(),
-				}
-	            LIBS._ajax("position/save", LIBS._jsonToQueryString(args)).done((res) => {
-					if (res) {
-						let objek = $.parseJSON(res)
-		                if (objek.status == 1) {
-		                    $('#modalAdd').modal('hide')
-		                    toastr['success'](objek.pesan)
-		                    setTimeout(() => { window.location.reload() }, 1000)
-		                } else {
-		                    toastr['error'](objek.pesan)
-		                }
+			$('#button-save').on('click',function(e){
+				let position_name = $('input[name="position_name"]')
+
+				if (LIBS._modalValidation(position_name.val(), position_name.attr("title")) == false){
+					e.stopPropagation()
+				} else {  
+		            let args = {
+						position_name	  : position_name.val(),
 					}
-				})
+		            LIBS._ajax("position/save", LIBS._jsonToQueryString(args)).done((res) => {
+						if (res) {
+							let objek = $.parseJSON(res)
+			                if (objek.status == 1) {
+			                    $('#modalAdd').modal('hide')
+			                    toastr['success'](objek.pesan)
+			                    setTimeout(() => { window.location.reload() }, 1000)
+			                } else {
+			                    toastr['error'](objek.pesan)
+			                }
+						}
+					})
+				}
 	        })
 		}
 	},

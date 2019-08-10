@@ -43,6 +43,7 @@
 										<th>Preference Aspek Keterampilan</th>
 										<th>Total Preference</th>
 										<th>Date Generate</th>
+										<th>Kode Unique</th>
 									</tr>
 								</thead>
 								<tbody>

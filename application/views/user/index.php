@@ -75,15 +75,17 @@
 	            <div class="modal-body">
 		            <div class="tab-content clearfix">
 					    <div class="tab-pane active">
+					    		<input type="hidden" name="karyawan_right">
 					            <div class="form-group">
 					                <label>Name</label>
-					                <input type="text" name="karyawan_name" class="form-control" required>
+					                <input type="text" name="karyawan_name" class="form-control" title="User's Name" required>
 					            </div>  
 					            <div class="form-group">
 					                <label>Position</label><br>
 					                <select class="form-control select2" name="karyawan_position">
 						                 <?php 
 						                 foreach($position->result() as $row){
+						                 	echo "<option>--Choose--</option>";;
 						                 	echo "<option value='$row->position_name'>$row->position_name</option>";
 						                 }
 

@@ -85,6 +85,19 @@ class generate_alternative extends CI_Controller{
     echo json_encode($hasil);
   }
 
+  function check_done_kpi()
+  { 
+    $check = $this->m_generate_alternative->check_done_kpi();
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot generate's alternative because some employee get KPI not yet";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
+
   function check_generate_alternative()
   { 
     $previousDate = date('Y-m-d', strtotime('-6 month'));

@@ -34,6 +34,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
+										<th>Kode Unik</th>
 										<th>Aspek Teknis Pekerjaan (%)</th>
 										<th>Aspek Non Teknis Pekerjaan (%)</th>
 										<th>Aspek Kepribadian (%)</th>
@@ -48,6 +49,7 @@
 	                                    	$no++;
 	                                        echo "<tr>";
 	                                        echo "<td>" . $no . "</td>";
+	                                        echo "<td>" . $row->weight_criteria_unique . "</td>";
 	                                        echo "<td>" . $row->weight_criteria_teknispekerjaan . "</td>";
 	                                        echo "<td>" . $row->weight_criteria_nonteknispekerjaan . "</td>";
 	                                        echo "<td>" . $row->weight_criteria_kepribadian . "</td>";
@@ -95,21 +97,26 @@
 	            <div class="modal-body">
 		            <div class="tab-content clearfix">
 					    <div class="tab-pane active">
+					    	    <div class="form-group">
+					                <label>Kode Unik</label>
+					                <input type="text" name="weight_criteria_unique" class="form-control" title="Kode Unik" required>
+					            </div>
+					            <hr>
 					            <div class="form-group">
 					                <label>Aspek Teknis Pekerjaan (%)</label>
-					                <input type="number" name="weight_criteria_teknispekerjaan" class="form-control number" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_criteria_teknispekerjaan" class="form-control number" min="0" max="100" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Aspek Teknis Pekerjaan (%)" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Aspek Non Teknis Pekerjaan (%)</label>
-					                <input type="number" name="weight_criteria_nonteknispekerjaan" class="form-control number" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_criteria_nonteknispekerjaan" class="form-control number" min="0" max="100" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Aspek Non Teknis Pekerjaan (%)" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Aspek Kepribadian (%)</label>
-					                <input type="number" name="weight_criteria_kepribadian" class="form-control number" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_criteria_kepribadian" class="form-control number" min="0" max="100" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Aspek Kepribadian (%)" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Aspek Keterampilan (%)</label>
-					                <input type="number" name="weight_criteria_keterampilan" class="form-control number" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_criteria_keterampilan" class="form-control number" min="0" max="100" maxlength="3" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Aspek Keterampilan (%)" required>
 					            </div>         
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save">Save</button>

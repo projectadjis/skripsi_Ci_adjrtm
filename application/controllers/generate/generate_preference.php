@@ -43,6 +43,7 @@ class generate_preference extends CI_Controller{
       $get_weight_criteria = $this->m_generate_preference->get_weight_criteria();
 
       foreach ($get_weight_criteria->result() as $row) {
+        $weight_criteria_id                 = $row->weight_criteria_id;
         $weight_criteria_teknispekerjaan    = $row->weight_criteria_teknispekerjaan;
         $weight_criteria_nonteknispekerjaan = $row->weight_criteria_nonteknispekerjaan;
         $weight_criteria_kepribadian        = $row->weight_criteria_kepribadian;
@@ -67,6 +68,7 @@ class generate_preference extends CI_Controller{
                       "generate_preference_date"               => $generate_preference_date,
                       "total_preference"                       => $total_preference,
                       "generate_normalization_id"              => $generate_normalization_id,
+                      "weight_criteria_id"                     => $weight_criteria_id,
                       "karyawan_id"                            => $karyawan_id
       ];
 
