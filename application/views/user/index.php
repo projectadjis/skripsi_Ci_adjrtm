@@ -83,9 +83,9 @@
 					            <div class="form-group">
 					                <label>Position</label><br>
 					                <select class="form-control select2" name="karyawan_position">
+					                	<option>--Choose--</option>
 						                 <?php 
 						                 foreach($position->result() as $row){
-						                 	echo "<option>--Choose--</option>";;
 						                 	echo "<option value='$row->position_name'>$row->position_name</option>";
 						                 }
 

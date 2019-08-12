@@ -201,6 +201,11 @@ LIBS = {
 		    width: '100%'
 		})
 	},
+	_select2Report:  function () {
+		$(".select2").select2({
+		    width: '40%'
+		})
+	},
 	_datepicker:  function () {
 		let date = new Date();
 		let today = new Date(date.getFullYear(), date.getMonth(), date.getDate());

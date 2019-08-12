@@ -62,6 +62,11 @@
         	<i class="fa fa-book"></i><span>Preference</span>
         </a>
     </li>
+    <li class="<?php if($this->uri->segment(1)=="report"){echo "active";}?>">
+        <a href="<?php echo base_url('report'); ?>">
+          <i class="fa fa-book"></i><span>Report</span>
+        </a>
+    </li>
     <!-- <li class="<?php if($this->uri->segment(1)=="rank"){echo "active";}?>">
         <a href="<?php echo base_url('rank'); ?>">
         	<i class="fa fa-line-chart"></i><span>Rank</span>
