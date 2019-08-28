@@ -34,8 +34,8 @@
 			              <!-- Date -->
 			              <div class="form-group">
 			                <label>Select Position:</label><br>
-				                <select class="form-control select2" name="report_position">
-				                	<option>--Choose--</option>
+				                <select class="form-control select2" name="report_position" title="Select's Position">
+				                	<option value="">--Choose--</option>
 					                 <?php 
 						                foreach($position->result() as $row){
 						                 	echo "<option value='$row->position_name'>$row->position_name</option>";
@@ -44,6 +44,9 @@
 				                </select>
 			                <!-- /.input group -->
 			              </div>
+			              <div class="box-footer">
+								<input type="submit" class="btn btn-success pull-left" id="button-report" value="Process">
+				          </div>
 			              <!-- /.form group -->
 			            </div>
 			            <!-- /.box-body -->

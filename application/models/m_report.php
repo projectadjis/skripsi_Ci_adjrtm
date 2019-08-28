@@ -18,13 +18,11 @@ class M_report extends CI_Model {
         $this->table_weight_criteria     = "tb_weight_criteria";
     }
 
-    function get_data_report($data = null) {
+    function get_data_report($data) {
         $this->db->join($this->table_karyawan, 'tb_generate_preference.karyawan_id = tb_karyawan.karyawan_id','left');
 		$this->db->join($this->table_weight_criteria, 'tb_generate_preference.weight_criteria_id = tb_weight_criteria.weight_criteria_id','left');
 		$this->db->join($this->table_position, 'tb_position.position_name = tb_karyawan.karyawan_position','left');
-		if ($data != null) {
-			$this->db->where($data);
-		}
+		$this->db->where($data);
         $q = $this->db->get($this->table_generate_preference);
         return $q;
     }

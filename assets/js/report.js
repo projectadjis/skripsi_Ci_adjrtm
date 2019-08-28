@@ -9,27 +9,27 @@ report = {
 			LIBS._dataTable('#report-table')
 			LIBS._select2Report()
 
-			//$('.value_report').hide()
+			$('.value_report').hide()
 
-			//this._onchangeBasePosition()
-			//this._getBasePositionData()
+			this._clickSetShowData()
 		},
-		_onchangeBasePosition(){
-			$('select[name="report_position"]').on('change', function () {
-				let el = $(this).val()
-				//console.log(el)
-				report.index._getBasePositionData(el)
-			})
-		},
-		_getBasePositionData(el){
-			let args = {
-					position_name	  : el
-				}
-            LIBS._ajax("report/get_data_report", LIBS._jsonToQueryString(args)).done((res) => {
-			})
+		_clickSetShowData(){
+			$('#button-report').on('click',function(e){
+				let positionName = $('select[name="report_position"]')
+				if (LIBS._modalValidation(positionName.val(), positionName.attr("title")) == false){
+					e.stopPropagation()
+				} else { 
+					let args = {
+							position_name	  : positionName.val()
+						}
+		            LIBS._ajax("report/get_data_report", LIBS._jsonToQueryString(args)).done((res) => {
+		       //      	console.log(encodeURIComponent(res))
+					    // $('.value_report').show()
+					    // $(".value_report").html(res);
+					})
+	        	}
+	        })
 		}
-
-
 	}
 
 }

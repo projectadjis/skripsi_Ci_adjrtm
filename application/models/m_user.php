@@ -112,4 +112,11 @@ class M_user extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
+	function get_lead_karyawan() {
+        $this->db->order_by("karyawan_id", 'desc');
+        $this->db->where("karyawan_right", 1);
+        $q = $this->db->get($this->table);
+        return $q;
+    }
+
 }

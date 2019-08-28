@@ -20,8 +20,8 @@ class user extends CI_Controller{
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
-        'karyawan' => $this->get_karyawan(),
-        'position' => $this->get_position()
+        'karyawan'     => $this->get_karyawan(),
+        'position'     => $this->get_position()
 	];
     $this->load->view('user/index', $data);
   }
@@ -51,6 +51,12 @@ class user extends CI_Controller{
     return $this->m_position->get_position();
   }
 
+  function get_lead_karyawan()
+  {
+    $data['leadKaryawan'] = $this->m_user->get_lead_karyawan();
+    $this->load->view('user/managementuser', $data);
+  }
+
   function get_data_karyawan()
   {
     $list = $this->m_user->get_datatables();
@@ -71,7 +77,7 @@ class user extends CI_Controller{
             <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
             </a>
         ";  
-      } elseif ($field->karyawan_right == 0 && $field->karyawan_status == 0){
+      } elseif ($field->karyawan_right == 2 && $field->karyawan_status == 0){
         $row[] = "<button class='btn btn-primary btn-md' style='pointer-events: none;'>Belum Penilaian</button>";
         $row[] = "
             <a class='kpi_record btn bg-navy btn-md' data-karyawan_id='$field->karyawan_id'><i class='fa fa-bar-chart-o'></i>&nbsp;KPI
@@ -81,7 +87,7 @@ class user extends CI_Controller{
             <a href='javascript:void(0);' data-karyawan-id='$field->karyawan_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
             </a>
         ";  
-      } elseif ($field->karyawan_right == 0 && $field->karyawan_status == 1) {
+      } elseif ($field->karyawan_right == 2 && $field->karyawan_status == 1) {
         $row[] = "<button class='btn btn-success btn-md' style='pointer-events: none;'>Sudah Penilaian</button>";
         $row[] = "
             <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-karyawan_id='$field->karyawan_id' data-karyawan_name='$field->karyawan_name' data-karyawan_position='$field->karyawan_position'><i class='fa fa-pencil'></i>&nbsp;Edit

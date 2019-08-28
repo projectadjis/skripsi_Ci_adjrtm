@@ -27,7 +27,7 @@ position = {
 			$('#button-save').on('click',function(e){
 				let position_name = $('input[name="position_name"]')
 
-				if (LIBS._modalValidation(position_name.val(), position_name.attr("title")) == false){
+				if (LIBS._modalValidation(position_name.val(), position_name.attr("title"), 'input[name="position_name"]') == false){
 					e.stopPropagation()
 				} else {  
 		            let args = {

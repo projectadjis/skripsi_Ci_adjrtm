@@ -196,6 +196,13 @@ LIBS = {
             $(inputFormTarget).val(data)
         })
 	},
+	_modalRight:  function (parameter, parameterClass, parameterData, modalRightID, inputFormTarget) {
+		$(parameter).on('click',parameterClass,function(){
+            let data =$(this).data(parameterData)
+            $(modalRightID).modal('show')
+            $(inputFormTarget).val(data)
+        })
+	},
 	_select2:  function () {
 		$(".select2").select2({
 		    width: '100%'
@@ -220,9 +227,10 @@ LIBS = {
 
 	    $('.datepicker').datepicker('setDate', formatDate);
 	},
-	_modalValidation: function(variabelElementModal, titleElementModal){
+	_modalValidation: function(variabelElementModal, titleElementModal, parameterSelector){
 		let required = 'is required'
 		if (variabelElementModal == '') {
+			$(parameterSelector).css('border-color', 'red')
 			toastr['warning'](titleElementModal).append(required)
 			return false
 		}

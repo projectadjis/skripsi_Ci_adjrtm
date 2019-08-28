@@ -23,6 +23,7 @@ class report extends CI_Controller{
     'get_data_report' => $this->get_data_report(),
     'position'		  => $this->get_position()
     ];
+    //var_dump($data['get_data_report']); die();
     $this->load->view('report/index', $data);
   }
 
@@ -34,17 +35,8 @@ class report extends CI_Controller{
   function get_data_report()
   {	
   	$data  = $this->input->post();
-  	$check = $this->m_report->get_data_report();
+  	$check = $this->m_report->get_data_report($data);
   	return $check;
- //  	if ($data != NULL ) {
- //    	$check = $this->m_report->get_data_report($data);
-	// } else {
-	// 	$check = $this->m_report->get_data_report();
-	// }
-   	
-   	// if (count($check) > 0) {
-   	// 	return $check;
-   	// }
   }
  
 }

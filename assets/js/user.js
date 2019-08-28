@@ -81,7 +81,7 @@ user = {
 				let karyawan_name	  = $('input[name="karyawan_name"]')
 				let karyawan_right    = $('input[name="karyawan_right"]').val()
 
-				if (LIBS._modalValidation(karyawan_name.val(), karyawan_name.attr("title")) == false){
+				if (LIBS._modalValidation(karyawan_name.val(), karyawan_name.attr("title"), 'input[name="karyawan_name"]') == false){
 					e.stopPropagation()
 				} else {    
 		            let args = {
