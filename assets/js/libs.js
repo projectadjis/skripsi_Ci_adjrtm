@@ -227,13 +227,30 @@ LIBS = {
 
 	    $('.datepicker').datepicker('setDate', formatDate);
 	},
-	_modalValidation: function(variabelElementModal, titleElementModal, parameterSelector){
+	_modalValidation: function(variabelElementModal, titleElementModal, parameterSelector, select2){
 		let required = 'is required'
 		if (variabelElementModal == '') {
-			$(parameterSelector).css('border-color', 'red')
+			if (select2) {
+				$(select2 + '-selection').css('border-color', 'red');
+			} else { 
+				$(parameterSelector).css('border-color', 'red')
+			}
 			toastr['warning'](titleElementModal).append(required)
 			return false
+		} else {
+			if (select2) {
+				$(select2 + '-selection').css('border-color', '');
+			} else { 
+				$(parameterSelector).css('border-color', '')
+			}
+			return true
 		}
+	},
+	_buttonReset: function(variabelElementModal, idSelect2) {
+		$('#button-reset').on('click',function(){
+            $(variabelElementModal).val('')
+		    $(idSelect2).select2('val', $(idSelect2).find('option')[0])
+        })
 	},
 
 }

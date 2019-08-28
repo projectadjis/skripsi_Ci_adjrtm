@@ -78,7 +78,7 @@ class user extends CI_Controller{
             </a>
         ";  
       } elseif ($field->karyawan_right == 2 && $field->karyawan_status == 0){
-        $row[] = "<button class='btn btn-primary btn-md' style='pointer-events: none;'>Belum Penilaian</button>";
+        $row[] = "<button class='btn btn-primary btn-md' style='pointer-events: none;'>Not Yet Rated</button>";
         $row[] = "
             <a class='kpi_record btn bg-navy btn-md' data-karyawan_id='$field->karyawan_id'><i class='fa fa-bar-chart-o'></i>&nbsp;KPI
             </a>&nbsp;

@@ -8,7 +8,11 @@ weight_criteria = {
 		init() {
 			LIBS._dataTableCriteria('#weight-criteria')
 			LIBS._modalDelete('#weight-criteria','.delete_record','weight-criteria-id','#modalDelete','input[name="weight_criteria_id"]')
-
+			LIBS._buttonReset('input[name="weight_criteria_unique"]')
+			LIBS._buttonReset('input[name="weight_criteria_teknispekerjaan"]')
+			LIBS._buttonReset('input[name="weight_criteria_nonteknispekerjaan"]')
+			LIBS._buttonReset('input[name="weight_criteria_kepribadian"]')
+			LIBS._buttonReset('input[name="weight_criteria_keterampilan"]')
 			weight_criteria.save._save()
 			weight_criteria.check_criteria._check_criteria()
 			weight_criteria.stop_criteria._stop_criteria()

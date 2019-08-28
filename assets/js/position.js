@@ -8,14 +8,10 @@ position = {
 		init() {
 			LIBS._dataTable('#position-table')
 			LIBS._modalDelete('#position-table','.delete_record','position-id','#modalDelete','input[name="position_id"]')
+			LIBS._buttonReset('input[name="position_name"]')
 			position.save._save()
 			position.delete._delete()
-		},
-		_buttonReset(){
-			$('#button-reset').on('click',function(){
-	            $('input[name="position_name"]').val('');
-	        })
-		},
+		}
 
 	},
 	save: {

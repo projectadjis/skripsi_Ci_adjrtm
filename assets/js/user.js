@@ -9,7 +9,7 @@ user = {
 			LIBS._dataTableServerSide('#user-table','user/get_data_karyawan')
 			LIBS._modalDelete('#user-table','.delete_record','karyawan-id','#modalDelete','input[name="karyawan_id"]')
 			LIBS._select2()
-			this._buttonReset()
+			LIBS._buttonReset('input[name="karyawan_name"]', '#karyawan_position')
 			this._modalUpdateUser()
 			this._kpi()
 			this._setValueKaryawanRight()
@@ -28,11 +28,6 @@ user = {
 	            $('input[name="karyawan_id_edit"]').val(karyawan_id)
 	            $('input[name="karyawan_name_edit"]').val(karyawan_name)
 	            $('input[name="karyawan_position_edit"]').val(karyawan_position)
-	        })
-		},
-		_buttonReset(){
-			$('#button-reset').on('click',function(){
-	            $('input[name="karyawan_name"]').val('');
 	        })
 		},
 		_kpi(){
@@ -79,14 +74,15 @@ user = {
 		_save(){
 			$('#button-save').on('click',function(e){
 				let karyawan_name	  = $('input[name="karyawan_name"]')
+				let karyawan_position = $('select[name="karyawan_position"]')
 				let karyawan_right    = $('input[name="karyawan_right"]').val()
 
-				if (LIBS._modalValidation(karyawan_name.val(), karyawan_name.attr("title"), 'input[name="karyawan_name"]') == false){
+				if (LIBS._modalValidation(karyawan_name.val(), karyawan_name.attr("title"), 'input[name="karyawan_name"]') == false || LIBS._modalValidation(karyawan_position.val(), karyawan_position.attr("title"), 'select[name="karyawan_position"]','.select2') == false){
 					e.stopPropagation()
 				} else {    
 		            let args = {
 						karyawan_name	  : karyawan_name.val(),
-						karyawan_position : $('select[name="karyawan_position"]').val(),
+						karyawan_position : karyawan_position.val(),
 						karyawan_right    : karyawan_right
 					}
 		            LIBS._ajax("user/save", LIBS._jsonToQueryString(args)).done((res) => {
