@@ -6,6 +6,7 @@ class generate_preference extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('m_generate_normalization');
     $this->load->model('m_generate_preference');
   }
  
@@ -101,16 +102,21 @@ class generate_preference extends CI_Controller{
 
   function check_generate_preference()
   { 
-    $previousDate = date('Y-m-d', strtotime('-6 month'));
-    $today = date('Y-m-d');
-    $check = $this->m_generate_preference->check_generate_preference($previousDate, $today);
+    $previousDate               = date('Y-m-d', strtotime('-6 month'));
+    $today                      = date('Y-m-d');
+    $check                      = $this->m_generate_preference->check_generate_preference($previousDate, $today);
+    $checkGenerateNormalization = $this->m_generate_preference->get_generate_normalization();
     $hasil                      = [];
     if (count($check) > 0) {
         $hasil['pesan']         = "Cannot generate's preference because you have been generate before";
         $hasil['status']        = 1;
+    } elseif (count($checkGenerateNormalization) < 1) {
+        $hasil['pesan']         = "Cannot generate's preference because you don't have generate's normalization before";
+        $hasil['status']        = 2;
     } else {
         $hasil['status']        = 0;
     }
+
     echo json_encode($hasil);
   }
  
