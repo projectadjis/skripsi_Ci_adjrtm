@@ -6,10 +6,12 @@ if (!defined('BASEPATH'))
 class M_generate_alternative extends CI_Model {
 
     public $table;
+    public $table_karyawan;
 
     function __construct() {
         parent::__construct();
-        $this->table = "tb_generate_alternative";
+        $this->table          = "tb_generate_alternative";
+        $this->table_karyawan = "tb_karyawan";
     }
 
     function insert_generate_alternative($data) {
@@ -51,6 +53,12 @@ class M_generate_alternative extends CI_Model {
         $this->db->where('generate_alternative_date >=', $previousDate);
         $this->db->where('generate_alternative_date <=', $today);
         $q = $this->db->get($this->table)->result();
+        return $q;
+    }
+
+    function check_done_kpi() {
+        $this->db->having('karyawan_status',  0);
+        $q = $this->db->get($this->table_karyawan)->result();
         return $q;
     }
 

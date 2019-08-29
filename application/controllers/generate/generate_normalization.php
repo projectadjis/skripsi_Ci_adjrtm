@@ -96,16 +96,21 @@ class generate_normalization extends CI_Controller{
 
   function check_generate_normalization()
   { 
-    $previousDate = date('Y-m-d', strtotime('-6 month'));
-    $today = date('Y-m-d');
-    $check = $this->m_generate_normalization->check_generate_normalization($previousDate, $today);
+    $previousDate               = date('Y-m-d', strtotime('-6 month'));
+    $today                      = date('Y-m-d');
+    $check                      = $this->m_generate_normalization->check_generate_normalization($previousDate, $today);
+    $checkGenerateAlternatif    = $this->m_generate_alternative->get_generate_alternative();
     $hasil                      = [];
     if (count($check) > 0) {
         $hasil['pesan']         = "Cannot generate's normalization because you have been generate before";
         $hasil['status']        = 1;
+    } elseif (count($checkGenerateAlternatif->result()) < 1) {
+        $hasil['pesan']         = "Cannot generate's normalization because you don't have generate's alternatife before";
+        $hasil['status']        = 2;
     } else {
         $hasil['status']        = 0;
     }
+
     echo json_encode($hasil);
   }
  

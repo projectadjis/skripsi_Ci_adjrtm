@@ -91,6 +91,20 @@ class weight_criteria extends CI_Controller{
     echo json_encode($hasil);
   }
 
+  function check_before_delete_criteria()
+  {
+    $data                       = $this->input->post();
+    $check                      = $this->m_weight_criteria->check_before_delete_criteria($data);
+    $hasil                      = [];
+    if (count($check) > 0) {
+        $hasil['pesan']         = "Cannot delete the record criteria because you have been generate preference with this criteria";
+        $hasil['status']        = 1;
+    } else {
+        $hasil['status']        = 0;
+    }
+    echo json_encode($hasil);
+  }
+
   function stop_criteria()
   {
     $data                                     = $this->input->post();

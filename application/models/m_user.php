@@ -14,11 +14,13 @@ class M_user extends CI_Model {
         		null,
         		'karyawan_name',
         		'karyawan_position',
+        		'karyawan_right',
         		'karyawan_status'
         ];
         $this->column_search = [
         	    'karyawan_name',
-        	    'karyawan_position'
+        	    'karyawan_position',
+        	    'karyawan_right'
         ];
         $this->order         = [
         	    'karyawan_name' => 'asc'
@@ -49,7 +51,7 @@ class M_user extends CI_Model {
 	function _get_datatables_query($term='')
 	{
 		
-		$this->db->select('tb_karyawan.karyawan_id,tb_karyawan.karyawan_name, tb_karyawan.karyawan_position, tb_karyawan.karyawan_status');
+		$this->db->select('tb_karyawan.karyawan_id,tb_karyawan.karyawan_name, tb_karyawan.karyawan_position,tb_karyawan.karyawan_right, tb_karyawan.karyawan_status');
 		$this->db->from($this->table);
 
 		$i = 0;
@@ -109,5 +111,12 @@ class M_user extends CI_Model {
 		$this->db->from($this->table);
 		return $this->db->count_all_results();
 	}
+
+	function get_lead_karyawan() {
+        $this->db->order_by("karyawan_id", 'desc');
+        $this->db->where("karyawan_right", 1);
+        $q = $this->db->get($this->table);
+        return $q;
+    }
 
 }

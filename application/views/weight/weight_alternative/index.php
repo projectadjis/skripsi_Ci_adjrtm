@@ -202,15 +202,15 @@
 					    <div class="tab-pane active">
 					            <div class="form-group">
 					                <label>Range Down</label>
-					                <input type="number" name="weight_alternative_aspek_teknis_pekerjaan_rangedown" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_teknis_pekerjaan_rangedown" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Teknis Pekerjaan's Range Down" required>
 					            </div> 
 					            <div class="form-group">
 					                <label>Range Up</label>
-					                <input type="number" name="weight_alternative_aspek_teknis_pekerjaan_rangeup" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_teknis_pekerjaan_rangeup" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Teknis Pekerjaan's Range Up" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Score</label>
-					                <input type="number" name="weight_alternative_aspek_teknis_pekerjaan_score" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_teknis_pekerjaan_score" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Teknis Pekerjaan's Range Score" required>
 					            </div>      
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save-teknispekerjaan">Save</button>
@@ -237,15 +237,15 @@
 					    <div class="tab-pane active">
 					            <div class="form-group">
 					                <label>Range Down</label>
-					                <input type="number" min="0" name="weight_alternative_aspek_nonteknis_pekerjaan_rangedown" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" min="0" name="weight_alternative_aspek_nonteknis_pekerjaan_rangedown" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Non Teknis Pekerjaan's Range Down" required>
 					            </div> 
 					            <div class="form-group">
 					                <label>Range Up</label>
-					                <input type="number" min="0" name="weight_alternative_aspek_nonteknis_pekerjaan_rangeup" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" min="0" name="weight_alternative_aspek_nonteknis_pekerjaan_rangeup" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Non Teknis Pekerjaan's Range Up" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Score</label>
-					                <input type="number" min="0" name="weight_alternative_aspek_nonteknis_pekerjaan_score" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" min="0" name="weight_alternative_aspek_nonteknis_pekerjaan_score" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Non Teknis Pekerjaan's Score" required>
 					            </div>      
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save-nonteknispekerjaan">Save</button>
@@ -272,15 +272,15 @@
 					    <div class="tab-pane active">
 					            <div class="form-group">
 					                <label>Range Down</label>
-					                <input type="number" name="weight_alternative_aspek_kepribadian_rangedown" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_kepribadian_rangedown" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Kepribadian's Range Down" required>
 					            </div> 
 					            <div class="form-group">
 					                <label>Range Up</label>
-					                <input type="number" name="weight_alternative_aspek_kepribadian_rangeup" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_kepribadian_rangeup" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Kepribadian's Range Up" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Score</label>
-					                <input type="number" name="weight_alternative_aspek_kepribadian_score" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_kepribadian_score" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Kepribadian's Score" required>
 					            </div>      
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save-kepribadian">Save</button>
@@ -307,15 +307,15 @@
 					    <div class="tab-pane active">
 					            <div class="form-group">
 					                <label>Range Down</label>
-					                <input type="number" name="weight_alternative_aspek_keterampilan_rangedown" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_keterampilan_rangedown" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Keterampilan's Range Down" required>
 					            </div> 
 					            <div class="form-group">
 					                <label>Range Up</label>
-					                <input type="number" name="weight_alternative_aspek_keterampilan_rangeup" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_keterampilan_rangeup" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Keterampilan's Range Up" required>
 					            </div>
 					            <div class="form-group">
 					                <label>Score</label>
-					                <input type="number" name="weight_alternative_aspek_keterampilan_score" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+					                <input type="number" name="weight_alternative_aspek_keterampilan_score" class="form-control" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');" title="Weight Alternatif Aspek Keterampilan's Score" required>
 					            </div>      
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save-keterampilan">Save</button>

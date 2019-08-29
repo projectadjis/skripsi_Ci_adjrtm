@@ -40,8 +40,9 @@ class M_kpi extends CI_Model {
     {
         
         $this->db->select('*');
-        $this->db->join($this->table_kpi, 'tb_karyawan.karyawan_id = tb_kpi.karyawan_id','left');
-        $this->db->from($this->table_karyawan);
+        // $this->db->join($this->table_kpi, 'tb_karyawan.karyawan_id = tb_kpi.karyawan_id','left');
+        $this->db->join($this->table_karyawan, 'tb_karyawan.karyawan_id = tb_kpi.karyawan_id','left');
+        $this->db->from($this->table_kpi);
 
         $i = 0;
 
@@ -97,7 +98,7 @@ class M_kpi extends CI_Model {
 
     function count_all()
     {
-        $this->db->from($this->table_karyawan);
+        $this->db->from($this->table_kpi);
         return $this->db->count_all_results();
     }
 

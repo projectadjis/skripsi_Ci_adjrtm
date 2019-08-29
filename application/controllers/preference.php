@@ -42,6 +42,7 @@ class preference extends CI_Controller{
       $row[] = $field->generate_preference_keterampilan;
       $row[] = $field->total_preference;
       $row[] = $date_generate;
+      $row[] = $field->weight_criteria_unique;
 
       $data[] = $row;
     }

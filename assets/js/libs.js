@@ -196,9 +196,21 @@ LIBS = {
             $(inputFormTarget).val(data)
         })
 	},
+	_modalRight:  function (parameter, parameterClass, parameterData, modalRightID, inputFormTarget) {
+		$(parameter).on('click',parameterClass,function(){
+            let data =$(this).data(parameterData)
+            $(modalRightID).modal('show')
+            $(inputFormTarget).val(data)
+        })
+	},
 	_select2:  function () {
 		$(".select2").select2({
 		    width: '100%'
+		})
+	},
+	_select2Report:  function () {
+		$(".select2").select2({
+		    width: '40%'
 		})
 	},
 	_datepicker:  function () {
@@ -214,6 +226,37 @@ LIBS = {
 	    })
 
 	    $('.datepicker').datepicker('setDate', formatDate);
-	}
+	},
+	_modalValidation: function(variabelElementModal, titleElementModal, parameterSelector, select2){
+		let required = ' is required'
+		if (variabelElementModal == '') {
+			if (select2) {
+				$(select2 + '-selection').css('border-color', 'red');
+			} else { 
+				$(parameterSelector).css('border-color', 'red')
+			}
+
+			toastr['warning'](titleElementModal + required)
+			return false
+		} else {
+			if (select2) {
+				$(select2 + '-selection').css('border-color', '');
+			} else { 
+				$(parameterSelector).css('border-color', '')
+			}
+			return true
+		}
+	},
+	_buttonReset: function(variabelElementModal, idSelect2) {
+		$('#button-reset').on('click',function(){
+            $(variabelElementModal).val('')
+		    $(idSelect2).select2('val', $(idSelect2).find('option')[0])
+        })
+	},
+	_buttonResetWeightAlternatif: function(variabelElementModal, nameSelector) {
+		$('#button-reset' + nameSelector).on('click',function(){
+            $(variabelElementModal).val('')
+        })
+	},
 
 }

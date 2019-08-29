@@ -48,6 +48,9 @@ generate_normalization = {
 		                if (check_generate_normalization.status == 1) {
 		                    toastr['error'](check_generate_normalization.pesan)
 		                    return false
+		                } else if (check_generate_normalization.status == 2) {
+		                    toastr['error'](check_generate_normalization.pesan)
+		                    return false
 		                } else if (check_generate_normalization.status == 0) {
 		                    generate_normalization.save_generate_normalization._save_generate_normalization()
 		                }

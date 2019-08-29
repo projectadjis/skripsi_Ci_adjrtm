@@ -68,6 +68,9 @@ generate_preference = {
 	                if (check_generate_preference.status == 1) {
 	                    toastr['error'](check_generate_preference.pesan)
 	                    return false
+	                } else if (check_generate_preference.status == 2) {
+	                    toastr['error'](check_generate_preference.pesan)
+	                    return false
 	                } else if (check_generate_preference.status == 0) {
 	                    generate_preference.save_generate_preference._save_generate_preference()
 	                }

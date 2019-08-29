@@ -83,7 +83,7 @@
 					    <div class="tab-pane active">
 					            <div class="form-group">
 					                <label>Position</label>
-					                <input type="text" name="position_name" class="form-control" required>
+					                <input type="text" name="position_name" class="form-control" title="Position's Name" required>
 					            </div>  
 					            <div class="box-footer">
 									<button type="submit" class="btn btn-success pull-right" id="button-save">Save</button>

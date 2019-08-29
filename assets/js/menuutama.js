@@ -6,7 +6,7 @@ menuutama = {
 	index: {
 
 		init() {
-			this._salesChart()
+			//this._salesChart()
 		},
 		_salesChart() {
 			// -----------------------

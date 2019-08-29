@@ -6,6 +6,7 @@ class generate_preference extends CI_Controller{
   public function __construct()
   {
     parent::__construct();
+    $this->load->model('m_generate_normalization');
     $this->load->model('m_generate_preference');
   }
  
@@ -43,6 +44,7 @@ class generate_preference extends CI_Controller{
       $get_weight_criteria = $this->m_generate_preference->get_weight_criteria();
 
       foreach ($get_weight_criteria->result() as $row) {
+        $weight_criteria_id                 = $row->weight_criteria_id;
         $weight_criteria_teknispekerjaan    = $row->weight_criteria_teknispekerjaan;
         $weight_criteria_nonteknispekerjaan = $row->weight_criteria_nonteknispekerjaan;
         $weight_criteria_kepribadian        = $row->weight_criteria_kepribadian;
@@ -67,6 +69,7 @@ class generate_preference extends CI_Controller{
                       "generate_preference_date"               => $generate_preference_date,
                       "total_preference"                       => $total_preference,
                       "generate_normalization_id"              => $generate_normalization_id,
+                      "weight_criteria_id"                     => $weight_criteria_id,
                       "karyawan_id"                            => $karyawan_id
       ];
 
@@ -99,16 +102,21 @@ class generate_preference extends CI_Controller{
 
   function check_generate_preference()
   { 
-    $previousDate = date('Y-m-d', strtotime('-6 month'));
-    $today = date('Y-m-d');
-    $check = $this->m_generate_preference->check_generate_preference($previousDate, $today);
+    $previousDate               = date('Y-m-d', strtotime('-6 month'));
+    $today                      = date('Y-m-d');
+    $check                      = $this->m_generate_preference->check_generate_preference($previousDate, $today);
+    $checkGenerateNormalization = $this->m_generate_preference->get_generate_normalization();
     $hasil                      = [];
     if (count($check) > 0) {
         $hasil['pesan']         = "Cannot generate's preference because you have been generate before";
         $hasil['status']        = 1;
+    } elseif (count($checkGenerateNormalization) < 1) {
+        $hasil['pesan']         = "Cannot generate's preference because you don't have generate's normalization before";
+        $hasil['status']        = 2;
     } else {
         $hasil['status']        = 0;
     }
+
     echo json_encode($hasil);
   }
  

@@ -9,13 +9,14 @@ user = {
 			LIBS._dataTableServerSide('#user-table','user/get_data_karyawan')
 			LIBS._modalDelete('#user-table','.delete_record','karyawan-id','#modalDelete','input[name="karyawan_id"]')
 			LIBS._select2()
-			this._buttonReset()
+			LIBS._buttonReset('input[name="karyawan_name"]', '#karyawan_position')
 			this._modalUpdateUser()
+			this._kpi()
+			this._setValueKaryawanRight()
 			//this._sweetAlert()
 			user.save._save()
 			user.update._update()
 			user.delete._delete()
-			this._kpi()
 			
 		},
 		_modalUpdateUser(){
@@ -29,11 +30,6 @@ user = {
 	            $('input[name="karyawan_position_edit"]').val(karyawan_position)
 	        })
 		},
-		_buttonReset(){
-			$('#button-reset').on('click',function(){
-	            $('input[name="karyawan_name"]').val('');
-	        })
-		},
 		_kpi(){
 			$('#user-table').on('click','.kpi_record',function(){
 	            let data = $(this).data('karyawan_id')
@@ -41,6 +37,18 @@ user = {
 				let finalUrl = baseUrl+"/"+"kpi/?karyawan_id="+data
 	            window.location.replace(finalUrl)
 	        })
+		},
+		_setValueKaryawanRight(){
+			$('select[name="karyawan_position"]').on('change', function (e) {
+				let el = $(this).val()
+				if (el == 'Lead Staff Adm' || el == 'Lead VPC' || el == 'Lead Buyer' || el == 'Lead Docon' || el == 'Lead TKDN') {
+					let right = 1
+					$('input[name="karyawan_right"]').val(right)
+				} else {
+					let right = 2
+					$('input[name="karyawan_right"]').val(right)
+				}
+			})
 		}
 		// _sweetAlert() {
 		// 	$('#user-table').on('click','.sweet-6',function(){
@@ -64,23 +72,32 @@ user = {
 			this._save()
 		},
 		_save(){
-			$('#button-save').on('click',function(){
-	            let args = {
-					karyawan_name	  : $('input[name="karyawan_name"]').val(),
-					karyawan_position : $('select[name="karyawan_position"]').val()
-				}
-	            LIBS._ajax("user/save", LIBS._jsonToQueryString(args)).done((res) => {
-					if (res) {
-						let objek = $.parseJSON(res)
-		                if (objek.status == 1) {
-		                    $('#modalAdd').modal('hide')
-		                    toastr['success'](objek.pesan)
-		                    setTimeout(() => { window.location.reload() }, 1000)
-		                } else {
-		                    toastr['error'](objek.pesan)
-		                }
+			$('#button-save').on('click',function(e){
+				let karyawan_name	  = $('input[name="karyawan_name"]')
+				let karyawan_position = $('select[name="karyawan_position"]')
+				let karyawan_right    = $('input[name="karyawan_right"]').val()
+
+				if (LIBS._modalValidation(karyawan_name.val(), karyawan_name.attr("title"), 'input[name="karyawan_name"]') == false || LIBS._modalValidation(karyawan_position.val(), karyawan_position.attr("title"), 'select[name="karyawan_position"]','.select2') == false){
+					e.stopPropagation()
+				} else {    
+		            let args = {
+						karyawan_name	  : karyawan_name.val(),
+						karyawan_position : karyawan_position.val(),
+						karyawan_right    : karyawan_right
 					}
-				})
+		            LIBS._ajax("user/save", LIBS._jsonToQueryString(args)).done((res) => {
+						if (res) {
+							let objek = $.parseJSON(res)
+			                if (objek.status == 1) {
+			                    $('#modalAdd').modal('hide')
+			                    toastr['success'](objek.pesan)
+			                    setTimeout(() => { window.location.reload() }, 1000)
+			                } else {
+			                    toastr['error'](objek.pesan)
+			                }
+						}
+					})
+	        	}
 	        })
 		}
 	},
