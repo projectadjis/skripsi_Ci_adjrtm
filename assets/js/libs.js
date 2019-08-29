@@ -228,14 +228,15 @@ LIBS = {
 	    $('.datepicker').datepicker('setDate', formatDate);
 	},
 	_modalValidation: function(variabelElementModal, titleElementModal, parameterSelector, select2){
-		let required = 'is required'
+		let required = ' is required'
 		if (variabelElementModal == '') {
 			if (select2) {
 				$(select2 + '-selection').css('border-color', 'red');
 			} else { 
 				$(parameterSelector).css('border-color', 'red')
 			}
-			toastr['warning'](titleElementModal).append(required)
+
+			toastr['warning'](titleElementModal + required)
 			return false
 		} else {
 			if (select2) {

@@ -6,7 +6,7 @@
  		</a>
  	</li>
  	
-  <li class="treeview <?php if($this->uri->segment(1)=="user"){echo "active";} elseif($this->uri->segment(1)=="managementuser"){echo "active";} ?>">
+  <li class="treeview <?php if($this->uri->segment(1)=="user"){echo "active";} elseif($this->uri->segment(1)=="managementuser"){echo "active";} elseif($this->uri->segment(1)=="kpi"){echo "active";} ?>">
         <a href="#">
           <i class="fa fa-user"></i>
           <span>User</span>
@@ -15,7 +15,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($this->uri->segment(1)=="user"){echo "active";}?>"><a href="<?php echo base_url('user') ?>"><i class="fa fa-circle-o"></i>All User</a></li>
+          <li class="<?php if($this->uri->segment(1)=="user"){echo "active";} elseif($this->uri->segment(1)=="kpi"){echo "active";} ?>"><a href="<?php echo base_url('user') ?>"><i class="fa fa-circle-o"></i>All User</a></li>
           <li class="<?php if($this->uri->segment(1)=="managementuser"){echo "active";}?>"><a href="<?php echo base_url('managementuser') ?>"><i class="fa fa-circle-o"></i>Management User</a></li>
         </ul>
   </li>
