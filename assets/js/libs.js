@@ -252,5 +252,10 @@ LIBS = {
 		    $(idSelect2).select2('val', $(idSelect2).find('option')[0])
         })
 	},
+	_buttonResetWeightAlternatif: function(variabelElementModal, nameSelector) {
+		$('#button-reset' + nameSelector).on('click',function(){
+            $(variabelElementModal).val('')
+        })
+	},
 
 }

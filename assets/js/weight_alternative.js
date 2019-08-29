@@ -6,22 +6,44 @@ weight_alternative = {
 	index: {
 
 		init() {
-			LIBS._dataTableAlternative('#aspek-teknis-pekerjaan-table', '#add-teknis-pekerjaan')
-	  		LIBS._dataTableAlternative('#aspek-nonteknis-pekerjaan-table', '#add-nonteknis-pekerjaan')
-	  		LIBS._dataTableAlternative('#aspek-kepribadian-table', '#add-kepribadian')
-	  		LIBS._dataTableAlternative('#aspek-keterampilan-table', '#add-keterampilan')
+
+	  		/* teknis pekerjaan */
+	  		LIBS._dataTableAlternative('#aspek-teknis-pekerjaan-table', '#add-teknis-pekerjaan')
 	  		LIBS._modalDelete('#aspek-teknis-pekerjaan-table','.delete_record_weight_alternative_aspek_teknis_pekerjaan','weight-alternative-aspek-teknis-pekerjaan-id','#modalDeleteAspekTeknisPekerjaan','input[name="weight_alternative_aspek_teknis_pekerjaan_id"]')
-	  		LIBS._modalDelete('#aspek-nonteknis-pekerjaan-table','.delete_record_weight_alternative_aspek_nonteknis_pekerjaan','weight-alternative-aspek-nonteknis-pekerjaan-id','#modalDeleteAspekNonTeknisPekerjaan','input[name="weight_alternative_aspek_nonteknis_pekerjaan_id"]')
-	  		LIBS._modalDelete('#aspek-kepribadian-table','.delete_record_weight_alternative_aspek_kepribadian','weight-alternative-aspek-kepribadian-id','#modalDeleteAspekKepribadian','input[name="weight_alternative_aspek_kepribadian_id"]')
-	  		LIBS._modalDelete('#aspek-keterampilan-table','.delete_record_weight_alternative_aspek_keterampilan','weight-alternative-aspek-keterampilan-id','#modalDeleteAspekKeterampilan','input[name="weight_alternative_aspek_keterampilan_id"]')
 	  		weight_alternative.save_teknis_pekerjaan._save_teknis_pekerjaan()
-	  		weight_alternative.save_nonteknis_pekerjaan._save_nonteknis_pekerjaan()
-	  		weight_alternative.save_kepribadian._save_kepribadian()
-	  		weight_alternative.save_keterampilan._save_keterampilan()
 	  		weight_alternative.delete_teknis_pekerjaan._delete_teknis_pekerjaan()
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_teknis_pekerjaan_rangedown"]', '-teknispekerjaan')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_teknis_pekerjaan_rangeup"]', '-teknispekerjaan')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_teknis_pekerjaan_score"]', '-teknispekerjaan')
+
+	  		/* non-teknis pekerjaan */
+	  		LIBS._dataTableAlternative('#aspek-nonteknis-pekerjaan-table', '#add-nonteknis-pekerjaan')
+	  		LIBS._modalDelete('#aspek-nonteknis-pekerjaan-table','.delete_record_weight_alternative_aspek_nonteknis_pekerjaan','weight-alternative-aspek-nonteknis-pekerjaan-id','#modalDeleteAspekNonTeknisPekerjaan','input[name="weight_alternative_aspek_nonteknis_pekerjaan_id"]')
+	  		weight_alternative.save_nonteknis_pekerjaan._save_nonteknis_pekerjaan()
 	  		weight_alternative.delete_nonteknis_pekerjaan._delete_nonteknis_pekerjaan()
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_nonteknis_pekerjaan_rangedown"]', '-nonteknispekerjaan')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_nonteknis_pekerjaan_rangeup"]', '-nonteknispekerjaan')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_nonteknis_pekerjaan_score"]', '-nonteknispekerjaan')
+
+
+	  		/* kepribadian */
+	  		LIBS._dataTableAlternative('#aspek-kepribadian-table', '#add-kepribadian')
+	  		LIBS._modalDelete('#aspek-kepribadian-table','.delete_record_weight_alternative_aspek_kepribadian','weight-alternative-aspek-kepribadian-id','#modalDeleteAspekKepribadian','input[name="weight_alternative_aspek_kepribadian_id"]')
+	  		weight_alternative.save_kepribadian._save_kepribadian()
 	  		weight_alternative.delete_kepribadian._delete_kepribadian()
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_kepribadian_rangedown"]', '-kepribadian')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_kepribadian_rangeup"]', '-kepribadian')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_kepribadian_score"]', '-kepribadian')
+
+	  		/* keterampilan */
+	  		LIBS._dataTableAlternative('#aspek-keterampilan-table', '#add-keterampilan')
+	  		LIBS._modalDelete('#aspek-keterampilan-table','.delete_record_weight_alternative_aspek_keterampilan','weight-alternative-aspek-keterampilan-id','#modalDeleteAspekKeterampilan','input[name="weight_alternative_aspek_keterampilan_id"]')
+	  		weight_alternative.save_keterampilan._save_keterampilan()
 	  		weight_alternative.delete_keterampilan._delete_keterampilan()
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_keterampilan_rangedown"]', '-keterampilan')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_keterampilan_rangeup"]', '-keterampilan')
+	  		LIBS._buttonResetWeightAlternatif('input[name="weight_alternative_aspek_keterampilan_score"]', '-keterampilan')
+
 		},
 	},
 	save_teknis_pekerjaan: {
@@ -30,25 +52,32 @@ weight_alternative = {
 			this._save_teknis_pekerjaan()
 		},
 		_save_teknis_pekerjaan(){
-			$('#button-save-teknispekerjaan').on('click',function(){
-	            let args = {
-					weight_alternative_aspek_teknis_pekerjaan_rangedown : $('input[name="weight_alternative_aspek_teknis_pekerjaan_rangedown"]').val(),
-					weight_alternative_aspek_teknis_pekerjaan_rangeup   : $('input[name="weight_alternative_aspek_teknis_pekerjaan_rangeup"]').val(),
-					weight_alternative_aspek_teknis_pekerjaan_score     : $('input[name="weight_alternative_aspek_teknis_pekerjaan_score"]').val(),
-					weight_alternative_aspek_teknis_pekerjaan_unique    : 1
-				}
-	            LIBS._ajax("weight/weight_alternative/save_teknis_pekerjaan", LIBS._jsonToQueryString(args)).done((res) => {
-					if (res) {
-						let objek = $.parseJSON(res)
-		                if (objek.status == 1) {
-		                    $('#modalAddTeknisPekerjaan').modal('hide')
-		                    toastr['success'](objek.pesan)
-		                    setTimeout(() => { window.location.reload() }, 1000)
-		                } else {
-		                    toastr['error'](objek.pesan)
-		                }
+			$('#button-save-teknispekerjaan').on('click',function(e){
+				let weight_alternative_aspek_teknis_pekerjaan_rangedown	  = $('input[name="weight_alternative_aspek_teknis_pekerjaan_rangedown"]')
+				let weight_alternative_aspek_teknis_pekerjaan_rangeup 	  = $('input[name="weight_alternative_aspek_teknis_pekerjaan_rangeup"]')
+				let weight_alternative_aspek_teknis_pekerjaan_score       = $('input[name="weight_alternative_aspek_teknis_pekerjaan_score"]')
+				if (LIBS._modalValidation(weight_alternative_aspek_teknis_pekerjaan_rangedown.val(), weight_alternative_aspek_teknis_pekerjaan_rangedown.attr("title"), 'input[name="weight_alternative_aspek_teknis_pekerjaan_rangedown"]') == false || LIBS._modalValidation(weight_alternative_aspek_teknis_pekerjaan_rangeup.val(), weight_alternative_aspek_teknis_pekerjaan_rangeup.attr("title"), 'input[name="weight_alternative_aspek_teknis_pekerjaan_rangeup"]') == false) { 
+					e.stopPropagation()
+				} else {
+		            let args = {
+						weight_alternative_aspek_teknis_pekerjaan_rangedown : weight_alternative_aspek_teknis_pekerjaan_rangedown.val(),
+						weight_alternative_aspek_teknis_pekerjaan_rangeup   : weight_alternative_aspek_teknis_pekerjaan_rangeup.val(),
+						weight_alternative_aspek_teknis_pekerjaan_score     : weight_alternative_aspek_teknis_pekerjaan_score.val(),
+						weight_alternative_aspek_teknis_pekerjaan_unique    : 1
 					}
-				})
+		            LIBS._ajax("weight/weight_alternative/save_teknis_pekerjaan", LIBS._jsonToQueryString(args)).done((res) => {
+						if (res) {
+							let objek = $.parseJSON(res)
+			                if (objek.status == 1) {
+			                    $('#modalAddTeknisPekerjaan').modal('hide')
+			                    toastr['success'](objek.pesan)
+			                    setTimeout(() => { window.location.reload() }, 1000)
+			                } else {
+			                    toastr['error'](objek.pesan)
+			                }
+						}
+					})
+				}
 	        })
 		}
 	},
