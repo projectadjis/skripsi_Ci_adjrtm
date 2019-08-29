@@ -1,2 +1,2 @@
 # skripsi_Ci_adjrtm
-iseng iseng buat skripsi
+Author : Adjis Ramadhani Utomo
