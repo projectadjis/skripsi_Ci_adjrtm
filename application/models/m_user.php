@@ -6,20 +6,24 @@ if (!defined('BASEPATH'))
 class M_user extends CI_Model {
 
     public $table;
+    public $table_position;
 
     function __construct() {
         parent::__construct();
-        $this->table = "tb_karyawan";
+        $this->table 		  = "tb_karyawan";
+        $this->table_position = "tb_position";
         $this->column_order = [
         		null,
         		'karyawan_name',
         		'karyawan_position',
+        		'position_name',
         		'karyawan_right',
         		'karyawan_status'
         ];
         $this->column_search = [
         	    'karyawan_name',
         	    'karyawan_position',
+        	    'position_name',
         	    'karyawan_right'
         ];
         $this->order         = [
@@ -51,7 +55,8 @@ class M_user extends CI_Model {
 	function _get_datatables_query($term='')
 	{
 		
-		$this->db->select('tb_karyawan.karyawan_id,tb_karyawan.karyawan_name, tb_karyawan.karyawan_position,tb_karyawan.karyawan_right, tb_karyawan.karyawan_status');
+		$this->db->select('*');
+		$this->db->join($this->table_position, 'tb_position.position_name = tb_karyawan.karyawan_position','left');
 		$this->db->from($this->table);
 
 		$i = 0;

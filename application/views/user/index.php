@@ -123,11 +123,13 @@
 					                <div class="form-group">
 					                    <label>Position</label><br>
 					                    <select class="form-control select2" name="karyawan_position_edit">
-						                  	<option>--Choose--</option>
-							                 <?php 
+							                <?php 
 							                 foreach($position->result() as $row){
-							                 	echo "<option value='$row->position_name'>$row->position_name</option>";
-							                 }
+							                 	if($row->position_name==$dtl->emp_origin) {
+							                        $selected="selected";
+							                    }
+							                 	echo "<option value='$row->position_name' $selected>$row->position_name</option>";
+							                }
 
 							                 ?>
 						                </select>

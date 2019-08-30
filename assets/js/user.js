@@ -24,10 +24,15 @@ user = {
 	            let karyawan_id       = $(this).data('karyawan_id')
 	            let karyawan_name     = $(this).data('karyawan_name')
 	            let karyawan_position = $(this).data('karyawan_position')
+	            
 	            $('#modalUpdate').modal('show')
 	            $('input[name="karyawan_id_edit"]').val(karyawan_id)
 	            $('input[name="karyawan_name_edit"]').val(karyawan_name)
-	            $('input[name="karyawan_position_edit"]').val(karyawan_position)
+	            $('select[name="karyawan_position_edit"]').val(karyawan_position)
+	            
+	            
+	            let adjis = CryptoJS.AES.encrypt("KUDA", "ADJIS RAMADHANI UTOMO")
+	            console.log(adjis)
 	        })
 		},
 		_kpi(){
