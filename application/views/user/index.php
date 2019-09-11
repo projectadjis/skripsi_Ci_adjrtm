@@ -75,18 +75,18 @@
 	            <div class="modal-body">
 		            <div class="tab-content clearfix">
 					    <div class="tab-pane active">
-					    		<input type="hidden" name="karyawan_right">
+					    		<input type="hidden" name="user_right">
 					            <div class="form-group">
 					                <label>Name</label>
-					                <input type="text" name="karyawan_name" class="form-control" title="User's Name" required>
+					                <input type="text" name="user_name" class="form-control" title="User's Name" required>
 					            </div>  
 					            <div class="form-group">
 					                <label>Position</label><br>
-					                <select class="form-control select2" name="karyawan_position" id="karyawan_position" title="User's Position">
+					                <select class="form-control select2" name="user_position" id="user_position" title="User's Position">
 					                	<option value="">--Choose--</option>
 						                 <?php 
 						                 foreach($position->result() as $row){
-						                 	echo "<option value='$row->position_name'>$row->position_name</option>";
+						                 	echo "<option value='$row->position_id'>$row->position_name</option>";
 						                 }
 
 						                 ?>
@@ -117,21 +117,13 @@
 					      <div class="tab-pane active">
 					                <div class="form-group">
 					                    <label>Nama</label>
-					                    <input type="hidden" name="karyawan_id_edit" class="form-control">
-					                    <input type="text" name="karyawan_name_edit" class="form-control" required>
+					                    <input type="hidden" name="user_id_edit" class="form-control">
+					                    <input type="text" name="user_name_edit" class="form-control" required>
 					                </div>  
 					                <div class="form-group">
 					                    <label>Position</label><br>
-					                    <select class="form-control select2" name="karyawan_position_edit">
-							                <?php 
-							                 foreach($position->result() as $row){
-							                 	if($row->position_name==$dtl->emp_origin) {
-							                        $selected="selected";
-							                    }
-							                 	echo "<option value='$row->position_name' $selected>$row->position_name</option>";
-							                }
-
-							                 ?>
+					                    <select class="form-control select2" name="user_position_edit">
+					                    
 						                </select>
 					                </div>
 					            <input type="submit" name="submit" class="btn btn-warning" id="button-update" value="Update">
@@ -153,7 +145,7 @@
 	            <div class="modal-body">
 	                 <div class="tab-content clearfix">
 					      <div class="tab-pane active">
-					        	    <input type="hidden" name="karyawan_id" id="karyawan_id" class="form-control">
+					        	    <input type="hidden" name="user_id" id="user_id" class="form-control">
 					                <strong>Anda yakin mau menghapus record ini?</strong>
 					            <div class="modal-footer">
 					 	             <button type="submit" id="button-delete" class="btn btn-danger">Hapus</button>

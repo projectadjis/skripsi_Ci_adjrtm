@@ -19,7 +19,7 @@ class kpi extends CI_Controller{
 		// 'js' 		=> [
   //           'adminlte/bower_components/chart.js/Chart'
   //       ],
-        'karyawan_id' => $this->input->get('karyawan_id')
+        'user_id' => $this->input->get('user_id')
 	];
     $this->load->view('kpi/index', $data);
   }
@@ -42,12 +42,12 @@ class kpi extends CI_Controller{
   function save_kpi()
   {
     $data                       = $this->input->post();
-    $karyawan_id['karyawan_id'] = $data['karyawan_id'];
+    $user_id['user_id'] = $data['user_id'];
     $update_status              = [
-    	'karyawan_status' => 1
+    	'user_status' => 1
     ];
     $save_kpi                   = $this->m_kpi->insert_kpi($data);
-    $update                     = $this->m_kpi->update_status_karyawan($karyawan_id, $update_status);
+    $update                     = $this->m_kpi->update_status_user($user_id, $update_status);
     $hasil                      = [];
     if ($save_kpi > 0) {
         $hasil['pesan']         = "Data KPI has been saved";
@@ -68,8 +68,8 @@ class kpi extends CI_Controller{
       $no++;
       $row = [];
       $row[] = $no;
-      $row[] = $field->karyawan_name;
-      $row[] = $field->karyawan_position;
+      $row[] = $field->user_name;
+      $row[] = $field->position_name;
       $row[] = $field->kpi_teknis_pekerjaan;
       $row[] = $field->kpi_nonteknis_pekerjaan;
       $row[] = $field->kpi_kepribadian;

@@ -30,7 +30,7 @@
 			<div class="row">
 					<!-- left column -->
 					<form role="form"></form>
-					<input type="hidden" name="karyawan_id" value="<?php echo $karyawan_id; ?>">
+					<input type="text" name="user_id" value="<?php echo $user_id; ?>">
 					<div class="col-md-6">
 						<!-- general form elements -->
 						<div class="box box-primary">

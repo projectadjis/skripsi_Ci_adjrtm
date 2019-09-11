@@ -10,24 +10,22 @@ class M_user extends CI_Model {
 
     function __construct() {
         parent::__construct();
-        $this->table 		  = "tb_karyawan";
+        $this->table 		  = "tb_user";
         $this->table_position = "tb_position";
         $this->column_order = [
         		null,
-        		'karyawan_name',
-        		'karyawan_position',
+        		'user_name',
         		'position_name',
-        		'karyawan_right',
-        		'karyawan_status'
+        		'user_right',
+        		'user_status'
         ];
         $this->column_search = [
-        	    'karyawan_name',
-        	    'karyawan_position',
+        	    'user_name',
         	    'position_name',
-        	    'karyawan_right'
+        	    'user_right'
         ];
         $this->order         = [
-        	    'karyawan_name' => 'asc'
+        	    'user_name' => 'asc'
         ];
     }
 
@@ -36,19 +34,22 @@ class M_user extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    function update_user($update_karyawan, $karyawan_id) {
-        $this->db->where($karyawan_id);
-		return $this->db->update($this->table, $update_karyawan);
+    function update_user($update_user, $user_id) {
+        $this->db->where($user_id);
+		return $this->db->update($this->table, $update_user);
     }
 
-    function delete_user($karyawan_id) {
-        $this->db->where($karyawan_id);
+    function delete_user($user_id) {
+        $this->db->where($user_id);
 		return $this->db->delete($this->table);
     }
 
-    function get_karyawan() {
-        $this->db->order_by("karyawan_id", 'desc');
-        $q = $this->db->get('tb_karyawan');
+    function get_user($select = NULL) {
+    	if ($select != NULL) {
+    		$this->db->select($select);
+    	}
+        $this->db->order_by("user_id", 'desc');
+        $q = $this->db->get('tb_user');
         return $q;
     }
 
@@ -56,7 +57,7 @@ class M_user extends CI_Model {
 	{
 		
 		$this->db->select('*');
-		$this->db->join($this->table_position, 'tb_position.position_name = tb_karyawan.karyawan_position','left');
+		$this->db->join($this->table_position, 'tb_position.position_id = tb_user.position_id','left');
 		$this->db->from($this->table);
 
 		$i = 0;
@@ -117,9 +118,9 @@ class M_user extends CI_Model {
 		return $this->db->count_all_results();
 	}
 
-	function get_lead_karyawan() {
-        $this->db->order_by("karyawan_id", 'desc');
-        $this->db->where("karyawan_right", 1);
+	function get_lead_user() {
+        $this->db->order_by("user_id", 'desc');
+        $this->db->where("user_right", 1);
         $q = $this->db->get($this->table);
         return $q;
     }
