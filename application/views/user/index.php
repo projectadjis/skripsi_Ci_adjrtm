@@ -85,10 +85,9 @@
 					                <select class="form-control select2" name="user_position" id="user_position" title="User's Position">
 					                	<option value="">--Choose--</option>
 						                 <?php 
-						                 foreach($position->result() as $row){
-						                 	echo "<option value='$row->position_id'>$row->position_name</option>";
-						                 }
-
+							                 foreach($position->result() as $row){
+							                 	echo "<option value='$row->position_id'>$row->position_name</option>";
+							                 }
 						                 ?>
 					                </select>
 					            </div>
@@ -123,7 +122,12 @@
 					                <div class="form-group">
 					                    <label>Position</label><br>
 					                    <select class="form-control select2" name="user_position_edit">
-					                    
+						                    <option value="">--Choose--</option>
+							                 <?php 
+								                 foreach($position->result() as $row){
+								                 	echo "<option value='$row->position_id'>$row->position_name</option>";
+								                 }
+							                 ?>
 						                </select>
 					                </div>
 					            <input type="submit" name="submit" class="btn btn-warning" id="button-update" value="Update">

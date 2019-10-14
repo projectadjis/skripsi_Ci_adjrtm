@@ -34,8 +34,8 @@ class preference extends CI_Controller{
       $date_generate = date('d/m/y', strtotime($field->generate_preference_date));
       $row = [];
       $row[] = $no;
-      $row[] = $field->karyawan_name;
-      $row[] = $field->karyawan_position;
+      $row[] = $field->user_name;
+      $row[] = $field->position_name;
       $row[] = $field->generate_preference_teknispekerjaan;
       $row[] = $field->generate_preference_nonteknispekerjaan;
       $row[] = $field->generate_preference_kepribadian;

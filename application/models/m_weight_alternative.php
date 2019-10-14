@@ -68,40 +68,40 @@ class M_weight_alternative extends CI_Model {
         return $q;
     }
 
-    function get_generate_weight_alternative_teknis_pekerjaan($kpi_teknis_pekerjaan, $karyawan_id) {
+    function get_generate_weight_alternative_teknis_pekerjaan($kpi_teknis_pekerjaan, $user_id) {
         return $this->db->query("SELECT * FROM tb_kpi
         JOIN tb_weight_alternative_aspek_teknis_pekerjaan 
         ON tb_kpi.weight_alternative_aspek_teknis_pekerjaan_unique = tb_weight_alternative_aspek_teknis_pekerjaan.weight_alternative_aspek_teknis_pekerjaan_unique
         WHERE '$kpi_teknis_pekerjaan' 
         BETWEEN 
-        weight_alternative_aspek_teknis_pekerjaan_rangedown AND weight_alternative_aspek_teknis_pekerjaan_rangeup AND karyawan_id = '$karyawan_id' ");
+        weight_alternative_aspek_teknis_pekerjaan_rangedown AND weight_alternative_aspek_teknis_pekerjaan_rangeup AND user_id = '$user_id' ");
     }
 
-    function get_generate_weight_alternative_nonteknis_pekerjaan($kpi_nonteknis_pekerjaan, $karyawan_id) {
+    function get_generate_weight_alternative_nonteknis_pekerjaan($kpi_nonteknis_pekerjaan, $user_id) {
         return $this->db->query("SELECT * FROM tb_kpi
         JOIN tb_weight_alternative_aspek_nonteknis_pekerjaan 
         ON tb_kpi.weight_alternative_aspek_nonteknis_pekerjaan_unique = tb_weight_alternative_aspek_nonteknis_pekerjaan.weight_alternative_aspek_nonteknis_pekerjaan_unique
         WHERE '$kpi_nonteknis_pekerjaan' 
         BETWEEN 
-        weight_alternative_aspek_nonteknis_pekerjaan_rangedown AND weight_alternative_aspek_nonteknis_pekerjaan_rangeup AND karyawan_id = '$karyawan_id' ");
+        weight_alternative_aspek_nonteknis_pekerjaan_rangedown AND weight_alternative_aspek_nonteknis_pekerjaan_rangeup AND user_id = '$user_id' ");
     }
 
-    function get_generate_weight_alternative_kepribadian($kpi_kepribadian, $karyawan_id) {
+    function get_generate_weight_alternative_kepribadian($kpi_kepribadian, $user_id) {
         return $this->db->query("SELECT * FROM tb_kpi
         JOIN tb_weight_alternative_aspek_kepribadian 
         ON tb_kpi.weight_alternative_aspek_kepribadian_unique = tb_weight_alternative_aspek_kepribadian.weight_alternative_aspek_kepribadian_unique
         WHERE '$kpi_kepribadian' 
         BETWEEN 
-        weight_alternative_aspek_kepribadian_rangedown AND weight_alternative_aspek_kepribadian_rangeup AND karyawan_id = '$karyawan_id' ");
+        weight_alternative_aspek_kepribadian_rangedown AND weight_alternative_aspek_kepribadian_rangeup AND user_id = '$user_id' ");
     }
 
-    function get_generate_weight_alternative_keterampilan($kpi_keterampilan, $karyawan_id) {
+    function get_generate_weight_alternative_keterampilan($kpi_keterampilan, $user_id) {
         return $this->db->query("SELECT * FROM tb_kpi
         JOIN tb_weight_alternative_aspek_keterampilan 
         ON tb_kpi.weight_alternative_aspek_keterampilan_unique = tb_weight_alternative_aspek_keterampilan.weight_alternative_aspek_keterampilan_unique
         WHERE '$kpi_keterampilan' 
         BETWEEN 
-        weight_alternative_aspek_keterampilan_rangedown AND weight_alternative_aspek_keterampilan_rangeup AND karyawan_id = '$karyawan_id' ");
+        weight_alternative_aspek_keterampilan_rangedown AND weight_alternative_aspek_keterampilan_rangeup AND user_id = '$user_id' ");
     }
 
     function delete_teknis_pekerjaan($weight_alternative_aspek_teknis_pekerjaan_id) {

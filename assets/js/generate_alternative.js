@@ -53,6 +53,25 @@ generate_alternative = {
 			})
 		}
 	},
+	check_available_weight_criteria: {
+
+		init() {
+			this._check_available_weight_criteria()
+		},
+		_check_available_weight_criteria() {
+            LIBS._ajax("generate/generate_alternative/check_available_weight_criteria").done((check) => {
+				if (check) {
+					let check_available_weight_criteria = $.parseJSON(check)
+	                if (check_available_weight_criteria.status == 1) {
+	                    toastr['error'](check_available_weight_criteria.pesan)
+	                    return false
+	                } else if (check_available_weight_criteria.status == 0) {
+	                    generate_alternative.check_generate_alternative._check_generate_alternative()
+	                }
+				}
+			})
+		}
+	},
 	check_done_kpi: {
 
 		init() {
@@ -67,7 +86,7 @@ generate_alternative = {
 		                    toastr['error'](check_done_kpi.pesan)
 		                    return false
 		                } else if (check_done_kpi.status == 0) {
-		                    generate_alternative.check_generate_alternative._check_generate_alternative()
+		                    generate_alternative.check_available_weight_criteria._check_available_weight_criteria()
 		                }
 					}
 				})

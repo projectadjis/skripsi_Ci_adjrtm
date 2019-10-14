@@ -37,10 +37,11 @@ weight_criteria = {
 				} else {
 				  let totalWeightCriteria = parseInt(weight_criteria_teknispekerjaan.val()) + parseInt(weight_criteria_nonteknispekerjaan.val()) + parseInt(weight_criteria_kepribadian.val()) + parseInt(weight_criteria_keterampilan.val()) 
 
-				  console.log(totalWeightCriteria)
-
 				  if (totalWeightCriteria > 100) {
 				  		toastr['warning']('Total Value Can not greater than 100')
+				  		return false
+				  } else if (totalWeightCriteria != 100){
+				  		toastr['warning']('Total Value must 100')
 				  		return false
 				  } else {
 			            let args = {

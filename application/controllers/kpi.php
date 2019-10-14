@@ -42,7 +42,7 @@ class kpi extends CI_Controller{
   function save_kpi()
   {
     $data                       = $this->input->post();
-    $user_id['user_id'] = $data['user_id'];
+    $user_id['user_id']         = $data['user_id'];
     $update_status              = [
     	'user_status' => 1
     ];

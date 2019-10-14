@@ -96,7 +96,7 @@ class user extends CI_Controller{
         $row[] = "
             <a href='javascript:void(0);' class='edit_record btn btn-warning btn-md' data-user_id='$field->user_id' data-user_name='$field->user_name' data-position_id='$field->position_id'><i class='fa fa-pencil'></i>&nbsp;Edit
             </a>&nbsp;
-            <a href='javascript:void(0);' data-user-id='$field->user_id' class='delete_record btn btn-danger btn-md'><i class='fa fa-trash'></i>&nbsp;Delete
+            <a href='javascript:void(0);' data-user-id='$field->user_id' class='delete_record btn btn-danger btn-md' disabled style='pointer-events : none'><i class='fa fa-trash'></i>&nbsp;Delete
             </a>
         "; 
       }

@@ -7,32 +7,34 @@ class M_alternative extends CI_Model {
 
     public $table;
     public $table_kpi;
-    public $table_karyawan;
+    public $table_user;
+    public $table_position;
 
     function __construct() {
         parent::__construct();
         $this->table          = "tb_generate_alternative";
         $this->table_kpi      = "tb_kpi";
-        $this->table_karyawan = "tb_karyawan";
+        $this->table_user     = "tb_user";
+        $this->table_position = "tb_position";
         $this->column_order   = [
         		null,
-        		'karyawan_name',
-        		'karyawan_position',
+        		'user_name',
+        		'position_name',
         		'generate_alternative_teknis_pekerjaan',
         		'generate_alternative_nonteknis_pekerjaan',
         		'generate_alternative_kepribadian',
         		'generate_alternative_keterampilan'
         ];
         $this->column_search = [
-        	    'karyawan_name',
-        		'karyawan_position',
+        	    'user_name',
+        		'position_name',
         		'generate_alternative_teknis_pekerjaan',
         		'generate_alternative_nonteknis_pekerjaan',
         		'generate_alternative_kepribadian',
         		'generate_alternative_keterampilan'
         ];
         $this->order         = [
-        	  'tb_karyawan.karyawan_name' => 'asc'
+        	  'tb_user.user_name' => 'asc'
         ];
     }
 
@@ -41,7 +43,8 @@ class M_alternative extends CI_Model {
 		
 		$this->db->select('*');
 		$this->db->join($this->table_kpi, 'tb_generate_alternative.kpi_id = tb_kpi.kpi_id','left');
-		$this->db->join($this->table_karyawan, 'tb_generate_alternative.karyawan_id = tb_karyawan.karyawan_id','left');
+		$this->db->join($this->table_user, 'tb_generate_alternative.user_id = tb_user.user_id','left');
+		$this->db->join($this->table_position, 'tb_user.position_id = tb_position.position_id','left');
         $this->db->from($this->table);
 
 		$i = 0;

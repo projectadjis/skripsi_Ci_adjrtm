@@ -17,7 +17,7 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				KRITERIA KPI
+				KPI'S CRITERIA
 			</h1>
 			<ol class="breadcrumb">
 				<li><i class="fa fa-bar-chart-o"></i>&nbsp;KPI</li>
@@ -30,7 +30,7 @@
 			<div class="row">
 					<!-- left column -->
 					<form role="form"></form>
-					<input type="text" name="user_id" value="<?php echo $user_id; ?>">
+					<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 					<div class="col-md-6">
 						<!-- general form elements -->
 						<div class="box box-primary">
@@ -138,7 +138,7 @@
 					<!--/.col (right) -->
 					<div class="box-footer">
 						<button type="submit" class="btn btn-success pull-right" id="button-save-kpi">Save</button>
-		                <button type="reset" class="btn btn-warning" id="button-reset-kpi">Reset</button>
+		                <button type="reset" class="btn btn-warning" id="button-reset">Reset</button>
 		            </div>
 			</div>
 				<!-- /.row -->

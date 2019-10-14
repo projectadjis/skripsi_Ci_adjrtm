@@ -5,13 +5,21 @@ if (!defined('BASEPATH'))
 
 class M_generate_alternative extends CI_Model {
 
-    public $table;
-    public $table_karyawan;
+    private $table;
+    private $table_user;
+    private $table_weight_alternatif_aspek_teknis_pekerjaan;
+    private $table_weight_alternatif_aspek_nonteknis_pekerjaan;
+    private $table_weight_alternatif_aspek_kepribadian;
+    private $table_weight_alternatif_aspek_keterampilan;
 
     function __construct() {
         parent::__construct();
-        $this->table          = "tb_generate_alternative";
-        $this->table_karyawan = "tb_karyawan";
+        $this->table                = "tb_generate_alternative";
+        $this->table_user           = "tb_user";
+        $this->table_weight_alternatif_aspek_teknis_pekerjaan = "tb_weight_alternative_aspek_teknis_pekerjaan";
+        $this->table_weight_alternatif_aspek_nonteknis_pekerjaan = "tb_weight_alternative_aspek_nonteknis_pekerjaan";
+        $this->table_weight_alternatif_aspek_kepribadian = "tb_weight_alternative_aspek_kepribadian";
+        $this->table_weight_alternatif_aspek_keterampilan = "tb_weight_alternative_aspek_keterampilan";
     }
 
     function insert_generate_alternative($data) {
@@ -57,8 +65,28 @@ class M_generate_alternative extends CI_Model {
     }
 
     function check_done_kpi() {
-        $this->db->having('karyawan_status',  0);
-        $q = $this->db->get($this->table_karyawan)->result();
+        $this->db->having('user_status',  0);
+        $q = $this->db->get($this->table_user)->result();
+        return $q;
+    }
+
+    function check_available_weight_criteria_teknis_pekerjaan() {
+        $q = $this->db->get($this->table_weight_alternatif_aspek_teknis_pekerjaan)->result();
+        return $q;
+    }
+
+    function check_available_weight_criteria_nonteknis_pekerjaan() {
+        $q = $this->db->get($this->table_weight_alternatif_aspek_nonteknis_pekerjaan)->result();
+        return $q;
+    }
+
+    function check_available_weight_criteria_kepribadian() {
+        $q = $this->db->get($this->table_weight_alternatif_aspek_kepribadian)->result();
+        return $q;
+    }
+
+    function check_available_weight_criteria_keterampilan() {
+        $q = $this->db->get($this->table_weight_alternatif_aspek_keterampilan)->result();
         return $q;
     }
 
