@@ -6,7 +6,7 @@
  		</a>
  	</li>
  	
-  <li class="treeview <?php if($this->uri->segment(1)=="user"){echo "active";} elseif($this->uri->segment(1)=="managementuser"){echo "active";} elseif($this->uri->segment(1)=="kpi"){echo "active";} ?>">
+  <li class="treeview <?php if($this->uri->segment(1)=="user"){echo "active";} elseif($this->uri->segment(1)=="managementuser"){echo "active";} ?>">
         <a href="#">
           <i class="fa fa-user"></i>
           <span>User</span>
@@ -15,7 +15,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="<?php if($this->uri->segment(1)=="user"){echo "active";} elseif($this->uri->segment(1)=="kpi"){echo "active";} ?>"><a href="<?php echo base_url('user') ?>"><i class="fa fa-circle-o"></i>All User</a></li>
+          <li class="<?php if($this->uri->segment(1)=="user"){echo "active";}?>"><a href="<?php echo base_url('user') ?>"><i class="fa fa-circle-o"></i>All User</a></li>
           <li class="<?php if($this->uri->segment(1)=="managementuser"){echo "active";}?>"><a href="<?php echo base_url('managementuser') ?>"><i class="fa fa-circle-o"></i>Management User</a></li>
         </ul>
   </li>
@@ -37,9 +37,9 @@
           <li class="<?php if($this->uri->segment(1)=="weight_alternative"){echo "active";}?>"><a href="<?php echo base_url('weight_alternative') ?>"><i class="fa fa-circle-o"></i>Weight's Alternative</a></li>
         </ul>
   </li>
-  <li class="<?php if($this->uri->segment(2)=="hasil_kpi"){echo "active";}?>">
+  <li class="<?php if($this->uri->segment(1)=="kpi"){echo "active";} ?>">
     	<a href="<?php echo base_url('kpi/hasil_kpi'); ?>">
-    		<i class="fa fa-bar-chart-o"></i><span>Hasil KPI</span>
+    		<i class="fa fa-bar-chart-o"></i><span>KPI's Result</span>
     	</a>
 	</li>
   <li class="treeview <?php if($this->uri->segment(1)=="generate_alternative"){echo "active";} elseif($this->uri->segment(1)=="generate_normalization"){echo "active";} elseif($this->uri->segment(1)=="generate_preference"){echo "active";} ?>">
@@ -56,21 +56,35 @@
         <li class="<?php if($this->uri->segment(1)=="generate_preference"){echo "active";}?>"><a href="<?php echo base_url('generate_preference') ?>"><i class="fa fa-circle-o"></i>Generate's Preference</a></li>
       </ul>
   </li>
-	<li class="<?php if($this->uri->segment(1)=="alternative"){echo "active";}?>">
-    	<a href="<?php echo base_url('alternative'); ?>">
+  <li class="treeview <?php if($this->uri->segment(1)=="alternative"){echo "active";} elseif($this->uri->segment(1)=="normalization"){echo "active";} elseif($this->uri->segment(1)=="preference"){echo "active";} ?>">
+      <a href="#">
+        <i class="fa fa-book"></i>
+        <span>Result</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="<?php if($this->uri->segment(1)=="alternative"){echo "active";}?>"><a href="<?php echo base_url('alternative') ?>"><i class="fa fa-circle-o"></i>Alternative</a></li>
+        <li class="<?php if($this->uri->segment(1)=="normalization"){echo "active";}?>"><a href="<?php echo base_url('normalization') ?>"><i class="fa fa-circle-o"></i>Normalization</a></li>
+        <li class="<?php if($this->uri->segment(1)=="preference"){echo "active";}?>"><a href="<?php echo base_url('preference') ?>"><i class="fa fa-circle-o"></i>Preference</a></li>
+      </ul>
+  </li>
+	<!-- <li class="<?php //if($this->uri->segment(1)=="alternative"){echo "active";}?>">
+    	<a href="<?php //echo base_url('alternative'); ?>">
     		<i class="fa fa-snowflake-o"></i><span>Alternative</span>
     	</a>
   </li>
-  <li class="<?php if($this->uri->segment(1)=="normalization"){echo "active";}?>">
-      <a href="<?php echo base_url('normalization'); ?>">
+  <li class="<?php //if($this->uri->segment(1)=="normalization"){echo "active";}?>">
+      <a href="<?php //echo base_url('normalization'); ?>">
       	<i class="fa fa-superpowers"></i><span>Normalization</span>
       </a>
   </li>
-  <li class="<?php if($this->uri->segment(1)=="preference"){echo "active";}?>">
-      <a href="<?php echo base_url('preference'); ?>">
+  <li class="<?php //if($this->uri->segment(1)=="preference"){echo "active";}?>">
+      <a href="<?php //echo base_url('preference'); ?>">
       	<i class="fa fa-book"></i><span>Preference</span>
       </a>
-  </li>
+  </li> -->
   <li class="<?php if($this->uri->segment(1)=="report"){echo "active";}?>">
       <a href="<?php echo base_url('report'); ?>">
         <i class="fa fa-book"></i><span>Report</span>

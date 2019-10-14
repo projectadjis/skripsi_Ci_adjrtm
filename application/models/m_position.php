@@ -23,7 +23,7 @@ class M_position extends CI_Model {
     }
 
     function get_position() {
-        $this->db->order_by("position_id", 'desc');
+        //$this->db->order_by("position_id", 'desc');
         $q = $this->db->get($this->table);
         return $q;
     }

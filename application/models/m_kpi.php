@@ -6,23 +6,25 @@ if (!defined('BASEPATH'))
 class M_kpi extends CI_Model {
 
     public $table_kpi;
-    public $table_karyawan;
+    public $table_user;
+    public $table_position;
 
     function __construct() {
         parent::__construct();
         $this->table_kpi      = "tb_kpi";
-        $this->table_karyawan = "tb_karyawan";
-        $this->column_order = [
+        $this->table_user     = "tb_user";
+        $this->table_position = "tb_position";
+        $this->column_order   = [
                 null,
-                'karyawan_name',
-                'karyawan_position'
+                'user_name',
+                'position_name'
         ];
         $this->column_search = [
-                'karyawan_name',
-                'karyawan_position'
+                'user_name',
+                'position_name'
         ];
         $this->order         = [
-                'tb_karyawan.karyawan_id' => 'asc'
+                'tb_user.user_id' => 'asc'
         ];
     }
 
@@ -31,17 +33,18 @@ class M_kpi extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    function update_status_karyawan($karyawan_id, $update_status) {
-        $this->db->where($karyawan_id);
-		return $this->db->update($this->table_karyawan, $update_status);
+    function update_status_user($user_id, $update_status) {
+        $this->db->where($user_id);
+		return $this->db->update($this->table_user, $update_status);
     }
 
     function _get_datatables_query($term='')
     {
         
         $this->db->select('*');
-        // $this->db->join($this->table_kpi, 'tb_karyawan.karyawan_id = tb_kpi.karyawan_id','left');
-        $this->db->join($this->table_karyawan, 'tb_karyawan.karyawan_id = tb_kpi.karyawan_id','left');
+        // $this->db->join($this->table_kpi, 'tb_user.karyawan_id = tb_kpi.karyawan_id','left');
+        $this->db->join($this->table_user, 'tb_user.user_id = tb_kpi.user_id','left');
+        $this->db->join($this->table_position, 'tb_position.position_id = tb_user.position_id','left');
         $this->db->from($this->table_kpi);
 
         $i = 0;

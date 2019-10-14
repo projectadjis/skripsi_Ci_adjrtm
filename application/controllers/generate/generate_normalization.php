@@ -38,7 +38,7 @@ class generate_normalization extends CI_Controller{
       $generate_alternative_nonteknispekerjaan = $row->generate_alternative_nonteknispekerjaan;
       $generate_alternative_kepribadian        = $row->generate_alternative_kepribadian;
       $generate_alternative_keterampilan       = $row->generate_alternative_keterampilan;
-      $karyawan_id                             = $row->karyawan_id;
+      $user_id                                 = $row->user_id;
 
       $max_generate_alternative_teknis_pekerjaan = $this->m_generate_alternative->max_generate_alternative_teknis_pekerjaan();
 
@@ -77,7 +77,7 @@ class generate_normalization extends CI_Controller{
                       "generate_normalization_keterampilan"       => $normalization_keterampilan,
                       "generate_normalization_date"               => $generate_normalization_date,
                       "generate_alternative_id"                   => $generate_alternative_id,
-                      "karyawan_id"                               => $karyawan_id
+                      "user_id"                                   => $user_id
       ];
 
       $save_generate_normalization = $this->m_generate_normalization->insert_generate_normalization($insert);

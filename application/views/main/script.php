@@ -42,7 +42,7 @@
       if(! empty($js)){
         foreach($js as $file) {
          ?>
-            <script src="<?php echo base_url(); ?>/assets/<?php echo $file ?>.js" type="text/javascript"></script>
+            <script src="<?php echo base_url(); ?>assets/<?php echo $file ?>.js" type="text/javascript"></script>
           <?php
         }
       }

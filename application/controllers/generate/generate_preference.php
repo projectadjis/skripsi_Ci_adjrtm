@@ -38,7 +38,7 @@ class generate_preference extends CI_Controller{
       $generate_normalization_nonteknispekerjaan = $row->generate_normalization_nonteknispekerjaan;
       $generate_normalization_kepribadian        = $row->generate_normalization_kepribadian;
       $generate_normalization_keterampilan       = $row->generate_normalization_keterampilan;
-      $karyawan_id                               = $row->karyawan_id;
+      $user_id                                   = $row->user_id;
 
 
       $get_weight_criteria = $this->m_generate_preference->get_weight_criteria();
@@ -70,7 +70,7 @@ class generate_preference extends CI_Controller{
                       "total_preference"                       => $total_preference,
                       "generate_normalization_id"              => $generate_normalization_id,
                       "weight_criteria_id"                     => $weight_criteria_id,
-                      "karyawan_id"                            => $karyawan_id
+                      "user_id"                                => $user_id
       ];
 
       $save_generate_preference = $this->m_generate_preference->insert_generate_preference($insert);

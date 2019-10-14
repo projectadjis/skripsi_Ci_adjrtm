@@ -6,17 +6,19 @@ if (!defined('BASEPATH'))
 class M_preference extends CI_Model {
 
     public $table;
-    public $table_karyawan;
+    public $table_user;
+    public $table_position;
 
     function __construct() {
         parent::__construct();
         $this->table                 = "tb_generate_preference";
-        $this->table_karyawan        = "tb_karyawan";
+        $this->table_user        	 = "tb_user";
+        $this->table_position        = "tb_position";
         $this->table_weight_criteria = "tb_weight_criteria";
         $this->column_order   = [
         		null,
-        		'karyawan_name',
-        		'karyawan_position',
+        		'user_name',
+        		'position_name',
         		'generate_preference_teknispekerjaan',
         		'generate_preference_nonteknispekerjaan',
         		'generate_preference_kepribadian',
@@ -25,8 +27,8 @@ class M_preference extends CI_Model {
         		'weight_criteria_unique'
         ];
         $this->column_search = [
-        	    'karyawan_name',
-        		'karyawan_position',
+        	    'user_name',
+        		'position_name',
         		'generate_preference_teknispekerjaan',
         		'generate_preference_nonteknispekerjaan',
         		'generate_preference_kepribadian',
@@ -35,7 +37,7 @@ class M_preference extends CI_Model {
         		'weight_criteria_unique'
         ];
         $this->order         = [
-        	  'tb_karyawan.karyawan_name' => 'asc'
+        	  'tb_user.user_name' => 'asc'
         ];
     }
 
@@ -43,7 +45,8 @@ class M_preference extends CI_Model {
 	{
 		
 		$this->db->select('*');
-		$this->db->join($this->table_karyawan, 'tb_generate_preference.karyawan_id = tb_karyawan.karyawan_id','left');
+		$this->db->join($this->table_user, 'tb_generate_preference.user_id = tb_user.user_id','left');
+		$this->db->join($this->table_position, 'tb_user.position_id = tb_position.position_id','left');
 		$this->db->join($this->table_weight_criteria, 'tb_generate_preference.weight_criteria_id = tb_weight_criteria.weight_criteria_id','left');
         $this->db->from($this->table);
 

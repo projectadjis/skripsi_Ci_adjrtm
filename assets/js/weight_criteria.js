@@ -35,10 +35,13 @@ weight_criteria = {
 				if (LIBS._modalValidation(weight_criteria_unique.val(), weight_criteria_unique.attr("title"), 'input[name="weight_criteria_unique"]') == false || LIBS._modalValidation(weight_criteria_teknispekerjaan.val(), weight_criteria_teknispekerjaan.attr("title"), 'input[name="weight_criteria_teknispekerjaan"]') == false ||  LIBS._modalValidation(weight_criteria_nonteknispekerjaan.val(), weight_criteria_nonteknispekerjaan.attr("title"), 'input[name="weight_criteria_nonteknispekerjaan"]') == false || LIBS._modalValidation(weight_criteria_keterampilan.val(), weight_criteria_keterampilan.attr("title"), 'input[name="weight_criteria_kepribadian"]') == false || LIBS._modalValidation(weight_criteria_kepribadian.val(), weight_criteria_kepribadian.attr("title"), 'input[name="weight_criteria_keterampilan"]') == false){
 					e.stopPropagation()
 				} else {
-				  let totalWeightCriteria = parseFloat(weight_criteria_teknispekerjaan.val() + parseFloat(weight_criteria_nonteknispekerjaan.val()) + parseFloat(weight_criteria_kepribadian.val()) + parseFloat(weight_criteria_keterampilan.val())) 
+				  let totalWeightCriteria = parseInt(weight_criteria_teknispekerjaan.val()) + parseInt(weight_criteria_nonteknispekerjaan.val()) + parseInt(weight_criteria_kepribadian.val()) + parseInt(weight_criteria_keterampilan.val()) 
 
 				  if (totalWeightCriteria > 100) {
 				  		toastr['warning']('Total Value Can not greater than 100')
+				  		return false
+				  } else if (totalWeightCriteria != 100){
+				  		toastr['warning']('Total Value must 100')
 				  		return false
 				  } else {
 			            let args = {

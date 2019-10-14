@@ -8,6 +8,23 @@ kpi = {
 		init() {
 			kpi.save_kpi._save_kpi()
 			kpi.hasil_kpi._hasil_kpi()
+
+			LIBS._buttonReset('input[name="efektivitas_teknis_pekerjaan"]')
+			LIBS._buttonReset('input[name="ketepatan_teknis_pekerjaan"]')
+			LIBS._buttonReset('input[name="kemampuan_teknis_pekerjaan"]')
+			LIBS._buttonReset('input[name="tertib_nonteknis_pekerjaan"]')
+			LIBS._buttonReset('input[name="inisiatif_nonteknis_pekerjaan"]')
+			LIBS._buttonReset('input[name="kerjasama_nonteknis_pekerjaan"]')
+			LIBS._buttonReset('input[name="perilaku_kepribadian"]')
+			LIBS._buttonReset('input[name="kedisiplinan_kepribadian"]')
+			LIBS._buttonReset('input[name="tanggung_kepribadian"]')
+			LIBS._buttonReset('input[name="ketaatan_kepribadian"]')
+			LIBS._buttonReset('input[name="inggris_keterampilan"]')
+			LIBS._buttonReset('input[name="excel_keterampilan"]')
+			LIBS._buttonReset('input[name="msword_keterampilan"]')
+			LIBS._buttonReset('input[name="indeks_keterampilan"]')
+			LIBS._buttonReset('input[name="dokumen_keterampilan"]')
+			LIBS._buttonReset('input[name="pemahaman_keterampilan"]')
 		},
 
 	},
@@ -77,7 +94,7 @@ kpi = {
 					stop.stopPropagation()
 				} else {
 		            let args = {
-						karyawan_id	             							 : $('input[name="karyawan_id"]').val(),
+						user_id	             							 	 : $('input[name="user_id"]').val(),
 						kpi_teknis_pekerjaan     						     : sumTeknisPekerjaan,
 						kpi_nonteknis_pekerjaan  						     : sumNonTeknisPekerjaan,
 						kpi_kepribadian          						     : sumKepribadian,
