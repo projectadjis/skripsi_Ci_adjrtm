@@ -1581,7 +1581,7 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
 
-fresh@0.5.2:
+fresh@0.5.2, fresh@>=0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
 
@@ -2109,8 +2109,8 @@ hooker@^0.2.3, hooker@~0.2.3:
   resolved "https://registry.yarnpkg.com/hooker/-/hooker-0.2.3.tgz#b834f723cc4a242aa65963459df6d984c5d3d959"
 
 hosted-git-info@^2.1.4:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.5.0.tgz#6d60e34b3abbc8313062c3b798ef8d901a07af3c"
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
 
 htmlescape@^1.1.0:
   version "1.1.1"
@@ -3672,6 +3672,10 @@ safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, s
 safe-buffer@5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
+
+safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
 sax@~1.2.1:
   version "1.2.4"
